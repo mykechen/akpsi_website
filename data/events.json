@@ -1,0 +1,58 @@
+[
+  {
+    "id": "1",
+    "name": "Meet the Brothers",
+    "date": "January 15, 2026",
+    "time": "7:00 PM",
+    "location": "Student Union - Room 301",
+    "description": "An informal introduction to Alpha Zeta. Come meet our members, learn about our values, and discover what makes our brotherhood unique."
+  },
+  {
+    "id": "2",
+    "name": "Coffee Chats",
+    "date": "January 18, 2026",
+    "time": "Various Times",
+    "location": "Campus Coffee Shops",
+    "description": "One-on-one conversations with current members. Sign up for a time slot to learn more about specific career paths and member experiences."
+  },
+  {
+    "id": "3",
+    "name": "Professional Workshop",
+    "date": "January 20, 2026",
+    "time": "6:30 PM",
+    "location": "Marshall School of Business - Room 205",
+    "description": "An interactive workshop covering resume building, interview skills, and networking strategies. See firsthand how AZ prepares members for professional success."
+  },
+  {
+    "id": "4",
+    "name": "Case Competition Night",
+    "date": "January 22, 2026",
+    "time": "7:00 PM",
+    "location": "JKP Building - Room 110",
+    "description": "Experience our signature AZ Groups format! Work alongside current members to solve a real business case and showcase your analytical skills."
+  },
+  {
+    "id": "5",
+    "name": "Social Night",
+    "date": "January 24, 2026",
+    "time": "8:00 PM",
+    "location": "TBD",
+    "description": "A casual evening to connect with members in a relaxed setting. Get to know the people behind the fraternity and see our brotherhood in action."
+  },
+  {
+    "id": "6",
+    "name": "Final Round Interviews",
+    "date": "January 26, 2026",
+    "time": "By Appointment",
+    "location": "Various Locations",
+    "description": "Invitation-only interviews for candidates who have demonstrated exceptional fit throughout the rush process."
+  },
+  {
+    "id": "7",
+    "name": "Bid Night",
+    "date": "January 28, 2026",
+    "time": "6:00 PM",
+    "location": "TBD",
+    "description": "The culmination of rush! Selected candidates will receive their official invitations to join the Alpha Zeta family."
+  }
+]

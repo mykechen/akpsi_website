@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "name": "Riley Yen",
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    "quote": "AZ has been the most essential aspect of my college career. Every great memory, from the day I joined to the day I graduated from USC, has stemmed from AZ—from the professional development to the beautiful experiences shared with my AZ brothers.",
+    "title": "Alumnus '23 • KPMG Consulting"
+  },
+  {
+    "id": "2",
+    "name": "Kirsten Kim",
+    "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+    "quote": "The mentorship, networking opportunities, and guidance AZ offers prepared me with the professional skills to make the most of my internship this past summer. The brothers here truly want to see you succeed.",
+    "title": "Junior • Incoming SpaceX Intern"
+  },
+  {
+    "id": "3",
+    "name": "Kevin Huang",
+    "photo": "https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?w=400&h=400&fit=crop",
+    "quote": "What sets AZ apart is the genuine care members have for each other. The connections I made aren't just professional contacts—they're lifelong friends who were there for me through every challenge.",
+    "title": "Alumnus '22 • Goldman Sachs"
+  },
+  {
+    "id": "4",
+    "name": "Rachel Santos",
+    "photo": "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=400&h=400&fit=crop",
+    "quote": "Joining AZ was the best decision I made at USC. The structure of AZ Groups, combined with the support of my brothers, gave me the confidence to pursue opportunities I never thought possible.",
+    "title": "Alumna '24 • McKinsey & Company"
+  }
+]

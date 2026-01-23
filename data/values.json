@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "title": "Brotherhood",
+    "description": "Fostering lifelong connections and support among members.",
+    "icon": "users"
+  },
+  {
+    "id": "2",
+    "title": "Integrity",
+    "description": "Upholding the highest ethical standards in all endeavors.",
+    "icon": "shield"
+  },
+  {
+    "id": "3",
+    "title": "Knowledge",
+    "description": "Cultivating intellectual growth and professional development.",
+    "icon": "star"
+  },
+  {
+    "id": "4",
+    "title": "Unity",
+    "description": "Promoting collaboration and a shared sense of purpose.",
+    "icon": "handshake"
+  },
+  {
+    "id": "5",
+    "title": "Service",
+    "description": "Dedicating time and resources to positively impact the community.",
+    "icon": "heart"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "id": "charlie-huang",
+    "name": "Charlie Huang",
+    "linkedin": "http://linkedin.com/in/charleshuang2004",
+    "picture": "/images/members/charlie.png",
+    "description": "Charlie is an incoming investing banking analyst at J.P. Morgan in their San Francisco technology coverage group. He previously interned at the firm this past summer and has additionally interned at CriticalPoint, Centerstone Capital, and Takenaka Partners.",
+    "azgroup": "AZ13"
+  },
+  {
+    "id": "jacob-granados",
+    "name": "Jacob Granados",
+    "linkedin": "https://www.linkedin.com/in/jacobgranados/",
+    "picture": "/images/members/jacob.png",
+    "description": "Jacob is an incoming full time analyst at Bank of America in San Francisco, focusing on investment banking within the EGRC group. He has had previous internships as a mergers and acquisitions analyst at Expa, specializing in strategic M&A and growth management, as well as at Centerstone Capital.",
+    "azgroup": "AZ13"
+  },
+  {
+    "id": "ella-kang",
+    "name": "Ella Kang",
+    "linkedin": "https://www.linkedin.com/in/ella-kang/",
+    "picture": "/images/members/ella.png",
+    "description": "Ella is interning as an investment banking analyst this summer at Goldman Sachs New York. She is involved with the finance clubs at USC and she is very excited to help other people learn about and pursue careers in investment banking.",
+    "azgroup": "AZ13"
+  },
+  {
+    "id": "sunny-wang",
+    "name": "Sunny Wang",
+    "linkedin": "https://www.linkedin.com/in/sunny-r-wang",
+    "picture": "/images/members/sunny.png",
+    "description": "Sunny is currently an incoming Technology Risk intern at Ernst & Young in Los Angeles. With a range of experience working in startups, boutique M&A, and social impact consulting, Sunny hopes to leverage her knowledge to solve complex business problems.",
+    "azgroup": "AZC"
+  },
+  {
+    "id": "sahil-harjani",
+    "name": "Sahil Harjani",
+    "linkedin": "https://www.linkedin.com/in/sahil-harjani-6b1632238",
+    "picture": "/images/members/sahil.png",
+    "description": "Sahil is a sophomore at the University of Southern California studying Economics and Data Science. He has experience across consulting, data analytics, and social impact work, and currently serves in leadership roles with 180 Degrees Consulting and LACI, where he focuses on data-driven strategy and stakeholder engagement.",
+    "azgroup": "AZC"
+  },
+  {
+    "id": "leena-van",
+    "name": "Leena Van",
+    "linkedin": "https://www.linkedin.com/in/leena-van-03113225a/",
+    "picture": "/images/members/leena.png",
+    "description": "Leena brings a diverse background in product management & tech strategy from companies like PwC, Handshake AI, Ericsson, and Scale AI. She's an incoming consultant intern at KPMG in New York City. Currently, she's working at Sony Pictures Entertainment as an AI Strategy Intern in their security operations.",
+    "azgroup": "AZPM"
+  },
+  {
+    "id": "tommy-wickersham",
+    "name": "Tommy Wickersham",
+    "linkedin": "https://www.linkedin.com/in/tommy-wickersham/",
+    "picture": "/images/members/tommy.png",
+    "description": "Tommy has experience across software engineering and machine learning, with a background working on startups and technical projects. His work spans full-stack development, data analysis, and applied AI.",
+    "azgroup": "AZCS"
+  },
+  {
+    "id": "rohan-krishnan",
+    "name": "Rohan Krishnan",
+    "linkedin": "https://www.linkedin.com/in/rohan-krishnan-436076209/",
+    "picture": "/images/members/rohan.png",
+    "description": "Rohan is a returning intern at General Atomics Aeronautical systems Inc, where he will be using Machine Learning to help fight the war on terror. Using his expertise in Artificial Intelligence, he hopes to one day find cures to neurodegenerative diseases.",
+    "azgroup": "AZCS"
+  },
+  {
+    "id": "jenny-jiang",
+    "name": "Jenny Jiang",
+    "linkedin": "https://www.linkedin.com/in/jenny-jiang2/",
+    "picture": "/images/members/jenny.png",
+    "description": "Jenny brings a marketing-focused background with experience in content operations, film production, and data analysis. She has worked as a marketing strategist at an AI startup and supported data-driven marketing and content initiatives at Rednote.",
+    "azgroup": "AZMarketing"
+  },
+  {
+    "id": "iren-han",
+    "name": "Iren Han",
+    "linkedin": "https://www.linkedin.com/in/irenhan/",
+    "picture": "/images/members/iren.png",
+    "description": "Iren brings experience in branding and visual marketing through graphic design. She has contributed to the launch of a full branding campaign and is interested in how strategy, creativity, and analytics work together in modern marketing.",
+    "azgroup": "AZMarketing"
+  }
+]
