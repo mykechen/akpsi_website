@@ -11,12 +11,12 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 ;
-function SectionHeader({ title, subtitle, centered = true, light = false, className = '' }) {
+function SectionHeader({ title, subtitle, centered = true, light = false, className = "" }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: `${centered ? 'text-center' : ''} ${className}`,
+        className: `${centered ? "text-center" : ""} ${className}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: `font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide ${light ? 'text-white' : 'text-secondary-light'}`,
+                className: `font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide ${light ? "text-white" : "text-secondary-light"}`,
                 children: title
             }, void 0, false, {
                 fileName: "[project]/components/ui/SectionHeader.tsx",
@@ -24,7 +24,7 @@ function SectionHeader({ title, subtitle, centered = true, light = false, classN
                 columnNumber: 7
             }, this),
             subtitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: `mt-4 text-lg max-w-2xl ${centered ? 'mx-auto' : ''} ${light ? 'text-white/70' : 'text-secondary/60'}`,
+                className: `mt-4 text-lg max-w-2xl ${centered ? "mx-auto" : ""} ${light ? "text-white/70" : "text-secondary/60"}`,
                 children: subtitle
             }, void 0, false, {
                 fileName: "[project]/components/ui/SectionHeader.tsx",
@@ -50,7 +50,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$events$2e$json__$28$json$29$__ = __turbopack_context__.i("[project]/data/events.json (json)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$SectionHeader$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/SectionHeader.tsx [app-ssr] (ecmascript)");
-'use client';
+"use client";
 ;
 ;
 ;
@@ -69,7 +69,7 @@ function RushTimeline() {
                     subtitle: "Your journey to joining Alpha Zeta"
                 }, void 0, false, {
                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                    lineNumber: 16,
+                    lineNumber: 18,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -82,7 +82,7 @@ function RushTimeline() {
                                     className: "absolute top-1/2 left-0 right-0 h-0.5 bg-secondary/10 -translate-y-1/2"
                                 }, void 0, false, {
                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                    lineNumber: 25,
+                                    lineNumber: 27,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -92,43 +92,43 @@ function RushTimeline() {
                                             className: "group flex flex-col items-center",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: `w-4 h-4 rounded-full border-2 transition-all duration-300 ${selectedEvent?.id === event.id ? 'bg-accent border-accent scale-125' : 'bg-primary border-white/30 group-hover:border-accent'}`
+                                                    className: `w-4 h-4 rounded-full border-2 transition-all duration-300 ${selectedEvent?.id === event.id ? "bg-accent border-accent scale-125" : "bg-primary border-white/30 group-hover:border-accent"}`
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                    lineNumber: 35,
+                                                    lineNumber: 37,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: `mt-3 text-sm transition-colors ${selectedEvent?.id === event.id ? 'text-accent' : 'text-secondary/50 group-hover:text-secondary/70'}`,
-                                                    children: event.date.split(',')[0]
+                                                    className: `mt-3 text-sm transition-colors ${selectedEvent?.id === event.id ? "text-accent" : "text-secondary/50 group-hover:text-secondary/70"}`,
+                                                    children: event.date.split(",")[0]
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                    lineNumber: 44,
+                                                    lineNumber: 46,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: `mt-1 text-xs max-w-[100px] text-center transition-colors ${selectedEvent?.id === event.id ? 'text-secondary-light' : 'text-secondary/40 group-hover:text-secondary/60'}`,
+                                                    className: `mt-1 text-xs max-w-[100px] text-center transition-colors ${selectedEvent?.id === event.id ? "text-secondary-light" : "text-secondary/40 group-hover:text-secondary/60"}`,
                                                     children: event.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                    lineNumber: 55,
+                                                    lineNumber: 57,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, event.id, true, {
                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                            lineNumber: 29,
+                                            lineNumber: 31,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                    lineNumber: 27,
+                                    lineNumber: 29,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                            lineNumber: 24,
+                            lineNumber: 26,
                             columnNumber: 11
                         }, this),
                         selectedEvent && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -138,11 +138,11 @@ function RushTimeline() {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                            className: "font-display text-2xl font-semibold text-secondary-light mb-2",
+                                            className: "font-body text-2xl font-semibold text-secondary-light mb-2",
                                             children: selectedEvent.name
                                         }, void 0, false, {
                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                            lineNumber: 74,
+                                            lineNumber: 76,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -163,19 +163,19 @@ function RushTimeline() {
                                                                 d: "M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                                lineNumber: 80,
+                                                                lineNumber: 87,
                                                                 columnNumber: 25
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                            lineNumber: 79,
+                                                            lineNumber: 81,
                                                             columnNumber: 23
                                                         }, this),
                                                         selectedEvent.date
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                    lineNumber: 78,
+                                                    lineNumber: 80,
                                                     columnNumber: 21
                                                 }, this),
                                                 selectedEvent.time && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -193,19 +193,19 @@ function RushTimeline() {
                                                                 d: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                                lineNumber: 87,
+                                                                lineNumber: 104,
                                                                 columnNumber: 27
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                            lineNumber: 86,
+                                                            lineNumber: 98,
                                                             columnNumber: 25
                                                         }, this),
                                                         selectedEvent.time
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                    lineNumber: 85,
+                                                    lineNumber: 97,
                                                     columnNumber: 23
                                                 }, this),
                                                 selectedEvent.location && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -224,7 +224,7 @@ function RushTimeline() {
                                                                     d: "M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                                    lineNumber: 95,
+                                                                    lineNumber: 122,
                                                                     columnNumber: 27
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -234,26 +234,26 @@ function RushTimeline() {
                                                                     d: "M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                                    lineNumber: 96,
+                                                                    lineNumber: 128,
                                                                     columnNumber: 27
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                            lineNumber: 94,
+                                                            lineNumber: 116,
                                                             columnNumber: 25
                                                         }, this),
                                                         selectedEvent.location
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                                    lineNumber: 93,
+                                                    lineNumber: 115,
                                                     columnNumber: 23
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                            lineNumber: 77,
+                                            lineNumber: 79,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -261,29 +261,29 @@ function RushTimeline() {
                                             children: selectedEvent.description
                                         }, void 0, false, {
                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                            lineNumber: 102,
+                                            lineNumber: 139,
                                             columnNumber: 19
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                    lineNumber: 73,
+                                    lineNumber: 75,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                lineNumber: 72,
+                                lineNumber: 74,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                            lineNumber: 71,
+                            lineNumber: 73,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                    lineNumber: 22,
+                    lineNumber: 24,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -298,7 +298,7 @@ function RushTimeline() {
                                             className: "w-3 h-3 bg-accent rounded-full"
                                         }, void 0, false, {
                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                            lineNumber: 119,
+                                            lineNumber: 156,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -306,21 +306,21 @@ function RushTimeline() {
                                             children: event.date
                                         }, void 0, false, {
                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                            lineNumber: 120,
+                                            lineNumber: 157,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                    lineNumber: 118,
+                                    lineNumber: 155,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "font-display text-lg font-semibold text-secondary-light mb-2",
+                                    className: "font-body text-lg font-semibold text-secondary-light mb-2",
                                     children: event.name
                                 }, void 0, false, {
                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                    lineNumber: 122,
+                                    lineNumber: 161,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -330,7 +330,7 @@ function RushTimeline() {
                                             children: event.time
                                         }, void 0, false, {
                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                            lineNumber: 126,
+                                            lineNumber: 165,
                                             columnNumber: 32
                                         }, this),
                                         event.location && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -340,13 +340,13 @@ function RushTimeline() {
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                            lineNumber: 127,
+                                            lineNumber: 166,
                                             columnNumber: 36
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                    lineNumber: 125,
+                                    lineNumber: 164,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -354,29 +354,29 @@ function RushTimeline() {
                                     children: event.description
                                 }, void 0, false, {
                                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                                    lineNumber: 129,
+                                    lineNumber: 168,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, event.id, true, {
                             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                            lineNumber: 114,
+                            lineNumber: 151,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/recruitment/RushTimeline.tsx",
-                    lineNumber: 112,
+                    lineNumber: 149,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/recruitment/RushTimeline.tsx",
-            lineNumber: 15,
+            lineNumber: 17,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/recruitment/RushTimeline.tsx",
-        lineNumber: 14,
+        lineNumber: 16,
         columnNumber: 5
     }, this);
 }
@@ -395,7 +395,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$data$2f$faq$2e$json__$28$json$29$__ = __turbopack_context__.i("[project]/data/faq.json (json)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$SectionHeader$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/ui/SectionHeader.tsx [app-ssr] (ecmascript)");
-'use client';
+"use client";
 ;
 ;
 ;
@@ -430,7 +430,7 @@ function FAQ() {
                                     "aria-expanded": openId === item.id,
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "font-display text-lg text-secondary-light pr-4",
+                                            className: "font-body text-lg text-secondary-light pr-4",
                                             children: item.question
                                         }, void 0, false, {
                                             fileName: "[project]/components/recruitment/FAQ.tsx",
@@ -438,7 +438,7 @@ function FAQ() {
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: `flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-secondary/60 transition-transform duration-300 ${openId === item.id ? 'rotate-45 bg-accent border-accent text-white' : ''}`,
+                                            className: `flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full border border-white/20 text-secondary/60 transition-transform duration-300 ${openId === item.id ? "rotate-45 bg-accent border-accent text-white" : ""}`,
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                                                 className: "w-4 h-4",
                                                 fill: "none",
@@ -451,12 +451,12 @@ function FAQ() {
                                                     d: "M12 6v6m0 0v6m0-6h6m-6 0H6"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/recruitment/FAQ.tsx",
-                                                    lineNumber: 45,
+                                                    lineNumber: 52,
                                                     columnNumber: 21
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/components/recruitment/FAQ.tsx",
-                                                lineNumber: 44,
+                                                lineNumber: 46,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
@@ -471,18 +471,18 @@ function FAQ() {
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: `overflow-hidden transition-all duration-300 ${openId === item.id ? 'max-h-96' : 'max-h-0'}`,
+                                    className: `overflow-hidden transition-all duration-300 ${openId === item.id ? "max-h-96" : "max-h-0"}`,
                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         className: "px-6 pb-6 text-secondary/70 leading-relaxed",
                                         children: item.answer
                                     }, void 0, false, {
                                         fileName: "[project]/components/recruitment/FAQ.tsx",
-                                        lineNumber: 55,
+                                        lineNumber: 67,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/components/recruitment/FAQ.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 62,
                                     columnNumber: 15
                                 }, this)
                             ]

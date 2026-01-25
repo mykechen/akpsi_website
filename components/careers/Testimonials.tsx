@@ -91,7 +91,7 @@ export default function Testimonials() {
     <section className="py-16 md:py-24 bg-primary-light/30">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-4">
+          <h2 className="font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-4">
             WHAT OUR MEMBERS SAY
           </h2>
           <p className="text-lg text-secondary/60 max-w-2xl mx-auto">
@@ -160,7 +160,7 @@ export default function Testimonials() {
                     />
                   </div>
                   <div>
-                    <h3 className="font-display text-base font-semibold text-secondary-light">
+                    <h3 className="font-body text-base font-semibold text-secondary-light">
                       {testimonial.name}
                     </h3>
                     <p className="text-accent text-sm">{testimonial.company}</p>

@@ -87,7 +87,7 @@ export default function MissionValues() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-4">
+          <h2 className="font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-4">
             WHAT WE STAND FOR
           </h2>
           <p className="text-secondary/70 text-lg leading-relaxed">
@@ -108,7 +108,7 @@ export default function MissionValues() {
                 </div>
 
                 {/* Value Title */}
-                <h3 className="font-display text-lg font-bold text-secondary-light mb-2">
+                <h3 className="font-body text-lg font-bold text-secondary-light mb-2">
                   {value.title}
                 </h3>
 

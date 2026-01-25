@@ -1,40 +1,44 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const navLinks = [
-  { href: '/', label: 'About Us' },
-  { href: '/recruitment', label: 'Recruitment' },
-  { href: '/careers', label: 'Careers' },
-  { href: '/members', label: 'Members' },
-]
+  { href: "/", label: "About Us" },
+  { href: "/recruitment", label: "Recruitment" },
+  { href: "/careers", label: "Careers" },
+  { href: "/members", label: "Members" },
+];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  const showBackground = isScrolled || pathname === "/careers";
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+      setIsScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-primary/95 backdrop-blur-md border-b border-secondary/10 shadow-sm'
-          : 'bg-transparent'
+        showBackground
+          ? "bg-primary/95 backdrop-blur-md border-b border-secondary/10 shadow-sm"
+          : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
-          className="font-display text-2xl font-bold tracking-wide text-secondary-light hover:text-accent transition-colors"
+          className="font-body text-2xl font-bold tracking-wide text-secondary-light hover:text-accent transition-colors"
         >
           ALPHA ZETA
         </Link>
@@ -68,17 +72,17 @@ export default function Navbar() {
         >
           <span
             className={`w-6 h-0.5 bg-secondary-light transition-all duration-300 ${
-              isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
+              isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
             }`}
           />
           <span
             className={`w-6 h-0.5 bg-secondary-light transition-all duration-300 ${
-              isMobileMenuOpen ? 'opacity-0' : ''
+              isMobileMenuOpen ? "opacity-0" : ""
             }`}
           />
           <span
             className={`w-6 h-0.5 bg-secondary-light transition-all duration-300 ${
-              isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
+              isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
             }`}
           />
         </button>
@@ -88,8 +92,8 @@ export default function Navbar() {
       <div
         className={`md:hidden absolute top-20 left-0 right-0 bg-primary/98 backdrop-blur-md border-b border-secondary/10 shadow-sm transition-all duration-300 ${
           isMobileMenuOpen
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 -translate-y-4 pointer-events-none'
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
         <div className="flex flex-col p-6 gap-4">
@@ -113,5 +117,5 @@ export default function Navbar() {
         </div>
       </div>
     </header>
-  )
+  );
 }

@@ -78,7 +78,7 @@ export default function Eligibility() {
     <section className="py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-6">
+          <h2 className="font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-6">
             ELIGIBILITY REQUIREMENTS
           </h2>
         </div>
@@ -92,7 +92,7 @@ export default function Eligibility() {
               <div className="flex items-center justify-center mb-6 text-white">
                 {card.icon}
               </div>
-              <h3 className="font-display text-base font-bold uppercase tracking-wide text-secondary-light">
+              <h3 className="font-body text-base font-bold uppercase tracking-wide text-secondary-light">
                 {card.text}
               </h3>
             </div>

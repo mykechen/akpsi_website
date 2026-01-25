@@ -20,7 +20,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 function MembersHero() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden",
+        className: "relative min-h-screen flex items-center justify-center overflow-hidden",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 bg-gradient-to-b from-accent-dark/10 via-primary to-primary"
@@ -33,16 +33,16 @@ function MembersHero() {
                 className: "relative z-10 max-w-7xl mx-auto px-6 text-center",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide text-secondary-light mb-6",
-                        children: "MEET OUR MEMBERS"
+                        className: "font-display text-[5rem] sm:text-[6rem] md:text-[7rem] lg:text-[8rem] xl:text-[9rem] tracking-wide text-secondary-light mb-6 whitespace-nowrap",
+                        children: "MEMBERS"
                     }, void 0, false, {
                         fileName: "[project]/components/members/MembersHero.tsx",
                         lineNumber: 8,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-xl text-secondary/60 max-w-2xl mx-auto",
-                        children: "Meet the talented individuals who make up the Alpha Zeta family"
+                        className: "text-2xl md:text-3xl font-semibold text-secondary/60 max-w-2xl mx-auto",
+                        children: "Meet the talented individuals who make up Alpha Zeta"
                     }, void 0, false, {
                         fileName: "[project]/components/members/MembersHero.tsx",
                         lineNumber: 11,
@@ -52,6 +52,30 @@ function MembersHero() {
             }, void 0, true, {
                 fileName: "[project]/components/members/MembersHero.tsx",
                 lineNumber: 7,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-secondary/40",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "text-sm uppercase tracking-widest",
+                        children: "Scroll"
+                    }, void 0, false, {
+                        fileName: "[project]/components/members/MembersHero.tsx",
+                        lineNumber: 18,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "w-px h-12 bg-gradient-to-b from-secondary/40 to-transparent"
+                    }, void 0, false, {
+                        fileName: "[project]/components/members/MembersHero.tsx",
+                        lineNumber: 19,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/members/MembersHero.tsx",
+                lineNumber: 17,
                 columnNumber: 7
             }, this)
         ]
@@ -110,12 +134,12 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
 ;
-function SectionHeader({ title, subtitle, centered = true, light = false, className = '' }) {
+function SectionHeader({ title, subtitle, centered = true, light = false, className = "" }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: `${centered ? 'text-center' : ''} ${className}`,
+        className: `${centered ? "text-center" : ""} ${className}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: `font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide ${light ? 'text-white' : 'text-secondary-light'}`,
+                className: `font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide ${light ? "text-white" : "text-secondary-light"}`,
                 children: title
             }, void 0, false, {
                 fileName: "[project]/components/ui/SectionHeader.tsx",
@@ -123,7 +147,7 @@ function SectionHeader({ title, subtitle, centered = true, light = false, classN
                 columnNumber: 7
             }, this),
             subtitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: `mt-4 text-lg max-w-2xl ${centered ? 'mx-auto' : ''} ${light ? 'text-white/70' : 'text-secondary/60'}`,
+                className: `mt-4 text-lg max-w-2xl ${centered ? "mx-auto" : ""} ${light ? "text-white/70" : "text-secondary/60"}`,
                 children: subtitle
             }, void 0, false, {
                 fileName: "[project]/components/ui/SectionHeader.tsx",
@@ -225,7 +249,7 @@ function ExecutiveBoardFull() {
                                             className: "absolute bottom-0 left-0 right-0 p-3",
                                             children: [
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                    className: "font-display text-base font-semibold text-white",
+                                                    className: "font-body text-base font-semibold text-white",
                                                     children: member.name
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/members/ExecutiveBoardFull.tsx",
@@ -396,7 +420,7 @@ function AlumniSpotlight() {
                                     className: "mt-4",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                            className: "font-display text-lg font-semibold text-secondary-light",
+                                            className: "font-body text-lg font-semibold text-secondary-light",
                                             children: member.name
                                         }, void 0, false, {
                                             fileName: "[project]/components/members/AlumniSpotlight.tsx",
@@ -433,7 +457,7 @@ function AlumniSpotlight() {
                                                         d: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/members/AlumniSpotlight.tsx",
-                                                        lineNumber: 46,
+                                                        lineNumber: 50,
                                                         columnNumber: 23
                                                     }, this)
                                                 }, void 0, false, {

@@ -30,7 +30,7 @@ const benefits = [
 ];
 
 const mentors = mentorsData.filter(
-  (mentor) => mentor.azgroup === "AZMarketing"
+  (mentor) => mentor.azgroup === "AZMarketing",
 );
 
 export default function AZMarketing() {
@@ -45,7 +45,7 @@ export default function AZMarketing() {
               <span className="inline-block px-4 py-1.5 bg-accent/20 text-accent rounded-full text-sm font-medium">
                 AZ Marketing UI/UX
               </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-secondary-light">
+              <h2 className="font-body text-3xl md:text-4xl font-bold text-secondary-light">
                 Marketing & UI/UX Design
               </h2>
             </div>
@@ -70,7 +70,7 @@ export default function AZMarketing() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-display text-lg font-semibold text-secondary-light mb-1">
+                    <h4 className="font-body text-lg font-semibold text-secondary-light mb-1">
                       {benefit.title}
                     </h4>
                     <p className="text-secondary/60">{benefit.description}</p>
@@ -101,7 +101,7 @@ export default function AZMarketing() {
 
                   {/* Mentor Info */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-display text-lg font-semibold text-secondary-light mb-1">
+                    <h3 className="font-body text-lg font-semibold text-secondary-light mb-1">
                       {mentor.name}
                     </h3>
                     <p className="text-secondary/60 text-sm mb-3">

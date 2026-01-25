@@ -76,26 +76,26 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 ;
 const navLinks = [
     {
-        href: '/about',
-        label: 'About'
+        href: "/about",
+        label: "About"
     },
     {
-        href: '/recruitment',
-        label: 'Recruitment'
+        href: "/recruitment",
+        label: "Recruitment"
     },
     {
-        href: '/careers',
-        label: 'Careers'
+        href: "/careers",
+        label: "Careers"
     },
     {
-        href: '/members',
-        label: 'Members'
+        href: "/members",
+        label: "Members"
     }
 ];
 const socialLinks = [
     {
-        name: 'Instagram',
-        href: 'https://instagram.com/alphazeta_usc',
+        name: "Instagram",
+        href: "https://instagram.com/alphazeta_usc",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
             className: "w-5 h-5",
             fill: "currentColor",
@@ -107,7 +107,7 @@ const socialLinks = [
                 clipRule: "evenodd"
             }, void 0, false, {
                 fileName: "[project]/components/navigation/Footer.tsx",
-                lineNumber: 16,
+                lineNumber: 21,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
@@ -117,8 +117,8 @@ const socialLinks = [
         }, ("TURBOPACK compile-time value", void 0))
     },
     {
-        name: 'LinkedIn',
-        href: 'https://linkedin.com/company/alpha-zeta-usc',
+        name: "LinkedIn",
+        href: "https://linkedin.com/company/alpha-zeta-usc",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
             className: "w-5 h-5",
             fill: "currentColor",
@@ -130,18 +130,18 @@ const socialLinks = [
                 clipRule: "evenodd"
             }, void 0, false, {
                 fileName: "[project]/components/navigation/Footer.tsx",
-                lineNumber: 29,
+                lineNumber: 39,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/components/navigation/Footer.tsx",
-            lineNumber: 28,
+            lineNumber: 33,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     },
     {
-        name: 'Email',
-        href: 'mailto:contact@alphazeta-sc.com',
+        name: "Email",
+        href: "mailto:contact@alphazeta-sc.com",
         icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
             className: "w-5 h-5",
             fill: "none",
@@ -155,12 +155,12 @@ const socialLinks = [
                 d: "M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
             }, void 0, false, {
                 fileName: "[project]/components/navigation/Footer.tsx",
-                lineNumber: 42,
+                lineNumber: 58,
                 columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/components/navigation/Footer.tsx",
-            lineNumber: 41,
+            lineNumber: 51,
             columnNumber: 7
         }, ("TURBOPACK compile-time value", void 0))
     }
@@ -183,7 +183,7 @@ function Footer() {
                                     children: "ALPHA ZETA"
                                 }, void 0, false, {
                                     fileName: "[project]/components/navigation/Footer.tsx",
-                                    lineNumber: 60,
+                                    lineNumber: 76,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -191,7 +191,7 @@ function Footer() {
                                     children: "A professional business fraternity at the University of Southern California, dedicated to fostering brotherhood, professional excellence, and community service."
                                 }, void 0, false, {
                                     fileName: "[project]/components/navigation/Footer.tsx",
-                                    lineNumber: 66,
+                                    lineNumber: 82,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -205,18 +205,18 @@ function Footer() {
                                             children: social.icon
                                         }, social.name, false, {
                                             fileName: "[project]/components/navigation/Footer.tsx",
-                                            lineNumber: 73,
+                                            lineNumber: 90,
                                             columnNumber: 17
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/components/navigation/Footer.tsx",
-                                    lineNumber: 71,
+                                    lineNumber: 88,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/navigation/Footer.tsx",
-                            lineNumber: 59,
+                            lineNumber: 75,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -229,7 +229,7 @@ function Footer() {
                                             children: "Navigation"
                                         }, void 0, false, {
                                             fileName: "[project]/components/navigation/Footer.tsx",
-                                            lineNumber: 90,
+                                            lineNumber: 107,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -241,23 +241,23 @@ function Footer() {
                                                         children: link.label
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/navigation/Footer.tsx",
-                                                        lineNumber: 96,
+                                                        lineNumber: 113,
                                                         columnNumber: 21
                                                     }, this)
                                                 }, link.href, false, {
                                                     fileName: "[project]/components/navigation/Footer.tsx",
-                                                    lineNumber: 95,
+                                                    lineNumber: 112,
                                                     columnNumber: 19
                                                 }, this))
                                         }, void 0, false, {
                                             fileName: "[project]/components/navigation/Footer.tsx",
-                                            lineNumber: 93,
+                                            lineNumber: 110,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/navigation/Footer.tsx",
-                                    lineNumber: 89,
+                                    lineNumber: 106,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -267,7 +267,7 @@ function Footer() {
                                             children: "Contact"
                                         }, void 0, false, {
                                             fileName: "[project]/components/navigation/Footer.tsx",
-                                            lineNumber: 107,
+                                            lineNumber: 124,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -280,12 +280,12 @@ function Footer() {
                                                         children: "contact@alphazeta-sc.com"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/navigation/Footer.tsx",
-                                                        lineNumber: 112,
+                                                        lineNumber: 129,
                                                         columnNumber: 19
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/navigation/Footer.tsx",
-                                                    lineNumber: 111,
+                                                    lineNumber: 128,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -293,7 +293,7 @@ function Footer() {
                                                     children: "University of Southern California"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/navigation/Footer.tsx",
-                                                    lineNumber: 119,
+                                                    lineNumber: 136,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -301,31 +301,31 @@ function Footer() {
                                                     children: "Los Angeles, CA"
                                                 }, void 0, false, {
                                                     fileName: "[project]/components/navigation/Footer.tsx",
-                                                    lineNumber: 122,
+                                                    lineNumber: 139,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/components/navigation/Footer.tsx",
-                                            lineNumber: 110,
+                                            lineNumber: 127,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/components/navigation/Footer.tsx",
-                                    lineNumber: 106,
+                                    lineNumber: 123,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/navigation/Footer.tsx",
-                            lineNumber: 88,
+                            lineNumber: 105,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/navigation/Footer.tsx",
-                    lineNumber: 57,
+                    lineNumber: 73,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -340,7 +340,7 @@ function Footer() {
                             ]
                         }, void 0, true, {
                             fileName: "[project]/components/navigation/Footer.tsx",
-                            lineNumber: 132,
+                            lineNumber: 147,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -348,24 +348,24 @@ function Footer() {
                             children: "Made with dedication by the AZ Marketing Team"
                         }, void 0, false, {
                             fileName: "[project]/components/navigation/Footer.tsx",
-                            lineNumber: 135,
+                            lineNumber: 151,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/navigation/Footer.tsx",
-                    lineNumber: 131,
+                    lineNumber: 146,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/navigation/Footer.tsx",
-            lineNumber: 56,
+            lineNumber: 72,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/navigation/Footer.tsx",
-        lineNumber: 55,
+        lineNumber: 71,
         columnNumber: 5
     }, this);
 }

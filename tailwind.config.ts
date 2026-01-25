@@ -21,13 +21,14 @@ const config: Config = {
         },
         accent: {
           DEFAULT: "#3b82f6",
-          light: "#60a5fa",
-          dark: "#2563eb",
+          light: "#76B3FF",
+          dark: "#1C55D1",
         },
       },
       fontFamily: {
-        display: ["var(--font-dm-sans)", "sans-serif"],
+        display: ["var(--font-dm-serif-display)", "serif"],
         body: ["var(--font-dm-sans)", "sans-serif"],
+        sans: ["var(--font-dm-sans)", "sans-serif"],
       },
     },
   },

@@ -8,7 +8,7 @@ export default function CompanyCarousel() {
   return (
     <section className="py-16 md:py-24 border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6 mb-8">
-        <h2 className="text-center font-display text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-6">
+        <h2 className="text-center font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-6">
           WHERE WE ARE NOW
         </h2>
       </div>

@@ -119,7 +119,7 @@ function Testimonials() {
                     className: "text-center mb-12",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "font-display text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-4",
+                            className: "font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-4",
                             children: "WHAT OUR MEMBERS SAY"
                         }, void 0, false, {
                             fileName: "[project]/components/careers/Testimonials.tsx",
@@ -230,7 +230,7 @@ function Testimonials() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     children: [
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                                            className: "font-display text-base font-semibold text-secondary-light",
+                                                            className: "font-body text-base font-semibold text-secondary-light",
                                                             children: testimonial.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/components/careers/Testimonials.tsx",

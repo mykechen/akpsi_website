@@ -49,7 +49,7 @@ export default function ExecutiveBoardFull() {
 
                 {/* Member info */}
                 <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <h3 className="font-display text-base font-semibold text-white">
+                  <h3 className="font-body text-base font-semibold text-white">
                     {member.name}
                   </h3>
                   <p className="text-white/70 text-sm">{member.role}</p>

@@ -5,7 +5,7 @@ export default function WhatYouGet() {
     <section className="py-16 md:py-24 bg-primary-light/30">
       <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-6">
+          <h2 className="font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-6">
             WHAT ARE AZ GROUPS
           </h2>
           <p className="text-lg md:text-xl text-secondary/70 leading-relaxed">

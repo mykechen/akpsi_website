@@ -88,7 +88,7 @@ export default function MemberModal({
             <div className="flex-1">
               <h2
                 id="member-modal-title"
-                className="font-display text-2xl md:text-3xl font-bold text-secondary-light mb-2"
+                className="font-body text-2xl md:text-3xl font-bold text-secondary-light mb-2"
               >
                 {member.name}
               </h2>

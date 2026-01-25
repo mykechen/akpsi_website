@@ -190,12 +190,12 @@ __turbopack_context__.s([
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
 ;
-function SectionHeader({ title, subtitle, centered = true, light = false, className = '' }) {
+function SectionHeader({ title, subtitle, centered = true, light = false, className = "" }) {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: `${centered ? 'text-center' : ''} ${className}`,
+        className: `${centered ? "text-center" : ""} ${className}`,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                className: `font-display text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide ${light ? 'text-white' : 'text-secondary-light'}`,
+                className: `font-body text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide ${light ? "text-white" : "text-secondary-light"}`,
                 children: title
             }, void 0, false, {
                 fileName: "[project]/components/ui/SectionHeader.tsx",
@@ -203,7 +203,7 @@ function SectionHeader({ title, subtitle, centered = true, light = false, classN
                 columnNumber: 7
             }, this),
             subtitle && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: `mt-4 text-lg max-w-2xl ${centered ? 'mx-auto' : ''} ${light ? 'text-white/70' : 'text-secondary/60'}`,
+                className: `mt-4 text-lg max-w-2xl ${centered ? "mx-auto" : ""} ${light ? "text-white/70" : "text-secondary/60"}`,
                 children: subtitle
             }, void 0, false, {
                 fileName: "[project]/components/ui/SectionHeader.tsx",
@@ -323,7 +323,7 @@ function MemberModal({ member, isOpen, onClose }) {
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                                             id: "member-modal-title",
-                                            className: "font-display text-2xl md:text-3xl font-bold text-secondary-light mb-2",
+                                            className: "font-body text-2xl md:text-3xl font-bold text-secondary-light mb-2",
                                             children: member.name
                                         }, void 0, false, {
                                             fileName: "[project]/components/members/MemberModal.tsx",

@@ -24,7 +24,7 @@ export default function ExecutiveBoard() {
     <section className="py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
         <SectionHeader
-          title="Executive Board"
+          title="EXECUTIVE BOARD"
           subtitle="Meet the leaders driving Alpha Zeta forward"
         />
 
@@ -47,7 +47,7 @@ export default function ExecutiveBoard() {
 
               {/* Text content on the right */}
               <div className="flex flex-col justify-center flex-1">
-                <h3 className="font-display text-xl font-bold text-secondary-light mb-1">
+                <h3 className="font-body text-xl font-bold text-secondary-light mb-1">
                   {member.name}
                 </h3>
                 <p className="text-secondary/70 text-sm">

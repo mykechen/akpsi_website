@@ -43,7 +43,7 @@ export default function AZC() {
               <span className="inline-block px-4 py-1.5 bg-accent/20 text-accent rounded-full text-sm font-medium">
                 AZ Consulting
               </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-secondary-light">
+              <h2 className="font-body text-3xl md:text-4xl font-bold text-secondary-light">
                 Consulting
               </h2>
             </div>
@@ -68,7 +68,7 @@ export default function AZC() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="font-display text-lg font-semibold text-secondary-light mb-1">
+                    <h4 className="font-body text-lg font-semibold text-secondary-light mb-1">
                       {benefit.title}
                     </h4>
                     <p className="text-secondary/60">{benefit.description}</p>
@@ -99,7 +99,7 @@ export default function AZC() {
 
                   {/* Mentor Info */}
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-display text-lg font-semibold text-secondary-light mb-1">
+                    <h3 className="font-body text-lg font-semibold text-secondary-light mb-1">
                       {mentor.name}
                     </h3>
                     <p className="text-secondary/60 text-sm mb-3">

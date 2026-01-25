@@ -69,7 +69,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2
 ;
 function RecruitmentHero() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
-        className: "relative min-h-[60vh] flex items-center justify-center pt-20",
+        className: "relative min-h-screen flex items-center justify-center overflow-hidden",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "absolute inset-0 bg-gradient-to-b from-accent-dark/20 via-primary to-primary"
@@ -79,30 +79,7 @@ function RecruitmentHero() {
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "absolute inset-0 overflow-hidden",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute top-1/3 left-1/4 w-64 h-64 bg-accent/10 rounded-full blur-3xl"
-                    }, void 0, false, {
-                        fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                        lineNumber: 11,
-                        columnNumber: 9
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "absolute bottom-1/3 right-1/4 w-64 h-64 bg-accent/10 rounded-full blur-3xl"
-                    }, void 0, false, {
-                        fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                        lineNumber: 12,
-                        columnNumber: 9
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                lineNumber: 10,
-                columnNumber: 7
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "relative z-10 max-w-4xl mx-auto px-6 text-center py-16",
+                className: "relative z-10 max-w-4xl mx-auto px-6 text-center",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full text-accent text-sm font-medium mb-6",
@@ -111,73 +88,85 @@ function RecruitmentHero() {
                                 className: "w-2 h-2 bg-accent rounded-full animate-pulse"
                             }, void 0, false, {
                                 fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                                lineNumber: 17,
+                                lineNumber: 11,
                                 columnNumber: 11
                             }, this),
                             "Applications Open"
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                        lineNumber: 16,
+                        lineNumber: 10,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                        className: "font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-wide text-secondary-light mb-6",
-                        children: "Spring 2026 Rush"
+                        className: "font-display text-[3rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[5rem] xl:text-[6rem] tracking-wide text-secondary-light whitespace-nowrap",
+                        children: "JOIN ALPHA ZETA"
                     }, void 0, false, {
                         fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                        lineNumber: 21,
+                        lineNumber: 15,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-xl text-secondary/70 max-w-2xl mx-auto mb-4",
-                        children: "Join one of USC's most distinguished professional business fraternities"
+                        className: "text-2xl md:text-3xl font-semibold text-secondary/70 max-w-2xl mx-auto mb-4",
+                        children: "Spring 2026"
                     }, void 0, false, {
                         fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                        lineNumber: 25,
+                        lineNumber: 19,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-secondary/50 mb-10",
+                        className: "text-lg text-secondary/50 mb-10",
                         children: "Application Deadline: January 14, 2026 at 11:59 PM"
                     }, void 0, false, {
                         fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                        lineNumber: 29,
+                        lineNumber: 23,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex flex-col sm:flex-row items-center justify-center gap-4",
-                        children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                href: "https://forms.google.com",
-                                variant: "primary",
-                                size: "lg",
-                                children: "Apply Now"
-                            }, void 0, false, {
-                                fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                                lineNumber: 34,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
-                                href: "#timeline",
-                                variant: "outline",
-                                size: "lg",
-                                children: "View Rush Events"
-                            }, void 0, false, {
-                                fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                                lineNumber: 41,
-                                columnNumber: 11
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$Button$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                            href: "https://forms.google.com",
+                            variant: "primary",
+                            size: "lg",
+                            children: "Apply Now"
+                        }, void 0, false, {
+                            fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
+                            lineNumber: 28,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
                         fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                        lineNumber: 33,
+                        lineNumber: 27,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
-                lineNumber: 15,
+                lineNumber: 9,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-secondary/40",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        className: "text-sm uppercase tracking-widest",
+                        children: "Scroll"
+                    }, void 0, false, {
+                        fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
+                        lineNumber: 36,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "w-px h-12 bg-gradient-to-b from-secondary/40 to-transparent"
+                    }, void 0, false, {
+                        fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
+                        lineNumber: 37,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/components/recruitment/RecruitmentHero.tsx",
+                lineNumber: 35,
                 columnNumber: 7
             }, this)
         ]
@@ -272,9 +261,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 function WhyAZ() {
     const cards = [
         {
-            id: '1',
-            title: 'PROFESSIONAL DEVELOPMENT',
-            description: 'Gain access to exclusive workshops, networking events, and mentorship opportunities that will accelerate your career growth and help you stand out in the competitive business world.',
+            id: "1",
+            title: "PROFESSIONAL DEVELOPMENT",
+            description: "Gain access to exclusive workshops, networking events, and mentorship opportunities that will accelerate your career growth and help you stand out in the competitive business world.",
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 className: "w-12 h-12",
                 fill: "none",
@@ -287,19 +276,19 @@ function WhyAZ() {
                     d: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
                 }, void 0, false, {
                     fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                    lineNumber: 9,
+                    lineNumber: 15,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                lineNumber: 8,
+                lineNumber: 9,
                 columnNumber: 9
             }, this)
         },
         {
-            id: '2',
-            title: 'LIFELONG BROTHERHOOD',
-            description: 'Build meaningful relationships that extend far beyond your time at USC. Our tight-knit community supports you through every stage of your journey, from college to career and beyond.',
+            id: "2",
+            title: "LIFELONG BROTHERHOOD",
+            description: "Build meaningful relationships that extend far beyond your time at USC. Our tight-knit community supports you through every stage of your journey, from college to career and beyond.",
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 className: "w-12 h-12",
                 fill: "none",
@@ -312,19 +301,19 @@ function WhyAZ() {
                     d: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                 }, void 0, false, {
                     fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                    lineNumber: 19,
+                    lineNumber: 36,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                lineNumber: 18,
+                lineNumber: 30,
                 columnNumber: 9
             }, this)
         },
         {
-            id: '3',
-            title: 'EXCLUSIVE OPPORTUNITIES',
-            description: 'Access to our extensive alumni network, company partnerships, and exclusive events that open doors to internships, jobs, and career opportunities you won\'t find anywhere else.',
+            id: "3",
+            title: "EXCLUSIVE OPPORTUNITIES",
+            description: "Access to our extensive alumni network, company partnerships, and exclusive events that open doors to internships, jobs, and career opportunities you won't find anywhere else.",
             icon: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
                 className: "w-12 h-12",
                 fill: "none",
@@ -337,12 +326,12 @@ function WhyAZ() {
                     d: "M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
                 }, void 0, false, {
                     fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                    lineNumber: 29,
+                    lineNumber: 57,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                lineNumber: 28,
+                lineNumber: 51,
                 columnNumber: 9
             }, this)
         }
@@ -355,16 +344,16 @@ function WhyAZ() {
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "max-w-3xl mx-auto text-center mb-12",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "font-display text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-6",
+                        className: "font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-6",
                         children: "WHY ALPHA ZETA"
                     }, void 0, false, {
                         fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                        lineNumber: 39,
+                        lineNumber: 72,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                    lineNumber: 38,
+                    lineNumber: 71,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -377,15 +366,15 @@ function WhyAZ() {
                                     children: card.icon
                                 }, void 0, false, {
                                     fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                                    lineNumber: 50,
+                                    lineNumber: 83,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "font-display text-xl font-bold uppercase tracking-wide text-secondary-light mb-4",
+                                    className: "font-body text-xl font-bold uppercase tracking-wide text-secondary-light mb-4",
                                     children: card.title
                                 }, void 0, false, {
                                     fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                                    lineNumber: 53,
+                                    lineNumber: 86,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -393,29 +382,29 @@ function WhyAZ() {
                                     children: card.description
                                 }, void 0, false, {
                                     fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                                    lineNumber: 56,
+                                    lineNumber: 89,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, card.id, true, {
                             fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                            lineNumber: 46,
+                            lineNumber: 79,
                             columnNumber: 13
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/recruitment/WhyAZ.tsx",
-                    lineNumber: 44,
+                    lineNumber: 77,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/components/recruitment/WhyAZ.tsx",
-            lineNumber: 37,
+            lineNumber: 70,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/components/recruitment/WhyAZ.tsx",
-        lineNumber: 36,
+        lineNumber: 69,
         columnNumber: 5
     }, this);
 }
@@ -547,7 +536,7 @@ function MissionValues() {
                     className: "max-w-3xl mx-auto text-center mb-12",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                            className: "font-display text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-4",
+                            className: "font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-4",
                             children: "WHAT WE STAND FOR"
                         }, void 0, false, {
                             fileName: "[project]/components/recruitment/MissionValues.tsx",
@@ -584,7 +573,7 @@ function MissionValues() {
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                        className: "font-display text-lg font-bold text-secondary-light mb-2",
+                                        className: "font-body text-lg font-bold text-secondary-light mb-2",
                                         children: value.title
                                     }, void 0, false, {
                                         fileName: "[project]/components/recruitment/MissionValues.tsx",
@@ -774,7 +763,7 @@ function Eligibility() {
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "max-w-3xl mx-auto text-center mb-12",
                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "font-display text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-6",
+                        className: "font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-6",
                         children: "ELIGIBILITY REQUIREMENTS"
                     }, void 0, false, {
                         fileName: "[project]/components/recruitment/Eligibility.tsx",
@@ -800,7 +789,7 @@ function Eligibility() {
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
-                                    className: "font-display text-base font-bold uppercase tracking-wide text-secondary-light",
+                                    className: "font-body text-base font-bold uppercase tracking-wide text-secondary-light",
                                     children: card.text
                                 }, void 0, false, {
                                     fileName: "[project]/components/recruitment/Eligibility.tsx",
