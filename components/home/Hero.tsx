@@ -14,11 +14,16 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-cloud-50 via-white to-white">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
-        <div className="absolute top-40 right-20 w-96 h-96 bg-cloud-200/30 rounded-full blur-3xl" />
-        <div className="absolute bottom-32 left-1/3 w-80 h-80 bg-accent/3 rounded-full blur-3xl" />
+      {/* Enhanced background with floating clouds */}
+      <div className="absolute inset-0">
+        {/* Animated gradient orbs */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-accent/8 rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite]" />
+        <div className="absolute top-40 right-20 w-96 h-96 bg-cloud-200/40 rounded-full blur-3xl animate-[float_10s_ease-in-out_infinite_reverse]" />
+        <div className="absolute bottom-32 left-1/3 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-[float_12s_ease-in-out_infinite]" />
+        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-cloud-300/20 rounded-full blur-3xl animate-[float_9s_ease-in-out_infinite_reverse]" />
+
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: 'radial-gradient(circle, #1e293b 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
       </div>
 
       {/* Content */}

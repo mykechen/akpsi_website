@@ -82,25 +82,28 @@ export default function ActiveMembers() {
             const membersInClass = membersByPledgeClass[pledgeClass];
             return (
               <div key={pledgeClass} className="mt-16">
-                <SectionHeader title={pledgeClass} />
-                <div className="mt-12 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+                <h3 className="text-xl md:text-2xl font-bold text-secondary-light mb-6 uppercase">
+                  {pledgeClass}
+                </h3>
+                <div className="mt-6 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
                   {membersInClass.map((member) => (
                     <button
                       key={member.id}
-                      className="text-left cursor-pointer w-full"
+                      className="group text-left cursor-pointer w-full"
                       onClick={() => handleMemberClick(member)}
                       aria-label={`View ${member.name}'s profile`}
                     >
-                      <div className="relative aspect-square overflow-hidden rounded-xl bg-primary-light border border-secondary/10 transition-all duration-300 hover:border-accent/30">
+                      <div className="relative aspect-square overflow-hidden rounded-xl bg-cloud-50 border border-secondary/5 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-accent/20 group-hover:shadow-[0_8px_20px_-4px_rgba(37,99,235,0.12)] group-hover:scale-[1.02]">
                         <Image
                           src={member.photo}
                           alt={member.name}
                           fill
-                          className="object-cover"
+                          className="object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
                           unoptimized
                         />
                       </div>
-                      <p className="mt-2 text-secondary/70 text-xs text-center truncate">
+                      <p className="mt-2 text-secondary-dark/60 text-xs text-center truncate transition-colors group-hover:text-secondary-light">
                         {member.name}
                       </p>
                     </button>

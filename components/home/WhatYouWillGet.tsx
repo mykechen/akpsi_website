@@ -88,7 +88,7 @@ export default function WhatYouWillGet() {
           <span className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
             What You'll Gain
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-secondary-light">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-secondary-light uppercase">
             Built for your success
           </h2>
         </div>
@@ -98,22 +98,23 @@ export default function WhatYouWillGet() {
           {cards.map((card, index) => (
             <div
               key={card.id}
-              className={`
-                group relative bg-white rounded-3xl p-8 lg:p-10
-                border border-secondary/5
-                shadow-[0_4px_24px_-4px_rgba(0,0,0,0.06)]
-                transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
-                hover:shadow-[0_20px_50px_-12px_rgba(37,99,235,0.15)]
-                hover:border-accent/20
-                hover:-translate-y-2
-                ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-              `}
+              className="group relative bg-white rounded-3xl p-8 lg:p-10 border border-secondary/5 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_-12px_rgba(37,99,235,0.15)] hover:border-accent/20 hover:-translate-y-2"
               style={{
-                transitionDelay: isRevealed ? `${index * 100}ms` : "0ms",
+                opacity: isRevealed ? 1 : 0,
+                transform: isRevealed ? "translateY(0)" : "translateY(2rem)",
+                transition: isRevealed 
+                  ? `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 100}ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 100}ms, box-shadow 0.2s ease-out 0s, border-color 0.2s ease-out 0s`
+                  : "opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transition = "box-shadow 0.2s ease-out, border-color 0.2s ease-out, transform 0.2s ease-out";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transition = `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 100}ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 100}ms, box-shadow 0.2s ease-out, border-color 0.2s ease-out`;
               }}
             >
               {/* Icon container */}
-              <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-accent/10 text-accent mb-6 transition-all duration-300 group-hover:bg-accent group-hover:text-white group-hover:scale-110">
+              <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-accent/10 text-accent mb-6 transition-[background-color,color,transform] duration-200 group-hover:bg-accent group-hover:text-white group-hover:scale-110">
                 {card.icon}
               </div>
 

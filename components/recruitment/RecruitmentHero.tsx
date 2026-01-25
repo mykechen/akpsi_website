@@ -3,6 +3,108 @@
 import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 
+// Application deadline: January 30, 2026 at 11:59 PM PST
+const DEADLINE = new Date("2026-01-31T07:59:00Z"); // UTC equivalent
+
+interface TimeLeft {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+}
+
+function calculateTimeLeft(): TimeLeft {
+  const now = new Date();
+  const difference = DEADLINE.getTime() - now.getTime();
+
+  if (difference <= 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
+
+  return {
+    days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((difference / (1000 * 60)) % 60),
+    seconds: Math.floor((difference / 1000) % 60),
+  };
+}
+
+function CountdownTimer({ isLoaded }: { isLoaded: boolean }) {
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft(calculateTimeLeft());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const formatNumber = (num: number) => num.toString().padStart(2, "0");
+
+  return (
+    <div
+      className={`
+        flex items-center justify-center gap-2 sm:gap-4 md:gap-6
+        transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200
+        ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
+      `}
+    >
+      {/* Days */}
+      <div className="flex flex-col items-center">
+        <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-secondary-dark/70 tracking-tight">
+          {formatNumber(timeLeft.days)}
+        </span>
+        <span className="text-[10px] sm:text-xs text-secondary-dark/40 mt-1 tracking-wide">
+          Days
+        </span>
+      </div>
+
+      <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-secondary-dark/20 -mt-4">
+        :
+      </span>
+
+      {/* Hours */}
+      <div className="flex flex-col items-center">
+        <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-secondary-dark/70 tracking-tight">
+          {formatNumber(timeLeft.hours)}
+        </span>
+        <span className="text-[10px] sm:text-xs text-secondary-dark/40 mt-1 tracking-wide">
+          Hours
+        </span>
+      </div>
+
+      <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-secondary-dark/20 -mt-4">
+        :
+      </span>
+
+      {/* Minutes */}
+      <div className="flex flex-col items-center">
+        <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-secondary-dark/70 tracking-tight">
+          {formatNumber(timeLeft.minutes)}
+        </span>
+        <span className="text-[10px] sm:text-xs text-secondary-dark/40 mt-1 tracking-wide">
+          Minutes
+        </span>
+      </div>
+
+      <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-secondary-dark/20 -mt-4">
+        :
+      </span>
+
+      {/* Seconds */}
+      <div className="flex flex-col items-center">
+        <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-secondary-dark/70 tracking-tight">
+          {formatNumber(timeLeft.seconds)}
+        </span>
+        <span className="text-[10px] sm:text-xs text-secondary-dark/40 mt-1 tracking-wide">
+          Seconds
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default function RecruitmentHero() {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -44,41 +146,31 @@ export default function RecruitmentHero() {
           JOIN ALPHA ZETA
         </h1>
 
-        {/* Semester */}
+        {/* Deadline label */}
         <p
           className={`
-            text-2xl md:text-3xl font-semibold text-accent mb-4
+            text-xl md:text-2xl text-secondary-light mb-8
             transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-150
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
           `}
         >
-          Spring 2026
+          Application Deadline: January 30, 2026 at 11:59 PM
         </p>
 
-        {/* Deadline */}
-        <p
-          className={`
-            text-lg text-secondary-dark/60 mb-12
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200
-            ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
-          `}
-        >
-          Application Deadline: January 14, 2026 at 11:59 PM
-        </p>
+        {/* Countdown Timer */}
+        <div className="mb-12">
+          <CountdownTimer isLoaded={isLoaded} />
+        </div>
 
         {/* CTA */}
         <div
           className={`
-            flex flex-col sm:flex-row items-center justify-center gap-4
             transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-300
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
           `}
         >
           <Button href="https://forms.google.com" variant="primary" size="lg">
             Apply Now
-          </Button>
-          <Button href="#timeline" variant="outline" size="lg">
-            View Timeline
           </Button>
         </div>
       </div>

@@ -8,7 +8,12 @@ const valuesData = values as Value[];
 
 const iconMap: { [key: string]: React.ReactNode } = {
   users: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -18,7 +23,12 @@ const iconMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   shield: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -28,7 +38,12 @@ const iconMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   star: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -38,7 +53,12 @@ const iconMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   handshake: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -48,7 +68,12 @@ const iconMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   heart: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <svg
+      className="w-6 h-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -76,12 +101,12 @@ export default function MissionValues() {
           <span className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
             Our Foundation
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-secondary-light mb-6">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-secondary-light mb-6 uppercase">
             What We Stand For
           </h2>
           <p className="text-secondary-dark/70 text-lg leading-relaxed">
-            Alpha Zeta is dedicated to fostering professional growth, leadership,
-            and community among its members.
+            Alpha Zeta is dedicated to fostering professional growth,
+            leadership, and community among its members.
           </p>
         </div>
 
@@ -96,21 +121,23 @@ export default function MissionValues() {
           {valuesData.map((value, index) => (
             <div
               key={value.id}
-              className={`
-                group text-center p-6 bg-white rounded-2xl
-                border border-secondary/5
-                shadow-[0_2px_12px_-2px_rgba(0,0,0,0.04)]
-                transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
-                hover:shadow-[0_12px_32px_-8px_rgba(37,99,235,0.12)]
-                hover:border-accent/20
-                hover:-translate-y-1
-              `}
+              className="group text-center p-6 bg-white rounded-2xl border border-secondary/5 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_-8px_rgba(37,99,235,0.12)] hover:border-accent/20 hover:-translate-y-1"
               style={{
-                transitionDelay: isRevealed ? `${index * 80}ms` : "0ms",
+                opacity: isRevealed ? 1 : 0,
+                transform: isRevealed ? "translateY(0)" : "translateY(2rem)",
+                transition: isRevealed 
+                  ? `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 80}ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 80}ms, box-shadow 0.2s ease-out 0s, border-color 0.2s ease-out 0s`
+                  : "opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transition = "box-shadow 0.2s ease-out, border-color 0.2s ease-out, transform 0.2s ease-out";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transition = `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 80}ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 80}ms, box-shadow 0.2s ease-out, border-color 0.2s ease-out`;
               }}
             >
               {/* Icon */}
-              <div className="w-14 h-14 mx-auto mb-5 bg-accent/10 rounded-2xl flex items-center justify-center text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-white group-hover:scale-110">
+              <div className="w-14 h-14 mx-auto mb-5 bg-accent/10 rounded-2xl flex items-center justify-center text-accent transition-[background-color,color,transform] duration-200 group-hover:bg-accent group-hover:text-white group-hover:scale-110">
                 {iconMap[value.icon] || iconMap.star}
               </div>
 

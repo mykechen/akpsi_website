@@ -70,7 +70,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={`
-                  relative text-sm font-medium tracking-wide uppercase
+                  group relative text-sm font-medium tracking-wide uppercase
                   transition-colors duration-200
                   ${
                     isScrolled || !hasDarkHero
@@ -84,10 +84,15 @@ export default function Navbar() {
                 `}
               >
                 {link.label}
-                {/* Active indicator */}
-                {isActive && (
-                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
-                )}
+                {/* Underline indicator - shows on active or hover */}
+                <span
+                  className={`
+                    absolute -bottom-1 left-0 h-0.5 rounded-full
+                    transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
+                    ${isScrolled || !hasDarkHero ? "bg-accent" : "bg-white"}
+                    ${isActive ? "right-0" : "right-full group-hover:right-0"}
+                  `}
+                />
               </Link>
             );
           })}

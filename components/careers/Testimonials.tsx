@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const testimonials = [
   {
@@ -9,6 +10,7 @@ const testimonials = [
     name: "John Smith",
     picture: "/images/placeholder.jpg",
     company: "Goldman Sachs",
+    track: "AZ13",
     review:
       "AZ13 gave me the technical foundation and network I needed to land my dream IB role. The mock interviews were invaluable.",
   },
@@ -17,6 +19,7 @@ const testimonials = [
     name: "Sarah Johnson",
     picture: "/images/placeholder.jpg",
     company: "McKinsey & Company",
+    track: "AZ Consulting",
     review:
       "The consulting track pushed me to think critically and structure my approach. I felt fully prepared walking into my case interviews.",
   },
@@ -25,6 +28,7 @@ const testimonials = [
     name: "Michael Chen",
     picture: "/images/placeholder.jpg",
     company: "Google",
+    track: "AZCS",
     review:
       "AZCS helped me go from struggling with Leetcode to confidently solving problems in interviews. The mentorship was top-notch.",
   },
@@ -33,6 +37,7 @@ const testimonials = [
     name: "Emily Davis",
     picture: "/images/placeholder.jpg",
     company: "Meta",
+    track: "AZPM",
     review:
       "The PM track taught me how to think about products holistically. The mock PM interviews and case studies were incredibly helpful.",
   },
@@ -41,6 +46,7 @@ const testimonials = [
     name: "David Kim",
     picture: "/images/placeholder.jpg",
     company: "Nike",
+    track: "AZ Marketing",
     review:
       "AZ Marketing gave me real portfolio pieces and the creative confidence to pursue brand strategy at a top company.",
   },
@@ -49,6 +55,7 @@ const testimonials = [
     name: "Jessica Lee",
     picture: "/images/placeholder.jpg",
     company: "JP Morgan",
+    track: "AZ13",
     review:
       "The alumni network alone is worth it. I got connected with brothers at every bank on the street who helped me through recruiting.",
   },
@@ -57,6 +64,7 @@ const testimonials = [
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const { ref, isRevealed } = useScrollReveal<HTMLElement>();
 
   const totalSlides = testimonials.length;
 
@@ -75,7 +83,7 @@ export default function Testimonials() {
   }, [isTransitioning, totalSlides]);
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(nextSlide, 6000);
     return () => clearInterval(interval);
   }, [nextSlide]);
 
@@ -88,23 +96,42 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-primary-light/30">
+    <section
+      ref={ref}
+      className="py-24 md:py-40 bg-gradient-to-b from-cloud-50 to-white"
+    >
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-4">
-            WHAT OUR MEMBERS SAY
+        {/* Header */}
+        <div
+          className={`
+            text-center mb-16 md:mb-20
+            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+          `}
+        >
+          <span className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
+            Success Stories
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-secondary-light mb-4 uppercase">
+            What Our Members Say
           </h2>
-          <p className="text-lg text-secondary/60 max-w-2xl mx-auto">
+          <p className="text-secondary-dark/70 text-lg max-w-xl mx-auto">
             Hear from brothers who&apos;ve leveraged AZ Groups to launch their
             careers
           </p>
         </div>
 
-        <div className="relative">
+        <div
+          className={`
+            relative
+            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100
+            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+          `}
+        >
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 flex items-center justify-center bg-primary-light border border-white/10 rounded-full text-secondary/60 hover:text-accent hover:border-accent/30 transition-all"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 z-10 w-10 h-10 flex items-center justify-center bg-white border border-secondary/10 rounded-full text-secondary-dark/60 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] hover:text-accent hover:border-accent/30 hover:shadow-[0_4px_12px_-2px_rgba(37,99,235,0.15)] transition-all duration-200"
             aria-label="Previous testimonial"
           >
             <svg
@@ -124,7 +151,7 @@ export default function Testimonials() {
 
           <button
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 flex items-center justify-center bg-primary-light border border-white/10 rounded-full text-secondary/60 hover:text-accent hover:border-accent/30 transition-all"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 z-10 w-10 h-10 flex items-center justify-center bg-white border border-secondary/10 rounded-full text-secondary-dark/60 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] hover:text-accent hover:border-accent/30 hover:shadow-[0_4px_12px_-2px_rgba(37,99,235,0.15)] transition-all duration-200"
             aria-label="Next testimonial"
           >
             <svg
@@ -143,14 +170,40 @@ export default function Testimonials() {
           </button>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-8">
-            {getVisibleTestimonials().map((testimonial) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-8">
+            {getVisibleTestimonials().map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className="bg-primary-light border border-white/10 rounded-2xl p-6 transition-all duration-500 hover:border-accent/30"
+                className="group bg-white rounded-2xl p-6 border border-secondary/5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_-8px_rgba(37,99,235,0.12)] hover:border-accent/20 hover:-translate-y-1 transition-[box-shadow,border-color,transform] duration-200 ease-out"
+                style={{
+                  transitionDelay: `${index * 100}ms`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transition =
+                    "box-shadow 0.2s ease-out, border-color 0.2s ease-out, transform 0.2s ease-out";
+                  e.currentTarget.style.transitionDelay = "0s";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transition =
+                    "box-shadow 0.2s ease-out, border-color 0.2s ease-out, transform 0.2s ease-out";
+                  e.currentTarget.style.transitionDelay = "0s";
+                }}
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="relative w-14 h-14 shrink-0 rounded-full overflow-hidden bg-accent/10">
+                {/* Quote icon */}
+                <svg
+                  className="w-8 h-8 text-accent/20 mb-4"
+                  fill="currentColor"
+                  viewBox="0 0 32 32"
+                >
+                  <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm12 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z" />
+                </svg>
+
+                <p className="text-secondary-dark/70 text-sm leading-relaxed mb-6">
+                  {testimonial.review}
+                </p>
+
+                <div className="flex items-center gap-4 pt-4 border-t border-secondary/5">
+                  <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden bg-cloud-50">
                     <Image
                       src={testimonial.picture}
                       alt={testimonial.name}
@@ -160,21 +213,23 @@ export default function Testimonials() {
                     />
                   </div>
                   <div>
-                    <h3 className="font-body text-base font-semibold text-secondary-light">
+                    <h3 className="font-body text-sm font-semibold text-secondary-light">
                       {testimonial.name}
                     </h3>
-                    <p className="text-accent text-sm">{testimonial.company}</p>
+                    <p className="text-accent text-xs font-medium">
+                      {testimonial.company}
+                    </p>
+                    <p className="text-secondary-dark/50 text-xs">
+                      {testimonial.track}
+                    </p>
                   </div>
                 </div>
-                <p className="text-secondary/60 text-sm leading-relaxed">
-                  &ldquo;{testimonial.review}&rdquo;
-                </p>
               </div>
             ))}
           </div>
 
           {/* Dots */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-10">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -185,10 +240,10 @@ export default function Testimonials() {
                     setTimeout(() => setIsTransitioning(false), 500);
                   }
                 }}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                className={`h-2 rounded-full transition-all duration-300 ${
                   index === currentIndex
-                    ? "bg-accent w-6"
-                    : "bg-secondary/30 hover:bg-secondary/50"
+                    ? "bg-accent w-8"
+                    : "bg-secondary/20 w-2 hover:bg-secondary/40"
                 }`}
                 aria-label={`Go to testimonial ${index + 1}`}
               />

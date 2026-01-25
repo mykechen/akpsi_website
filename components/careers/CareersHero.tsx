@@ -12,8 +12,19 @@ export default function CareersHero() {
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image with subtle parallax effect */}
+      {/* Background video/image with subtle parallax effect */}
       <div className="absolute inset-0">
+        {/* Video background - uncomment when video file is available */}
+        {/* <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover scale-105"
+        >
+          <source src="/misc/careers-bg.mp4" type="video/mp4" />
+        </video> */}
+        {/* Fallback image */}
         <img
           src="/misc/careers-bg.jpeg"
           alt=""
@@ -51,7 +62,7 @@ export default function CareersHero() {
         </h1>
 
         {/* Career tracks */}
-        <div
+        {/* <div
           className={`
             flex flex-wrap justify-center gap-3 md:gap-4
             transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200
@@ -71,7 +82,7 @@ export default function CareersHero() {
               </span>
             )
           )}
-        </div>
+        </div> */}
       </div>
 
       {/* Scroll indicator */}

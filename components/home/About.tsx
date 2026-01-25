@@ -21,8 +21,8 @@ export default function About() {
           </span>
 
           {/* Main statement */}
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-secondary-light leading-tight mb-8">
-            USC's premier co-ed business society since 1922
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-secondary-light leading-tight mb-8 uppercase">
+            USC's premier business society
           </h2>
 
           {/* Supporting paragraphs with proper spacing */}
