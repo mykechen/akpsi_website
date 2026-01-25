@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors - Light Theme */
+  /* Colors - Cloud-inspired Light Theme */
   --color-primary: #ffffff;
   --color-primary-light: #f8fafc;
   --color-primary-dark: #f1f5f9;
 
   --color-secondary: #1e293b;
   --color-secondary-light: #0f172a;
-  --color-secondary-dark: #334155;
+  --color-secondary-dark: #475569;
 
   --color-accent: #2563eb;
   --color-accent-light: #3b82f6;
@@ -17,6 +17,37 @@
   /* Fonts */
   --font-display: var(--font-dm-serif-display), serif;
   --font-body: var(--font-dm-sans), sans-serif;
+}
+
+/* ========================================
+   Premium Animation System
+   ======================================== */
+
+:root {
+  /* Timing Functions */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Duration Scale */
+  --duration-micro: 200ms;
+  --duration-standard: 400ms;
+  --duration-macro: 700ms;
+
+  /* Spacing Scale for Sections */
+  --section-gap: 160px;
+  --section-gap-mobile: 96px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Base styles */
@@ -34,10 +65,14 @@ body {
 /* Headings use display font */
 h1 {
   font-family: var(--font-display);
-  letter-spacing: 0.025em;
+  letter-spacing: 0.02em;
 }
 
-/* Custom container */
+/* ========================================
+   Layout Utilities
+   ======================================== */
+
+/* Custom container with generous max-width */
 .container-custom {
   max-width: 80rem;
   margin-left: auto;
@@ -46,20 +81,113 @@ h1 {
   padding-right: 1.5rem;
 }
 
-/* Section padding */
+@media (min-width: 768px) {
+  .container-custom {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Section spacing - MUCH more generous */
 .section-padding {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: var(--section-gap-mobile);
+  padding-bottom: var(--section-gap-mobile);
 }
 
 @media (min-width: 768px) {
   .section-padding {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: var(--section-gap);
+    padding-bottom: var(--section-gap);
   }
 }
 
-/* Gradient utilities */
+/* ========================================
+   Scroll Reveal Animations
+   ======================================== */
+
+/* Base state for scroll reveal elements */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-standard) var(--ease-premium),
+    transform var(--duration-standard) var(--ease-premium);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--duration-standard) var(--ease-premium),
+    transform var(--duration-standard) var(--ease-premium);
+}
+
+.reveal-stagger.revealed > *:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.revealed > *:nth-child(2) { transition-delay: 80ms; }
+.reveal-stagger.revealed > *:nth-child(3) { transition-delay: 160ms; }
+.reveal-stagger.revealed > *:nth-child(4) { transition-delay: 240ms; }
+.reveal-stagger.revealed > *:nth-child(5) { transition-delay: 320ms; }
+.reveal-stagger.revealed > *:nth-child(6) { transition-delay: 400ms; }
+
+.reveal-stagger.revealed > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ========================================
+   Cloud-themed Card Styles
+   ======================================== */
+
+.card-cloud {
+  background: var(--color-primary);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 1.25rem;
+  box-shadow:
+    0 4px 20px -2px rgba(0, 0, 0, 0.05),
+    0 2px 8px -2px rgba(0, 0, 0, 0.03);
+  transition:
+    transform var(--duration-micro) var(--ease-premium),
+    box-shadow var(--duration-micro) var(--ease-premium),
+    border-color var(--duration-micro) var(--ease-smooth);
+}
+
+.card-cloud:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 50px -8px rgba(37, 99, 235, 0.12),
+    0 8px 24px -8px rgba(0, 0, 0, 0.06);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+/* Floating card variant */
+.card-floating {
+  background: var(--color-primary);
+  border-radius: 1.5rem;
+  box-shadow:
+    0 8px 32px -4px rgba(0, 0, 0, 0.06),
+    0 4px 12px -4px rgba(0, 0, 0, 0.04);
+  transition:
+    transform var(--duration-standard) var(--ease-premium),
+    box-shadow var(--duration-standard) var(--ease-premium);
+}
+
+.card-floating:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 24px 64px -12px rgba(37, 99, 235, 0.15),
+    0 12px 32px -8px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   Premium Gradients
+   ======================================== */
+
 .gradient-blue {
   background: linear-gradient(
     135deg,
@@ -69,33 +197,37 @@ h1 {
   );
 }
 
+.gradient-cloud {
+  background: linear-gradient(
+    180deg,
+    #f0f9ff 0%,
+    var(--color-primary) 100%
+  );
+}
+
+.gradient-hero {
+  background: linear-gradient(
+    180deg,
+    #f8fafc 0%,
+    var(--color-primary) 30%,
+    var(--color-primary) 100%
+  );
+}
+
 .text-gradient {
   background: linear-gradient(
     135deg,
-    var(--color-accent-light) 0%,
-    var(--color-accent) 100%
+    var(--color-accent) 0%,
+    var(--color-accent-light) 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Animation utilities */
-.animate-fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.animate-slide-in-left {
-  animation: slideInLeft 0.6s ease-out forwards;
-}
-
-.animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out forwards;
-}
+/* ========================================
+   Animation Keyframes
+   ======================================== */
 
 @keyframes fadeIn {
   from {
@@ -109,7 +241,7 @@ h1 {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
   to {
     opacity: 1;
@@ -120,7 +252,7 @@ h1 {
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-30px);
+    transform: translateX(-24px);
   }
   to {
     opacity: 1;
@@ -131,11 +263,29 @@ h1 {
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(30px);
+    transform: translateX(24px);
   }
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
   }
 }
 
@@ -157,15 +307,78 @@ h1 {
   }
 }
 
+/* Animation utilities */
+.animate-fade-in {
+  animation: fadeIn var(--duration-standard) var(--ease-premium) forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-standard) var(--ease-premium) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft var(--duration-standard) var(--ease-premium) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight var(--duration-standard) var(--ease-premium) forwards;
+}
+
+.animate-float {
+  animation: float 4s var(--ease-smooth) infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s var(--ease-smooth) infinite;
+}
+
 .animate-scroll-right {
-  animation: scroll-right 30s linear infinite;
+  animation: scroll-right 40s linear infinite;
 }
 
 .animate-scroll-left {
-  animation: scroll-left 30s linear infinite;
+  animation: scroll-left 40s linear infinite;
 }
 
-/* Scrollbar styling */
+/* ========================================
+   Interactive Elements
+   ======================================== */
+
+/* Premium button hover */
+.btn-premium {
+  transition:
+    transform var(--duration-micro) var(--ease-premium),
+    box-shadow var(--duration-micro) var(--ease-premium);
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+}
+
+.btn-premium:active {
+  transform: translateY(0);
+}
+
+/* Company logo hover */
+.logo-hover {
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition:
+    filter var(--duration-micro) var(--ease-smooth),
+    opacity var(--duration-micro) var(--ease-smooth),
+    transform var(--duration-micro) var(--ease-premium);
+}
+
+.logo-hover:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* ========================================
+   Scrollbar styling
+   ======================================== */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -175,7 +388,7 @@ h1 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-secondary-dark);
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
@@ -183,8 +396,27 @@ h1 {
   background: var(--color-accent);
 }
 
-/* Focus styles for accessibility */
+/* ========================================
+   Focus styles for accessibility
+   ======================================== */
+
 *:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
+}
+
+/* ========================================
+   Typography Utilities
+   ======================================== */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.tracking-premium {
+  letter-spacing: 0.02em;
+}
+
+.tracking-wide-premium {
+  letter-spacing: 0.06em;
 }

@@ -16,7 +16,8 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  const showBackground = isScrolled || pathname === "/careers";
+  // Pages with dark hero backgrounds need light nav text initially
+  const hasDarkHero = pathname === "/careers";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,40 +27,85 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        showBackground
-          ? "bg-primary/95 backdrop-blur-md border-b border-secondary/10 shadow-sm"
-          : "bg-transparent"
-      }`}
+      className={`
+        fixed top-0 left-0 right-0 z-50
+        transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
+        ${
+          isScrolled
+            ? "bg-white/95 backdrop-blur-md border-b border-secondary/5 shadow-sm"
+            : "bg-transparent"
+        }
+      `}
     >
       <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
-          className="font-body text-2xl font-bold tracking-wide text-secondary-light hover:text-accent transition-colors"
+          className={`
+            font-body text-xl font-bold tracking-wide
+            transition-colors duration-200
+            ${
+              isScrolled || !hasDarkHero
+                ? "text-secondary-light hover:text-accent"
+                : "text-white hover:text-white/80"
+            }
+          `}
         >
           ALPHA ZETA
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-secondary/80 hover:text-secondary-light transition-colors text-sm font-medium tracking-wide uppercase"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`
+                  relative text-sm font-medium tracking-wide uppercase
+                  transition-colors duration-200
+                  ${
+                    isScrolled || !hasDarkHero
+                      ? isActive
+                        ? "text-accent"
+                        : "text-secondary-dark hover:text-secondary-light"
+                      : isActive
+                        ? "text-white"
+                        : "text-white/70 hover:text-white"
+                  }
+                `}
+              >
+                {link.label}
+                {/* Active indicator */}
+                {isActive && (
+                  <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-accent rounded-full" />
+                )}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Apply Button */}
         <Link
           href="/recruitment"
-          className="hidden md:inline-flex items-center justify-center px-6 py-2.5 bg-gradient-to-r from-accent-dark via-accent to-accent-light text-white font-medium text-sm rounded-full hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 hover:-translate-y-0.5"
+          className={`
+            hidden md:inline-flex items-center justify-center px-5 py-2
+            font-medium text-sm rounded-full
+            transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${
+              isScrolled || !hasDarkHero
+                ? "bg-accent text-white hover:bg-accent-dark hover:-translate-y-0.5 hover:shadow-[0_8px_20px_-4px_rgba(37,99,235,0.4)]"
+                : "bg-white text-secondary-light hover:bg-white/90 hover:-translate-y-0.5"
+            }
+          `}
         >
           Apply Now
         </Link>
@@ -67,50 +113,73 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden relative w-8 h-8 flex flex-col items-center justify-center gap-1.5"
+          className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5"
           aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
         >
           <span
-            className={`w-6 h-0.5 bg-secondary-light transition-all duration-300 ${
-              isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-            }`}
+            className={`
+              w-6 h-0.5 rounded-full transition-all duration-300
+              ${isScrolled || !hasDarkHero ? "bg-secondary-light" : "bg-white"}
+              ${isMobileMenuOpen ? "rotate-45 translate-y-2" : ""}
+            `}
           />
           <span
-            className={`w-6 h-0.5 bg-secondary-light transition-all duration-300 ${
-              isMobileMenuOpen ? "opacity-0" : ""
-            }`}
+            className={`
+              w-6 h-0.5 rounded-full transition-all duration-300
+              ${isScrolled || !hasDarkHero ? "bg-secondary-light" : "bg-white"}
+              ${isMobileMenuOpen ? "opacity-0" : ""}
+            `}
           />
           <span
-            className={`w-6 h-0.5 bg-secondary-light transition-all duration-300 ${
-              isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-            }`}
+            className={`
+              w-6 h-0.5 rounded-full transition-all duration-300
+              ${isScrolled || !hasDarkHero ? "bg-secondary-light" : "bg-white"}
+              ${isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}
+            `}
           />
         </button>
       </nav>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-20 left-0 right-0 bg-primary/98 backdrop-blur-md border-b border-secondary/10 shadow-sm transition-all duration-300 ${
-          isMobileMenuOpen
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-4 pointer-events-none"
-        }`}
+        className={`
+          md:hidden absolute top-20 left-0 right-0
+          bg-white/98 backdrop-blur-md border-b border-secondary/5 shadow-lg
+          transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
+          ${
+            isMobileMenuOpen
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 -translate-y-4 pointer-events-none"
+          }
+        `}
       >
-        <div className="flex flex-col p-6 gap-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-secondary/80 hover:text-secondary-light transition-colors text-lg font-medium py-2"
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="flex flex-col p-6 gap-2">
+          {navLinks.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`
+                  text-lg font-medium py-3 px-4 rounded-xl
+                  transition-colors duration-200
+                  ${
+                    isActive
+                      ? "text-accent bg-accent/5"
+                      : "text-secondary-dark hover:text-secondary-light hover:bg-secondary/5"
+                  }
+                `}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <Link
             href="/recruitment"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-accent-dark via-accent to-accent-light text-white font-medium rounded-full mt-2"
+            className="mt-4 inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-full hover:bg-accent-dark transition-colors"
           >
             Apply Now
           </Link>

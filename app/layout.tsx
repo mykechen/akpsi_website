@@ -18,21 +18,23 @@ const dmSerifDisplay = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Alpha Zeta | USC Professional Business Fraternity",
+  title: "Alpha Zeta | USC Professional Business Society",
   description:
-    "Alpha Zeta is a professional business fraternity at USC focused on brotherhood, professional development, and community service.",
+    "Alpha Zeta is USC's premier co-ed business society focused on professional development, career excellence, and lifelong brotherhood since 1922.",
   keywords: [
     "Alpha Zeta",
     "USC",
-    "business fraternity",
+    "business society",
     "professional development",
-    "brotherhood",
+    "careers",
+    "investment banking",
+    "consulting",
   ],
   authors: [{ name: "Alpha Zeta USC" }],
   openGraph: {
-    title: "Alpha Zeta | USC Professional Business Fraternity",
+    title: "Alpha Zeta | USC Professional Business Society",
     description:
-      "Alpha Zeta is a professional business fraternity at USC focused on brotherhood, professional development, and community service.",
+      "Alpha Zeta is USC's premier co-ed business society focused on professional development, career excellence, and lifelong brotherhood since 1922.",
     type: "website",
   },
 };
@@ -44,7 +46,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${dmSans.variable} ${dmSerifDisplay.variable}`}>
-      <body className="bg-primary text-secondary font-body antialiased">
+      <body className="bg-white text-secondary font-body antialiased">
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

@@ -1,16 +1,14 @@
+"use client";
+
 import values from "@/data/values.json";
 import type { Value } from "@/types";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const valuesData = values as Value[];
 
 const iconMap: { [key: string]: React.ReactNode } = {
   users: (
-    <svg
-      className="w-6 h-6"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -20,12 +18,7 @@ const iconMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   shield: (
-    <svg
-      className="w-6 h-6"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -35,12 +28,7 @@ const iconMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   star: (
-    <svg
-      className="w-6 h-6"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -50,12 +38,7 @@ const iconMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   handshake: (
-    <svg
-      className="w-6 h-6"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -65,12 +48,7 @@ const iconMap: { [key: string]: React.ReactNode } = {
     </svg>
   ),
   heart: (
-    <svg
-      className="w-6 h-6"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
+    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -82,43 +60,71 @@ const iconMap: { [key: string]: React.ReactNode } = {
 };
 
 export default function MissionValues() {
+  const { ref, isRevealed } = useScrollReveal<HTMLElement>();
+
   return (
-    <section className="py-16 md:py-24">
+    <section ref={ref} className="py-24 md:py-40 bg-cloud-50/50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
-        <div className="max-w-3xl mx-auto text-center mb-12">
-          <h2 className="font-body text-3xl md:text-4xl font-bold tracking-wide text-secondary-light mb-4">
-            WHAT WE STAND FOR
+        <div
+          className={`
+            max-w-3xl mx-auto text-center mb-16 md:mb-20
+            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+          `}
+        >
+          <span className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
+            Our Foundation
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-secondary-light mb-6">
+            What We Stand For
           </h2>
-          <p className="text-secondary/70 text-lg leading-relaxed">
-            Alpha Zeta is dedicated to fostering professional growth,
-            leadership, and community among its members. These are our mission
-            and values
+          <p className="text-secondary-dark/70 text-lg leading-relaxed">
+            Alpha Zeta is dedicated to fostering professional growth, leadership,
+            and community among its members.
           </p>
         </div>
 
-        {/* Values Section with Light Blue Background */}
-        <div className="bg-blue-50 rounded-2xl p-8 md:p-12">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-            {valuesData.map((value) => (
-              <div key={value.id} className="text-center">
-                {/* Icon in Light Blue Square */}
-                <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-xl flex items-center justify-center text-white">
-                  {iconMap[value.icon] || iconMap.star}
-                </div>
-
-                {/* Value Title */}
-                <h3 className="font-body text-lg font-bold text-secondary-light mb-2">
-                  {value.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-secondary/70 text-sm leading-relaxed">
-                  {value.description}
-                </p>
+        {/* Values Grid */}
+        <div
+          className={`
+            grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6
+            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100
+            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
+          `}
+        >
+          {valuesData.map((value, index) => (
+            <div
+              key={value.id}
+              className={`
+                group text-center p-6 bg-white rounded-2xl
+                border border-secondary/5
+                shadow-[0_2px_12px_-2px_rgba(0,0,0,0.04)]
+                transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
+                hover:shadow-[0_12px_32px_-8px_rgba(37,99,235,0.12)]
+                hover:border-accent/20
+                hover:-translate-y-1
+              `}
+              style={{
+                transitionDelay: isRevealed ? `${index * 80}ms` : "0ms",
+              }}
+            >
+              {/* Icon */}
+              <div className="w-14 h-14 mx-auto mb-5 bg-accent/10 rounded-2xl flex items-center justify-center text-accent transition-all duration-300 group-hover:bg-accent group-hover:text-white group-hover:scale-110">
+                {iconMap[value.icon] || iconMap.star}
               </div>
-            ))}
-          </div>
+
+              {/* Value Title */}
+              <h3 className="font-body text-base font-semibold text-secondary-light mb-3">
+                {value.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-secondary-dark/60 text-sm leading-relaxed">
+                {value.description}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
