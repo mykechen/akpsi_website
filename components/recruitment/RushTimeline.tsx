@@ -1,10 +1,15 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { useInView } from "framer-motion";
+import { useState, useRef, useEffect, useCallback } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import events from "@/data/events.json";
 import type { Event } from "@/types";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+// Register plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const eventsData: Event[] = events;
 
@@ -14,42 +19,76 @@ function TimelineEvent({
   index,
   isExpanded,
   onInView,
-  isRevealed,
+  isFirst,
 }: {
   event: Event;
   index: number;
   isExpanded: boolean;
   onInView: () => void;
-  isRevealed: boolean;
+  isFirst: boolean;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
-  // Detect when this event is in the center zone (30-70% of viewport)
-  // margin: "top right bottom left" - negative values shrink the detection area
-  const isInView = useInView(ref, {
-    margin: "-30% 0px -30% 0px", // Creates a 40% tall center zone
-    amount: 0.5, // At least 50% of the element must be in the zone
-  });
-
-  // When this event enters the center zone, notify parent
   useEffect(() => {
-    if (isInView) {
-      onInView();
+    const element = ref.current;
+    if (!element) return;
+
+    // Create scroll trigger for detecting when event is in view
+    const trigger = ScrollTrigger.create({
+      trigger: element,
+      // First event gets a larger detection zone since it can't reach center
+      start: isFirst ? "top 60%" : "top 50%",
+      end: isFirst ? "bottom 20%" : "bottom 50%",
+      onEnter: () => {
+        onInView();
+      },
+      onEnterBack: () => {
+        onInView();
+      },
+    });
+
+    return () => {
+      trigger.kill();
+    };
+  }, [onInView, isFirst]);
+
+  // Scroll reveal animation
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      gsap.set(element, { opacity: 1, y: 0 });
+      return;
     }
-  }, [isInView, onInView]);
+
+    gsap.set(element, { opacity: 0, y: 40 });
+
+    const animation = gsap.to(element, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      delay: index * 0.1,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: element,
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    return () => {
+      animation.scrollTrigger?.kill();
+      animation.kill();
+    };
+  }, [index]);
 
   return (
-    <div
-      ref={ref}
-      className={`
-        relative pl-16 md:pl-20
-        transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-        ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-      `}
-      style={{
-        transitionDelay: isRevealed ? `${index * 100}ms` : "0ms",
-      }}
-    >
+    <div ref={ref} className="relative pl-16 md:pl-20">
       {/* Timeline dot */}
       <div
         className={`
@@ -86,9 +125,7 @@ function TimelineEvent({
             {event.date.split(",")[0]}
           </span>
           {event.time && (
-            <span className="text-secondary-dark/50 text-sm">
-              {event.time}
-            </span>
+            <span className="text-secondary-dark/50 text-sm">{event.time}</span>
           )}
         </div>
 
@@ -141,25 +178,63 @@ function TimelineEvent({
 
 export default function RushTimeline() {
   const [expandedEvent, setExpandedEvent] = useState<string | null>(
-    eventsData[0]?.id || null,
+    eventsData[0]?.id || null
   );
-  const { ref, isRevealed } = useScrollReveal<HTMLElement>();
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const header = headerRef.current;
+
+    if (!section || !header) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      gsap.set(header, { opacity: 1, y: 0 });
+      return;
+    }
+
+    gsap.set(header, { opacity: 0, y: 40 });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    tl.to(header, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    });
+
+    return () => {
+      tl.scrollTrigger?.kill();
+      tl.kill();
+    };
+  }, []);
+
+  // Memoized callback for event in-view
+  const handleEventInView = useCallback((eventId: string) => {
+    setExpandedEvent(eventId);
+  }, []);
 
   return (
     <section
       id="timeline"
-      ref={ref}
-      className="py-24 md:py-40 scroll-mt-20 bg-white"
+      ref={sectionRef}
+      className="py-24 md:py-40 scroll-mt-24 bg-white"
     >
       <div className="max-w-4xl mx-auto px-6">
         {/* Header */}
-        <div
-          className={`
-            text-center mb-16 md:mb-20
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-          `}
-        >
+        <div ref={headerRef} className="text-center mb-16 md:mb-20">
           <span className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
             Spring 2026
           </span>
@@ -185,8 +260,8 @@ export default function RushTimeline() {
                 event={event}
                 index={index}
                 isExpanded={expandedEvent === event.id}
-                onInView={() => setExpandedEvent(event.id)}
-                isRevealed={isRevealed}
+                onInView={() => handleEventInView(event.id)}
+                isFirst={index === 0}
               />
             ))}
           </div>

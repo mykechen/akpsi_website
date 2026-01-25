@@ -49,7 +49,7 @@ export default function Navbar() {
         <Link
           href="/"
           className={`
-            font-body text-xl font-bold tracking-wide
+            font-display text-xl font-bold tracking-wide
             transition-colors duration-200
             ${
               isScrolled || !hasDarkHero
@@ -100,7 +100,7 @@ export default function Navbar() {
 
         {/* Apply Button */}
         <Link
-          href="/recruitment"
+          href="https://tally.so/r/GxR5Rk"
           className={`
             hidden md:inline-flex items-center justify-center px-5 py-2
             font-medium text-sm rounded-full

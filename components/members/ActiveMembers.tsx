@@ -93,7 +93,7 @@ export default function ActiveMembers() {
                       onClick={() => handleMemberClick(member)}
                       aria-label={`View ${member.name}'s profile`}
                     >
-                      <div className="relative aspect-square overflow-hidden rounded-xl bg-cloud-50 border border-secondary/5 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-accent/20 group-hover:shadow-[0_8px_20px_-4px_rgba(37,99,235,0.12)] group-hover:scale-[1.02]">
+                      <div className="relative aspect-square overflow-hidden rounded-xl bg-cloud-50 border border-secondary/5 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] delay-75 group-hover:border-accent/20 group-hover:shadow-[0_8px_20px_-4px_rgba(37,99,235,0.12)] group-hover:scale-[1.02]">
                         <Image
                           src={member.photo}
                           alt={member.name}

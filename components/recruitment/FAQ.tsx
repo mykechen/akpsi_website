@@ -1,31 +1,85 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import faq from "@/data/faq.json";
 import type { FAQ as FAQType } from "@/types";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+// Register plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const faqData: FAQType[] = faq;
 
 export default function FAQ() {
   const [openId, setOpenId] = useState<string | null>(null);
-  const { ref, isRevealed } = useScrollReveal<HTMLElement>();
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const header = headerRef.current;
+    const list = listRef.current;
+
+    if (!section || !header || !list) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      gsap.set([header, list.children], { opacity: 1, y: 0 });
+      return;
+    }
+
+    // Set initial states
+    gsap.set(header, { opacity: 0, y: 40 });
+    gsap.set(list.children, { opacity: 0, y: 20 });
+
+    // Create timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    tl.to(header, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    }).to(
+      list.children,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.05,
+        ease: "power3.out",
+      },
+      "-=0.4"
+    );
+
+    return () => {
+      tl.scrollTrigger?.kill();
+      tl.kill();
+    };
+  }, []);
 
   const toggleFAQ = (id: string) => {
     setOpenId(openId === id ? null : id);
   };
 
   return (
-    <section ref={ref} className="py-24 md:py-40 bg-white">
+    <section ref={sectionRef} className="py-24 md:py-40 bg-white">
       <div className="max-w-3xl mx-auto px-6">
         {/* Header */}
-        <div
-          className={`
-            text-center mb-12 md:mb-16
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-          `}
-        >
+        <div ref={headerRef} className="text-center mb-12 md:mb-16">
           <span className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
             Got Questions?
           </span>
@@ -37,22 +91,16 @@ export default function FAQ() {
           </p>
         </div>
 
-        <div className="space-y-3">
-          {faqData.map((item, index) => (
+        <div ref={listRef} className="space-y-3">
+          {faqData.map((item) => (
             <div
               key={item.id}
               className={`
-                bg-cloud-50/50 border border-secondary/5 rounded-2xl overflow-hidden
-                transition-[opacity,transform,background-color,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
+                faq-item bg-cloud-50/50 border border-secondary/5 rounded-2xl overflow-hidden
+                transition-[background-color,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
                 hover:border-secondary/10
                 ${openId === item.id ? "bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] border-accent/20" : ""}
-                ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
               `}
-              style={{
-                transitionDelay: isRevealed
-                  ? `${index * 50}ms, ${index * 50}ms, 0ms, 0ms, 0ms`
-                  : "0ms",
-              }}
             >
               <button
                 onClick={() => toggleFAQ(item.id)}

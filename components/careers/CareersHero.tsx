@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Button from "@/components/ui/Button";
 
 export default function CareersHero() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -61,28 +62,27 @@ export default function CareersHero() {
           CAREER DEVELOPMENT
         </h1>
 
-        {/* Career tracks */}
-        {/* <div
+        {/* Learn More Button */}
+        <div
           className={`
-            flex flex-wrap justify-center gap-3 md:gap-4
             transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-200
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
           `}
         >
-          {["Investment Banking", "Consulting", "Tech & PM", "Computer Science", "Marketing"].map(
-            (track, index) => (
-              <span
-                key={track}
-                className="px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-white text-sm font-medium"
-                style={{
-                  transitionDelay: `${200 + index * 50}ms`,
-                }}
-              >
-                {track}
-              </span>
-            )
-          )}
-        </div> */}
+          <Button
+            onClick={() => {
+              const element = document.getElementById("what-are-az-groups");
+              if (element) {
+                element.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }}
+            variant="primary"
+            size="lg"
+            className="!bg-white !text-secondary-light hover:!bg-accent hover:!text-white cursor-pointer"
+          >
+            Learn More
+          </Button>
+        </div>
       </div>
 
       {/* Scroll indicator */}

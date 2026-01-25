@@ -169,7 +169,7 @@ export default function RecruitmentHero() {
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
           `}
         >
-          <Button href="https://forms.google.com" variant="primary" size="lg">
+          <Button href="https://tally.so/r/GxR5Rk" variant="primary" size="lg">
             Apply Now
           </Button>
         </div>

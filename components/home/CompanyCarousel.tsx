@@ -1,26 +1,152 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import companies from "@/data/companies.json";
 import type { Company } from "@/types";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+// Register plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const companyData: Company[] = companies;
 
-export default function CompanyCarousel() {
-  const { ref, isRevealed } = useScrollReveal<HTMLElement>();
+// Company logo with GSAP hover
+function CompanyLogo({ company }: { company: Company }) {
+  const logoRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  // Commented out hover functionality - logos stay in color
+  // useEffect(() => {
+  //   const container = logoRef.current;
+  //   const img = imgRef.current;
+  //   if (!container || !img) return;
+
+  //   const handleMouseEnter = () => {
+  //     gsap.to(img, {
+  //       scale: 1.1,
+  //       filter: "grayscale(0%)",
+  //       opacity: 1,
+  //       duration: 0.3,
+  //       ease: "power2.out",
+  //     });
+  //   };
+
+  //   const handleMouseLeave = () => {
+  //     gsap.to(img, {
+  //       scale: 1,
+  //       filter: "grayscale(100%)",
+  //       opacity: 0.5,
+  //       duration: 0.3,
+  //       ease: "power2.out",
+  //     });
+  //   };
+
+  //   container.addEventListener("mouseenter", handleMouseEnter);
+  //   container.addEventListener("mouseleave", handleMouseLeave);
+
+  //   return () => {
+  //     container.removeEventListener("mouseenter", handleMouseEnter);
+  //     container.removeEventListener("mouseleave", handleMouseLeave);
+  //   };
+  // }, []);
 
   return (
-    <section ref={ref} className="py-24 md:py-40 bg-white">
+    <div
+      ref={logoRef}
+      className="company-logo group flex items-center justify-center w-28 md:w-32 lg:w-36"
+    >
+      <Image
+        ref={imgRef}
+        src={company.logo}
+        alt={company.name}
+        width={144}
+        height={56}
+        className="h-10 md:h-12 lg:h-14 w-full object-contain"
+        unoptimized
+      />
+    </div>
+  );
+}
+
+export default function CompanyCarousel() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLParagraphElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const header = headerRef.current;
+    const grid = gridRef.current;
+    const footer = footerRef.current;
+
+    if (!section || !header || !grid || !footer) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      gsap.set([header, grid.children, footer], { opacity: 1, y: 0 });
+      return;
+    }
+
+    // Set initial states
+    gsap.set(header, { opacity: 0, y: 40 });
+    gsap.set(grid.children, { opacity: 0, y: 30 });
+    gsap.set(footer, { opacity: 0 });
+
+    // Create timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    tl.to(header, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+      .to(
+        grid.children,
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.5,
+          stagger: 0.04,
+          ease: "power3.out",
+        },
+        "-=0.4"
+      )
+      .to(
+        footer,
+        {
+          opacity: 1,
+          duration: 0.6,
+          ease: "power3.out",
+        },
+        "-=0.2"
+      );
+
+    return () => {
+      tl.scrollTrigger?.kill();
+      tl.kill();
+    };
+  }, []);
+
+  return (
+    <section id="company-carousel" ref={sectionRef} className="py-24 md:py-40 bg-transparent">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div
-          className={`
-            text-center mb-16 md:mb-20
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-          `}
-        >
+        <div ref={headerRef} className="text-center mb-16 md:mb-20">
           <span className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
             Our Network
           </span>
@@ -30,43 +156,19 @@ export default function CompanyCarousel() {
         </div>
 
         {/* Logo Grid - Adaptive Flexbox */}
-        <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-10 md:gap-x-16 md:gap-y-12">
-          {companyData.map((company, index) => (
-            <div
-              key={company.id}
-              className={`
-                group flex items-center justify-center w-28 md:w-32 lg:w-36
-                transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
-                ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
-              `}
-              style={{
-                transitionDelay: isRevealed ? `${150 + index * 40}ms` : "0ms",
-              }}
-            >
-              <Image
-                src={company.logo}
-                alt={company.name}
-                width={144}
-                height={56}
-                className="
-                  h-10 md:h-12 lg:h-14 w-full object-contain
-                  filter grayscale opacity-50
-                  transition-[filter,opacity,transform] duration-300 ease-out
-                  group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105
-                "
-                unoptimized
-              />
-            </div>
+        <div
+          ref={gridRef}
+          className="flex flex-wrap justify-center items-center gap-x-12 gap-y-10 md:gap-x-16 md:gap-y-12"
+        >
+          {companyData.map((company) => (
+            <CompanyLogo key={company.id} company={company} />
           ))}
         </div>
 
         {/* "And more" text */}
         <p
-          className={`
-            text-center text-secondary-dark/50 text-sm mt-12
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-300
-            ${isRevealed ? "opacity-100" : "opacity-0"}
-          `}
+          ref={footerRef}
+          className="text-center text-secondary-dark/50 text-sm mt-12"
         >
           And 100+ more companies across finance, tech, and consulting
         </p>

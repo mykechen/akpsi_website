@@ -1,8 +1,15 @@
 "use client";
 
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import values from "@/data/values.json";
 import type { Value } from "@/types";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+// Register plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const valuesData = values as Value[];
 
@@ -84,20 +91,128 @@ const iconMap: { [key: string]: React.ReactNode } = {
   ),
 };
 
-export default function MissionValues() {
-  const { ref, isRevealed } = useScrollReveal<HTMLElement>();
+// Value card with GSAP hover
+function ValueCard({ value }: { value: Value }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const handleMouseEnter = () => {
+      gsap.to(card, {
+        y: -4,
+        boxShadow: "0 12px 32px -8px rgba(37, 99, 235, 0.12)",
+        borderColor: "rgba(37, 99, 235, 0.2)",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(card, {
+        y: 0,
+        boxShadow: "0 2px 12px -2px rgba(0, 0, 0, 0.04)",
+        borderColor: "rgba(0, 0, 0, 0.05)",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    };
+
+    card.addEventListener("mouseenter", handleMouseEnter);
+    card.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      card.removeEventListener("mouseenter", handleMouseEnter);
+      card.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
 
   return (
-    <section ref={ref} className="py-24 md:py-40 bg-cloud-50/50">
+    <div
+      ref={cardRef}
+      className="value-card group text-center p-6 bg-white rounded-2xl border border-secondary/5 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.04)]"
+    >
+      {/* Icon */}
+      <div className="w-14 h-14 mx-auto mb-5 bg-accent/10 rounded-2xl flex items-center justify-center text-accent transition-[background-color,color,transform] duration-200 group-hover:bg-accent group-hover:text-white group-hover:scale-110">
+        {iconMap[value.icon] || iconMap.star}
+      </div>
+
+      {/* Value Title */}
+      <h3 className="font-body text-base font-semibold text-secondary-light mb-3">
+        {value.title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-secondary-dark/60 text-sm leading-relaxed">
+        {value.description}
+      </p>
+    </div>
+  );
+}
+
+export default function MissionValues() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const header = headerRef.current;
+    const grid = gridRef.current;
+
+    if (!section || !header || !grid) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      gsap.set([header, grid.children], { opacity: 1, y: 0 });
+      return;
+    }
+
+    // Set initial states
+    gsap.set(header, { opacity: 0, y: 40 });
+    gsap.set(grid.children, { opacity: 0, y: 30 });
+
+    // Create timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    tl.to(header, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    }).to(
+      grid.children,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.08,
+        ease: "power3.out",
+      },
+      "-=0.4"
+    );
+
+    return () => {
+      tl.scrollTrigger?.kill();
+      tl.kill();
+    };
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="py-24 md:py-40 bg-cloud-50/50">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header Section */}
-        <div
-          className={`
-            max-w-3xl mx-auto text-center mb-16 md:mb-20
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-          `}
-        >
+        <div ref={headerRef} className="max-w-3xl mx-auto text-center mb-16 md:mb-20">
           <span className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
             Our Foundation
           </span>
@@ -112,45 +227,11 @@ export default function MissionValues() {
 
         {/* Values Grid */}
         <div
-          className={`
-            grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100
-            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-          `}
+          ref={gridRef}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6"
         >
-          {valuesData.map((value, index) => (
-            <div
-              key={value.id}
-              className="group text-center p-6 bg-white rounded-2xl border border-secondary/5 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_-8px_rgba(37,99,235,0.12)] hover:border-accent/20 hover:-translate-y-1"
-              style={{
-                opacity: isRevealed ? 1 : 0,
-                transform: isRevealed ? "translateY(0)" : "translateY(2rem)",
-                transition: isRevealed 
-                  ? `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 80}ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 80}ms, box-shadow 0.2s ease-out 0s, border-color 0.2s ease-out 0s`
-                  : "opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1)",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transition = "box-shadow 0.2s ease-out, border-color 0.2s ease-out, transform 0.2s ease-out";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transition = `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 80}ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 80}ms, box-shadow 0.2s ease-out, border-color 0.2s ease-out`;
-              }}
-            >
-              {/* Icon */}
-              <div className="w-14 h-14 mx-auto mb-5 bg-accent/10 rounded-2xl flex items-center justify-center text-accent transition-[background-color,color,transform] duration-200 group-hover:bg-accent group-hover:text-white group-hover:scale-110">
-                {iconMap[value.icon] || iconMap.star}
-              </div>
-
-              {/* Value Title */}
-              <h3 className="font-body text-base font-semibold text-secondary-light mb-3">
-                {value.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-secondary-dark/60 text-sm leading-relaxed">
-                {value.description}
-              </p>
-            </div>
+          {valuesData.map((value) => (
+            <ValueCard key={value.id} value={value} />
           ))}
         </div>
       </div>

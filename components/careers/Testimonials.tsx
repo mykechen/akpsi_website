@@ -1,8 +1,14 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register plugin
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const testimonials = [
   {
@@ -61,10 +67,91 @@ const testimonials = [
   },
 ];
 
+// Testimonial card with GSAP hover
+function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    const handleMouseEnter = () => {
+      gsap.to(card, {
+        y: -4,
+        boxShadow: "0 12px 32px -8px rgba(37, 99, 235, 0.12)",
+        borderColor: "rgba(37, 99, 235, 0.2)",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    };
+
+    const handleMouseLeave = () => {
+      gsap.to(card, {
+        y: 0,
+        boxShadow: "0 4px 20px -4px rgba(0, 0, 0, 0.06)",
+        borderColor: "rgba(0, 0, 0, 0.05)",
+        duration: 0.3,
+        ease: "power2.out",
+      });
+    };
+
+    card.addEventListener("mouseenter", handleMouseEnter);
+    card.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      card.removeEventListener("mouseenter", handleMouseEnter);
+      card.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={cardRef}
+      className="testimonial-card group bg-white rounded-2xl p-6 border border-secondary/5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)]"
+    >
+      {/* Quote icon */}
+      <svg
+        className="w-8 h-8 text-accent/20 mb-4"
+        fill="currentColor"
+        viewBox="0 0 32 32"
+      >
+        <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm12 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z" />
+      </svg>
+
+      <p className="text-secondary-dark/70 text-sm leading-relaxed mb-6">
+        {testimonial.review}
+      </p>
+
+      <div className="flex items-center gap-4 pt-4 border-t border-secondary/5">
+        <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden bg-cloud-50">
+          <Image
+            src={testimonial.picture}
+            alt={testimonial.name}
+            fill
+            className="object-cover"
+            unoptimized
+          />
+        </div>
+        <div>
+          <h3 className="font-body text-sm font-semibold text-secondary-light">
+            {testimonial.name}
+          </h3>
+          <p className="text-accent text-xs font-medium">
+            {testimonial.company}
+          </p>
+          <p className="text-secondary-dark/50 text-xs">{testimonial.track}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const { ref, isRevealed } = useScrollReveal<HTMLElement>();
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   const totalSlides = testimonials.length;
 
@@ -87,6 +174,57 @@ export default function Testimonials() {
     return () => clearInterval(interval);
   }, [nextSlide]);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+    const header = headerRef.current;
+    const carousel = carouselRef.current;
+
+    if (!section || !header || !carousel) return;
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (prefersReducedMotion) {
+      gsap.set([header, carousel], { opacity: 1, y: 0 });
+      return;
+    }
+
+    // Set initial states
+    gsap.set(header, { opacity: 0, y: 40 });
+    gsap.set(carousel, { opacity: 0, y: 30 });
+
+    // Create timeline
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
+    });
+
+    tl.to(header, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    }).to(
+      carousel,
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power3.out",
+      },
+      "-=0.4"
+    );
+
+    return () => {
+      tl.scrollTrigger?.kill();
+      tl.kill();
+    };
+  }, []);
+
   const getVisibleTestimonials = () => {
     const visible = [];
     for (let i = 0; i < 3; i++) {
@@ -97,18 +235,12 @@ export default function Testimonials() {
 
   return (
     <section
-      ref={ref}
+      ref={sectionRef}
       className="py-24 md:py-40 bg-gradient-to-b from-cloud-50 to-white"
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div
-          className={`
-            text-center mb-16 md:mb-20
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-          `}
-        >
+        <div ref={headerRef} className="text-center mb-16 md:mb-20">
           <span className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
             Success Stories
           </span>
@@ -121,13 +253,7 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div
-          className={`
-            relative
-            transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100
-            ${isRevealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-          `}
-        >
+        <div ref={carouselRef} className="relative">
           {/* Navigation Arrows */}
           <button
             onClick={prevSlide}
@@ -171,60 +297,8 @@ export default function Testimonials() {
 
           {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-8">
-            {getVisibleTestimonials().map((testimonial, index) => (
-              <div
-                key={testimonial.id}
-                className="group bg-white rounded-2xl p-6 border border-secondary/5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_-8px_rgba(37,99,235,0.12)] hover:border-accent/20 hover:-translate-y-1 transition-[box-shadow,border-color,transform] duration-200 ease-out"
-                style={{
-                  transitionDelay: `${index * 100}ms`,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transition =
-                    "box-shadow 0.2s ease-out, border-color 0.2s ease-out, transform 0.2s ease-out";
-                  e.currentTarget.style.transitionDelay = "0s";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transition =
-                    "box-shadow 0.2s ease-out, border-color 0.2s ease-out, transform 0.2s ease-out";
-                  e.currentTarget.style.transitionDelay = "0s";
-                }}
-              >
-                {/* Quote icon */}
-                <svg
-                  className="w-8 h-8 text-accent/20 mb-4"
-                  fill="currentColor"
-                  viewBox="0 0 32 32"
-                >
-                  <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm12 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z" />
-                </svg>
-
-                <p className="text-secondary-dark/70 text-sm leading-relaxed mb-6">
-                  {testimonial.review}
-                </p>
-
-                <div className="flex items-center gap-4 pt-4 border-t border-secondary/5">
-                  <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden bg-cloud-50">
-                    <Image
-                      src={testimonial.picture}
-                      alt={testimonial.name}
-                      fill
-                      className="object-cover"
-                      unoptimized
-                    />
-                  </div>
-                  <div>
-                    <h3 className="font-body text-sm font-semibold text-secondary-light">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-accent text-xs font-medium">
-                      {testimonial.company}
-                    </p>
-                    <p className="text-secondary-dark/50 text-xs">
-                      {testimonial.track}
-                    </p>
-                  </div>
-                </div>
-              </div>
+            {getVisibleTestimonials().map((testimonial) => (
+              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
             ))}
           </div>
 

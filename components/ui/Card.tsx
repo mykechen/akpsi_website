@@ -9,7 +9,7 @@ export default function Card({ children, className = '', hover = true }: CardPro
     <div
       className={`
         bg-primary-light border border-secondary/10 rounded-2xl overflow-hidden
-        ${hover ? 'transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1' : ''}
+        ${hover ? 'transition-all duration-300 delay-75 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 hover:-translate-y-1' : ''}
         ${className}
       `}
     >
