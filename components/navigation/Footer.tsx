@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "ABOUT US" },
@@ -14,7 +15,14 @@ export default function Footer() {
         {/* Mobile: Centered Layout */}
         <div className="flex flex-col items-center text-center space-y-6 md:hidden">
           {/* Logo */}
-          <Link href="/" className="inline-block">
+          <Link href="/" className="inline-flex items-center gap-3">
+            <Image
+              src="/azlogo.png"
+              alt="Alpha Zeta Logo"
+              width={40}
+              height={40}
+              className="w-10 h-10"
+            />
             <h2 className="font-display text-4xl font-bold tracking-wide text-black">
               ALPHA ZETA
             </h2>
@@ -86,7 +94,14 @@ export default function Footer() {
           {/* Left Column - Logo, Tagline */}
           <div className="space-y-6">
             {/* Logo */}
-            <Link href="/" className="inline-block">
+            <Link href="/" className="inline-flex items-center gap-3">
+              <Image
+                src="/azlogo.png"
+                alt="Alpha Zeta Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
               <h2 className="font-display text-4xl font-bold tracking-wide text-black">
                 ALPHA ZETA
               </h2>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "About Us" },
@@ -52,6 +53,7 @@ export default function Navbar() {
         <Link
           href="/"
           className={`
+            flex items-center gap-2
             font-display text-xl font-bold tracking-wide
             transition-colors duration-200
             ${
@@ -61,6 +63,13 @@ export default function Navbar() {
             }
           `}
         >
+          <Image
+            src="/azlogo.png"
+            alt="Alpha Zeta Logo"
+            width={32}
+            height={32}
+            className="w-8 h-8"
+          />
           ALPHA ZETA
         </Link>
 
