@@ -19,41 +19,6 @@ function CompanyLogo({ company }: { company: Company }) {
   const logoRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
 
-  // Commented out hover functionality - logos stay in color
-  // useEffect(() => {
-  //   const container = logoRef.current;
-  //   const img = imgRef.current;
-  //   if (!container || !img) return;
-
-  //   const handleMouseEnter = () => {
-  //     gsap.to(img, {
-  //       scale: 1.1,
-  //       filter: "grayscale(0%)",
-  //       opacity: 1,
-  //       duration: 0.3,
-  //       ease: "power2.out",
-  //     });
-  //   };
-
-  //   const handleMouseLeave = () => {
-  //     gsap.to(img, {
-  //       scale: 1,
-  //       filter: "grayscale(100%)",
-  //       opacity: 0.5,
-  //       duration: 0.3,
-  //       ease: "power2.out",
-  //     });
-  //   };
-
-  //   container.addEventListener("mouseenter", handleMouseEnter);
-  //   container.addEventListener("mouseleave", handleMouseLeave);
-
-  //   return () => {
-  //     container.removeEventListener("mouseenter", handleMouseEnter);
-  //     container.removeEventListener("mouseleave", handleMouseLeave);
-  //   };
-  // }, []);
-
   return (
     <div
       ref={logoRef}
@@ -87,7 +52,7 @@ export default function CompanyCarousel() {
     if (!section || !header || !grid || !footer) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) {
@@ -124,7 +89,7 @@ export default function CompanyCarousel() {
           stagger: 0.04,
           ease: "power3.out",
         },
-        "-=0.4"
+        "-=0.4",
       )
       .to(
         footer,
@@ -133,7 +98,7 @@ export default function CompanyCarousel() {
           duration: 0.6,
           ease: "power3.out",
         },
-        "-=0.2"
+        "-=0.2",
       );
 
     return () => {
@@ -143,7 +108,11 @@ export default function CompanyCarousel() {
   }, []);
 
   return (
-    <section id="company-carousel" ref={sectionRef} className="py-24 md:py-40 bg-transparent">
+    <section
+      id="company-carousel"
+      ref={sectionRef}
+      className="py-24 md:py-40 bg-transparent"
+    >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div ref={headerRef} className="text-center mb-16 md:mb-20">

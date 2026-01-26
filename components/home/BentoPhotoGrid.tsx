@@ -1,14 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import photos from "@/data/photos.json";
-import type { Photo } from "@/types";
 
-const photosData = photos as Photo[];
+// Generate photo data from gallery images
+const galleryImages = Array.from({ length: 27 }, (_, i) => ({
+  id: String(i + 1),
+  src: `/images/gallery/img${i + 1}.png`,
+  caption: `Gallery Image ${i + 1}`,
+}));
 
 export default function BentoPhotoGrid() {
-  const topRowPhotos = photosData.slice(0, Math.ceil(photosData.length / 2));
-  const bottomRowPhotos = photosData.slice(Math.ceil(photosData.length / 2));
+  const topRowPhotos = galleryImages.slice(0, Math.ceil(galleryImages.length / 2));
+  const bottomRowPhotos = galleryImages.slice(Math.ceil(galleryImages.length / 2));
 
   const topRowDuplicated = [...topRowPhotos, ...topRowPhotos];
   const bottomRowDuplicated = [...bottomRowPhotos, ...bottomRowPhotos];

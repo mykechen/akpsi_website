@@ -5,27 +5,45 @@ import Button from "@/components/ui/Button";
 
 export default function CareersHero() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    // Check if mobile on mount and window resize
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
     const timer = setTimeout(() => setIsLoaded(true), 100);
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", checkMobile);
+    };
   }, []);
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background video/image with subtle parallax effect */}
       <div className="absolute inset-0">
-        {/* Video background - uncomment when video file is available */}
+        {/* Optimized video background with poster and responsive sources */}
         <video
           autoPlay
           loop
           muted
           playsInline
+          poster="/misc/optimized/careers-bg-poster.jpg"
           className="w-full h-full object-cover scale-105"
         >
-          <source src="/misc/careers-bg.mp4" type="video/mp4" />
+          {/* WebM sources first (better compression, modern browsers) */}
+          <source
+            src={isMobile ? "/misc/optimized/careers-bg-720p.webm" : "/misc/optimized/careers-bg-1080p.webm"}
+            type="video/webm"
+          />
+          {/* MP4 fallback (wider compatibility) */}
+          <source
+            src={isMobile ? "/misc/optimized/careers-bg-720p.mp4" : "/misc/optimized/careers-bg-1080p.mp4"}
+            type="video/mp4"
+          />
         </video>
-        {/* Fallback image */}
 
         {/* Gradient overlay for depth and legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />

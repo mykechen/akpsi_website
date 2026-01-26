@@ -17,7 +17,10 @@ export default function Navbar() {
   const pathname = usePathname();
 
   // Pages with dark hero backgrounds need light nav text initially
-  const hasDarkHero = pathname === "/careers";
+  const hasDarkHero =
+    pathname === "/careers" ||
+    pathname === "/recruitment" ||
+    pathname === "/members";
 
   useEffect(() => {
     const handleScroll = () => {

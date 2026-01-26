@@ -1,11 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import members from "@/data/members.json";
 import type { Member } from "@/types";
 import SectionHeader from "@/components/ui/SectionHeader";
 import MemberModal from "./MemberModal";
+import OptimizedMemberCard from "./OptimizedMemberCard";
 
 const membersData: Member[] = members;
 const activeMembers = membersData.filter((member) => !member.isAlumni);
@@ -68,8 +68,31 @@ export default function ActiveMembers() {
     setSelectedMember(null);
   };
 
+  // Track global index for staggered animations
+  let globalIndex = 0;
+
   return (
     <>
+      {/* Skeleton shimmer animation styles */}
+      <style jsx global>{`
+        @keyframes shimmer {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(100%);
+          }
+        }
+        .skeleton-shimmer {
+          animation: shimmer 1.5s infinite;
+        }
+        /* GPU acceleration for member cards */
+        .member-card {
+          will-change: transform;
+          transform: translateZ(0);
+        }
+      `}</style>
+
       <section className="py-16 md:py-24 bg-primary-light/30">
         <div className="max-w-7xl mx-auto px-6">
           <SectionHeader
@@ -85,29 +108,24 @@ export default function ActiveMembers() {
                 <h3 className="text-xl md:text-2xl font-bold text-secondary-light mb-6 uppercase">
                   {pledgeClass}
                 </h3>
-                <div className="mt-6 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
-                  {membersInClass.map((member) => (
-                    <button
-                      key={member.id}
-                      className="group text-left cursor-pointer w-full"
-                      onClick={() => handleMemberClick(member)}
-                      aria-label={`View ${member.name}'s profile`}
-                    >
-                      <div className="relative aspect-square overflow-hidden rounded-xl bg-cloud-50 border border-secondary/5 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] delay-75 group-hover:border-accent/20 group-hover:shadow-[0_8px_20px_-4px_rgba(37,99,235,0.12)] group-hover:scale-[1.02]">
-                        <Image
-                          src={member.photo}
-                          alt={member.name}
-                          fill
-                          className="object-cover transition-transform duration-300 group-hover:scale-105"
-                          loading="lazy"
-                          unoptimized
-                        />
-                      </div>
-                      <p className="mt-2 text-secondary-dark/60 text-xs text-center truncate transition-colors group-hover:text-secondary-light">
-                        {member.name}
-                      </p>
-                    </button>
-                  ))}
+                <div
+                  className="mt-6 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4"
+                  style={{
+                    // CSS containment for the grid container
+                    contain: "layout style",
+                  }}
+                >
+                  {membersInClass.map((member) => {
+                    const currentIndex = globalIndex++;
+                    return (
+                      <OptimizedMemberCard
+                        key={member.id}
+                        member={member}
+                        onClick={handleMemberClick}
+                        index={currentIndex}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             );

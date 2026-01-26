@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { Member } from "@/types";
 
@@ -9,6 +8,53 @@ interface MemberModalProps {
   readonly member: Member | null;
   readonly isOpen: boolean;
   readonly onClose: () => void;
+}
+
+// Extract member name from photo path for optimized image lookup
+function getMemberKey(photoPath: string): string {
+  const filename = photoPath.split("/").pop() || "";
+  return filename.replace(/\.(png|jpg|jpeg|webp)$/i, "");
+}
+
+// Optimized modal image component
+function ModalImage({ member }: { member: Member }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const memberKey = getMemberKey(member.photo);
+  const webpSrc = `/images/members/optimized/webp/${memberKey}.webp`;
+  const jpgSrc = `/images/members/optimized/jpg/${memberKey}.jpg`;
+  const blurSrc = `/images/members/optimized/blur/${memberKey}.jpg`;
+
+  return (
+    <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden bg-cloud-50">
+      {/* Blur placeholder */}
+      <img
+        src={blurSrc}
+        alt=""
+        aria-hidden="true"
+        className={`absolute inset-0 w-full h-full object-cover scale-110 blur-sm transition-opacity duration-300 ${
+          isLoaded ? "opacity-0" : "opacity-100"
+        }`}
+        width={160}
+        height={160}
+      />
+      {/* Main image */}
+      <picture>
+        <source srcSet={webpSrc} type="image/webp" />
+        <source srcSet={jpgSrc} type="image/jpeg" />
+        <img
+          src={jpgSrc}
+          alt={member.name}
+          width={160}
+          height={160}
+          loading="eager"
+          onLoad={() => setIsLoaded(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      </picture>
+    </div>
+  );
 }
 
 export default function MemberModal({
@@ -108,16 +154,7 @@ export default function MemberModal({
             <div className="p-8">
               {/* Photo and Basic Info */}
               <div className="flex flex-col md:flex-row gap-6 mb-6">
-                <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden bg-cloud-50">
-                  <Image
-                    src={member.photo}
-                    alt={member.name}
-                    fill
-                    className="object-cover"
-                    unoptimized
-                    priority
-                  />
-                </div>
+                <ModalImage member={member} />
 
                 <div className="flex-1">
                   <h2

@@ -2,106 +2,106 @@
   {
     "id": "1",
     "name": "Goldman Sachs",
-    "logo": "/images/landing/companies/goldman.png"
+    "logo": "/images/companies/goldman.png"
   },
   {
     "id": "2",
     "name": "McKinsey & Company",
-    "logo": "/images/landing/companies/mckinsey.png"
+    "logo": "/images/companies/mckinsey.png"
   },
   {
     "id": "3",
     "name": "Google",
-    "logo": "/images/landing/companies/google.png"
+    "logo": "/images/companies/google.png"
   },
   {
     "id": "4",
     "name": "Bank of America",
-    "logo": "/images/landing/companies/bofa.png"
+    "logo": "/images/companies/bofa.png"
   },
   {
     "id": "5",
     "name": "Boston Consulting Group",
-    "logo": "/images/landing/companies/bcg.png"
+    "logo": "/images/companies/bcg.png"
   },
   {
     "id": "6",
     "name": "JPMorgan Chase",
-    "logo": "/images/landing/companies/jpm.png"
+    "logo": "/images/companies/jpm.png"
   },
   {
     "id": "7",
     "name": "Deloitte",
-    "logo": "/images/landing/companies/deloitte.png"
+    "logo": "/images/companies/deloitte.png"
   },
   {
     "id": "8",
     "name": "Bloomberg",
-    "logo": "/images/landing/companies/bloomberg.png"
+    "logo": "/images/companies/bloomberg.png"
   },
   {
     "id": "9",
     "name": "Amazon",
-    "logo": "/images/landing/companies/amazon.png"
+    "logo": "/images/companies/amazon.png"
   },
   {
     "id": "10",
     "name": "Bain & Company",
-    "logo": "/images/landing/companies/bain.png"
+    "logo": "/images/companies/bain.png"
   },
   {
     "id": "11",
     "name": "Apple",
-    "logo": "/images/landing/companies/apple.png"
+    "logo": "/images/companies/apple.png"
   },
   {
     "id": "12",
     "name": "SpaceX",
-    "logo": "/images/landing/companies/spacex.png"
+    "logo": "/images/companies/spacex.png"
   },
   {
     "id": "13",
     "name": "KPMG",
-    "logo": "/images/landing/companies/kpmg.png"
+    "logo": "/images/companies/kpmg.png"
   },
   {
     "id": "14",
     "name": "EY",
-    "logo": "/images/landing/companies/ey.png"
+    "logo": "/images/companies/ey.png"
   },
   {
     "id": "15",
     "name": "Evercore",
-    "logo": "/images/landing/companies/evercore.png"
+    "logo": "/images/companies/evercore.png"
   },
   {
     "id": "16",
     "name": "Lazard",
-    "logo": "/images/landing/companies/lazard.png"
+    "logo": "/images/companies/lazard.png"
   },
   {
     "id": "17",
     "name": "Meta",
-    "logo": "/images/landing/companies/meta.png"
+    "logo": "/images/companies/meta.png"
   },
   {
     "id": "18",
     "name": "PwC",
-    "logo": "/images/landing/companies/pwc.png"
+    "logo": "/images/companies/pwc.png"
   },
   {
     "id": "19",
     "name": "Roblox",
-    "logo": "/images/landing/companies/roblox.png"
+    "logo": "/images/companies/roblox.png"
   },
   {
     "id": "20",
     "name": "Spotify",
-    "logo": "/images/landing/companies/spotify.png"
+    "logo": "/images/companies/spotify.png"
   },
   {
     "id": "21",
     "name": "Warner Bros",
-    "logo": "/images/landing/companies/warnerbros.svg"
+    "logo": "/images/companies/warnerbros.svg"
   }
 ]
