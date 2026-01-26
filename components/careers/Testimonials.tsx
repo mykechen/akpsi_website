@@ -1,114 +1,30 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import testimonialsData from "@/data/testimonials.json";
 
 // Register plugin
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const testimonials = [
-  {
-    id: "1",
-    name: "John Smith",
-    picture: "/images/placeholder.jpg",
-    company: "Goldman Sachs",
-    track: "AZ13",
-    review:
-      "AZ13 gave me the technical foundation and network I needed to land my dream IB role. The mock interviews were invaluable.",
-  },
-  {
-    id: "2",
-    name: "Sarah Johnson",
-    picture: "/images/placeholder.jpg",
-    company: "McKinsey & Company",
-    track: "AZ Consulting",
-    review:
-      "The consulting track pushed me to think critically and structure my approach. I felt fully prepared walking into my case interviews.",
-  },
-  {
-    id: "3",
-    name: "Michael Chen",
-    picture: "/images/placeholder.jpg",
-    company: "Google",
-    track: "AZCS",
-    review:
-      "AZCS helped me go from struggling with Leetcode to confidently solving problems in interviews. The mentorship was top-notch.",
-  },
-  {
-    id: "4",
-    name: "Emily Davis",
-    picture: "/images/placeholder.jpg",
-    company: "Meta",
-    track: "AZPM",
-    review:
-      "The PM track taught me how to think about products holistically. The mock PM interviews and case studies were incredibly helpful.",
-  },
-  {
-    id: "5",
-    name: "David Kim",
-    picture: "/images/placeholder.jpg",
-    company: "Nike",
-    track: "AZ Marketing",
-    review:
-      "AZ Marketing gave me real portfolio pieces and the creative confidence to pursue brand strategy at a top company.",
-  },
-  {
-    id: "6",
-    name: "Jessica Lee",
-    picture: "/images/placeholder.jpg",
-    company: "JP Morgan",
-    track: "AZ13",
-    review:
-      "The alumni network alone is worth it. I got connected with brothers at every bank on the street who helped me through recruiting.",
-  },
-];
+interface Testimonial {
+  id: string;
+  name: string;
+  photo: string;
+  quote: string;
+  title: string;
+}
 
-// Testimonial card with GSAP hover
-function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0] }) {
-  const cardRef = useRef<HTMLDivElement>(null);
+const testimonials: Testimonial[] = testimonialsData;
 
-  useEffect(() => {
-    const card = cardRef.current;
-    if (!card) return;
-
-    const handleMouseEnter = () => {
-      gsap.to(card, {
-        y: -4,
-        boxShadow: "0 12px 32px -8px rgba(37, 99, 235, 0.12)",
-        borderColor: "rgba(37, 99, 235, 0.2)",
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    };
-
-    const handleMouseLeave = () => {
-      gsap.to(card, {
-        y: 0,
-        boxShadow: "0 4px 20px -4px rgba(0, 0, 0, 0.06)",
-        borderColor: "rgba(0, 0, 0, 0.05)",
-        duration: 0.3,
-        ease: "power2.out",
-      });
-    };
-
-    card.addEventListener("mouseenter", handleMouseEnter);
-    card.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      card.removeEventListener("mouseenter", handleMouseEnter);
-      card.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
-
+// Testimonial card - static, no hover effects
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   return (
-    <div
-      ref={cardRef}
-      className="testimonial-card group bg-white rounded-2xl p-6 border border-secondary/5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)]"
-    >
+    <div className="bg-white rounded-2xl p-6 border border-secondary/5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)] h-full flex flex-col">
       {/* Quote icon */}
       <svg
         className="w-8 h-8 text-accent/20 mb-4"
@@ -118,14 +34,14 @@ function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0
         <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm12 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z" />
       </svg>
 
-      <p className="text-secondary-dark/70 text-sm leading-relaxed mb-6">
-        {testimonial.review}
+      <p className="text-secondary-dark/70 text-sm leading-relaxed mb-6 flex-1">
+        {testimonial.quote}
       </p>
 
-      <div className="flex items-center gap-4 pt-4 border-t border-secondary/5">
+      <div className="flex items-center gap-4 pt-4 border-t border-secondary/5 mt-auto">
         <div className="relative w-12 h-12 shrink-0 rounded-full overflow-hidden bg-cloud-50">
           <Image
-            src={testimonial.picture}
+            src={testimonial.photo}
             alt={testimonial.name}
             fill
             className="object-cover"
@@ -137,43 +53,77 @@ function TestimonialCard({ testimonial }: { testimonial: (typeof testimonials)[0
             {testimonial.name}
           </h3>
           <p className="text-accent text-xs font-medium">
-            {testimonial.company}
+            {testimonial.title}
           </p>
-          <p className="text-secondary-dark/50 text-xs">{testimonial.track}</p>
         </div>
       </div>
     </div>
   );
 }
 
+const VISIBLE_CARDS = 3;
+const totalTestimonials = testimonials.length;
+
+// Helper to get testimonial at circular index
+const getTestimonial = (index: number) => {
+  return testimonials[(index % totalTestimonials + totalTestimonials) % totalTestimonials];
+};
+
 export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [startIndex, setStartIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  const totalSlides = testimonials.length;
+  // Get visible cards (3 shown + 1 extra for animation)
+  const getVisibleCards = () => {
+    const cards = [];
+    for (let i = 0; i < VISIBLE_CARDS + 1; i++) {
+      cards.push(getTestimonial(startIndex + i));
+    }
+    return cards;
+  };
 
-  const nextSlide = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
-    setTimeout(() => setIsTransitioning(false), 500);
-  }, [isTransitioning, totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    if (isTransitioning) return;
-    setIsTransitioning(true);
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
-    setTimeout(() => setIsTransitioning(false), 500);
-  }, [isTransitioning, totalSlides]);
-
+  // Auto-advance carousel
   useEffect(() => {
-    const interval = setInterval(nextSlide, 6000);
+    const interval = setInterval(() => {
+      if (!isAnimating) {
+        setIsAnimating(true);
+        const track = trackRef.current;
+        if (track) {
+          // Calculate the width of one card
+          const trackWidth = track.offsetWidth;
+          const cardWidth = trackWidth / (VISIBLE_CARDS + 1);
+          
+          // Animate slide to the left by 1 card width
+          gsap.to(track, {
+            x: -cardWidth,
+            duration: 0.6,
+            ease: "power2.inOut",
+            onComplete: () => {
+              // Update index first, then reset position after React re-renders
+              setStartIndex((prev) => (prev + 1) % totalTestimonials);
+              
+              // Use double requestAnimationFrame to ensure React has re-rendered
+              requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                  if (track) {
+                    gsap.set(track, { x: 0, clearProps: "x" });
+                    setIsAnimating(false);
+                  }
+                });
+              });
+            },
+          });
+        }
+      }
+    }, 6000);
     return () => clearInterval(interval);
-  }, [nextSlide]);
+  }, [isAnimating]);
 
+  // Scroll reveal animation
   useEffect(() => {
     const section = sectionRef.current;
     const header = headerRef.current;
@@ -190,11 +140,9 @@ export default function Testimonials() {
       return;
     }
 
-    // Set initial states
     gsap.set(header, { opacity: 0, y: 40 });
     gsap.set(carousel, { opacity: 0, y: 30 });
 
-    // Create timeline
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
@@ -225,14 +173,6 @@ export default function Testimonials() {
     };
   }, []);
 
-  const getVisibleTestimonials = () => {
-    const visible = [];
-    for (let i = 0; i < 3; i++) {
-      visible.push(testimonials[(currentIndex + i) % totalSlides]);
-    }
-    return visible;
-  };
-
   return (
     <section
       ref={sectionRef}
@@ -253,75 +193,24 @@ export default function Testimonials() {
           </p>
         </div>
 
-        <div ref={carouselRef} className="relative">
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-2 md:-translate-x-4 z-10 w-10 h-10 flex items-center justify-center bg-white border border-secondary/10 rounded-full text-secondary-dark/60 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] hover:text-accent hover:border-accent/30 hover:shadow-[0_4px_12px_-2px_rgba(37,99,235,0.15)] transition-all duration-200"
-            aria-label="Previous testimonial"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        <div ref={carouselRef} className="my-8">
+          {/* Continuous sliding carousel */}
+          <div className="overflow-hidden -mx-3">
+            <div
+              ref={trackRef}
+              className="flex"
+              style={{ width: `${(VISIBLE_CARDS + 1) / VISIBLE_CARDS * 100}%` }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 md:translate-x-4 z-10 w-10 h-10 flex items-center justify-center bg-white border border-secondary/10 rounded-full text-secondary-dark/60 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.08)] hover:text-accent hover:border-accent/30 hover:shadow-[0_4px_12px_-2px_rgba(37,99,235,0.15)] transition-all duration-200"
-            aria-label="Next testimonial"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-
-          {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 md:px-8">
-            {getVisibleTestimonials().map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
-          </div>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-10">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  if (!isTransitioning) {
-                    setIsTransitioning(true);
-                    setCurrentIndex(index);
-                    setTimeout(() => setIsTransitioning(false), 500);
-                  }
-                }}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? "bg-accent w-8"
-                    : "bg-secondary/20 w-2 hover:bg-secondary/40"
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
+              {getVisibleCards().map((testimonial, index) => (
+                <div
+                  key={`${startIndex}-${index}`}
+                  className="shrink-0 px-3"
+                  style={{ width: `${100 / (VISIBLE_CARDS + 1)}%` }}
+                >
+                  <TestimonialCard testimonial={testimonial} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

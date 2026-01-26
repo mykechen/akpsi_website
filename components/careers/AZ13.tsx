@@ -93,13 +93,14 @@ function MentorCard({ mentor }: { mentor: (typeof mentors)[0] }) {
   return (
     <div
       ref={cardRef}
-      className="mentor-card group bg-white rounded-2xl p-6 border border-secondary/5 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.04)]"
+      className="mentor-card group bg-white rounded-2xl p-5 border border-secondary/10 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.04)]"
     >
-      <div className="flex gap-5">
-        {/* Profile Picture - Rounded Square */}
+      <div className="flex gap-4 items-stretch min-h-[180px]">
+        {/* Profile Picture - Vertical Rectangle */}
         <div
           ref={imgRef}
-          className="relative w-24 h-24 shrink-0 rounded-xl overflow-hidden"
+          className="relative shrink-0 rounded-xl overflow-hidden border border-secondary/10 bg-cloud-50 self-stretch"
+          style={{ width: "120px", minHeight: "180px" }}
         >
           <Image
             src={mentor.picture}
@@ -111,7 +112,7 @@ function MentorCard({ mentor }: { mentor: (typeof mentors)[0] }) {
         </div>
 
         {/* Mentor Info */}
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 py-1">
           <h3 className="font-body text-lg font-semibold text-secondary-light mb-1">
             {mentor.name}
           </h3>
@@ -121,23 +122,23 @@ function MentorCard({ mentor }: { mentor: (typeof mentors)[0] }) {
           <p className="text-secondary-dark/60 text-sm leading-relaxed">
             {mentor.description}
           </p>
+
+          {/* LinkedIn */}
+          {mentor.linkedin && (
+            <a
+              href={mentor.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-secondary-dark/50 hover:text-accent text-sm transition-colors duration-200"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              LinkedIn
+            </a>
+          )}
         </div>
       </div>
-
-      {/* LinkedIn */}
-      {mentor.linkedin && (
-        <a
-          href={mentor.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-2 text-secondary-dark/50 hover:text-accent text-sm transition-colors duration-200"
-        >
-          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-          </svg>
-          View Profile
-        </a>
-      )}
     </div>
   );
 }
@@ -157,11 +158,15 @@ export default function AZ13() {
     if (!section || !leftCol || !rightCol || !benefitsList) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) {
-      gsap.set([leftCol, rightCol, benefitsList.children], { opacity: 1, y: 0, x: 0 });
+      gsap.set([leftCol, rightCol, benefitsList.children], {
+        opacity: 1,
+        y: 0,
+        x: 0,
+      });
       return;
     }
 
@@ -194,7 +199,7 @@ export default function AZ13() {
           stagger: 0.06,
           ease: "power3.out",
         },
-        "-=0.4"
+        "-=0.4",
       )
       .to(
         rightCol,
@@ -204,7 +209,7 @@ export default function AZ13() {
           duration: 0.8,
           ease: "power3.out",
         },
-        "-=0.6"
+        "-=0.6",
       );
 
     return () => {
@@ -214,11 +219,7 @@ export default function AZ13() {
   }, []);
 
   return (
-    <section
-      id="az13"
-      ref={sectionRef}
-      className="py-24 md:py-40 bg-white"
-    >
+    <section id="az13" ref={sectionRef} className="py-24 md:py-40 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20">
           {/* Left Column - Benefits */}

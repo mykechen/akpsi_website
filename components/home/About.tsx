@@ -98,7 +98,7 @@ export default function About() {
         {/* Stats row for credibility */}
         <div
           ref={statsRef}
-          className="mt-16 pt-12 border-t border-secondary/10 grid grid-cols-3 gap-8"
+          className="mt-16 pt-12 border-t border-secondary/10 grid grid-cols-3 gap-8 text-center"
         >
           <div>
             <div className="text-3xl md:text-4xl font-bold text-accent mb-2">

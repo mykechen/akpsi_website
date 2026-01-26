@@ -16,7 +16,7 @@ export default function CareersHero() {
       {/* Background video/image with subtle parallax effect */}
       <div className="absolute inset-0">
         {/* Video background - uncomment when video file is available */}
-        {/* <video
+        <video
           autoPlay
           loop
           muted
@@ -24,16 +24,11 @@ export default function CareersHero() {
           className="w-full h-full object-cover scale-105"
         >
           <source src="/misc/careers-bg.mp4" type="video/mp4" />
-        </video> */}
+        </video>
         {/* Fallback image */}
-        <img
-          src="/misc/careers-bg.jpeg"
-          alt=""
-          className="w-full h-full object-cover scale-105"
-        />
+
         {/* Gradient overlay for depth and legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
-        {/* Blue tint overlay for brand consistency */}
         <div className="absolute inset-0 bg-accent/10 mix-blend-overlay" />
       </div>
 

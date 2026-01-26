@@ -2,29 +2,43 @@
   {
     "id": "1",
     "name": "Riley Yen",
-    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    "photo": "/images/testimonials/riley.png",
     "quote": "AZ has been the most essential aspect of my college career. Every great memory, from the day I joined to the day I graduated from USC, has stemmed from AZ—from the professional development to the beautiful experiences shared with my AZ brothers.",
     "title": "KPMG Consulting"
   },
   {
     "id": "2",
     "name": "Kirsten Kim",
-    "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+    "photo": "/images/testimonials/kirsten.png",
     "quote": "The mentorship, networking opportunities, and guidance AZ offers prepared me with the professional skills to make the most of my internship this past summer. The brothers here truly want to see you succeed.",
     "title": "SpaceX "
   },
   {
     "id": "3",
-    "name": "Kevin Huang",
-    "photo": "https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?w=400&h=400&fit=crop",
-    "quote": "What sets AZ apart is the genuine care members have for each other. The connections I made aren't just professional contacts—they're lifelong friends who were there for me through every challenge.",
-    "title": "Alumnus '22 • Goldman Sachs"
+    "name": "Shehroz Khan",
+    "photo": "/images/testimonials/shehroz.png",
+    "quote": "AZ has helped shape my understanding of the professional world outside of the basics you learn in class or through other clubs. Skills in networking, technical development, and overall industry prep helped me secure an internship in my career of choice. The ability to leverage AZ resources for recruiting made the process much smoother",
+    "title": "Wells Fargo"
   },
   {
     "id": "4",
-    "name": "Rachel Santos",
-    "photo": "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=400&h=400&fit=crop",
-    "quote": "Joining AZ was the best decision I made at USC. The structure of AZ Groups, combined with the support of my brothers, gave me the confidence to pursue opportunities I never thought possible.",
-    "title": "Alumna '24 • McKinsey & Company"
+    "name": "Andrea Lee",
+    "photo": "/images/testimonials/andrea.png",
+    "quote": "After crossing in my freshman spring semester, I had the opportunity to be mentored by older members of Alpha Zeta who helped me throughout the recruitment process. Whether it was was resume reviews or mock interviews, they helped me improve my professional skills which allowed me to be successful during recruitment.",
+    "title": "Google"
+  },
+  {
+    "id": "5",
+    "name": "Lisza Lo",
+    "photo": "/images/testimonials/lisza.png",
+    "quote": "I can truly say that Alpha Zeta was an integral part of my college experience. There definitely were moments in college where I struggled with identifying my professional aspirations, which led me to change my major and career paths multiple times. Through it all, AZ gave me the guidance and support to successfully navigate such changed.",
+    "title": "Capital One"
+  },
+  {
+    "id": "6",
+    "name": "Ruisha Yang",
+    "photo": "/images/testimonials/ruisha.png",
+    "quote": "Being a part of AZ13, I honed in on my technical skills, felt better prepared for my interviews, and networked with other Alpha Zeta members during recruitment. I hope to help future Alpha Zeta members who are interested in finance and be there as a resource.",
+    "title": "Evercore"
   }
 ]
