@@ -12,7 +12,7 @@ if (typeof window !== "undefined") {
 const cards = [
   {
     id: "1",
-    title: "5 Career Tracks",
+    title: "5+ Career Tracks",
     icon: (
       <svg
         className="w-8 h-8"
@@ -29,11 +29,11 @@ const cards = [
       </svg>
     ),
     content:
-      "Specialized programs in Investment Banking, Consulting, Tech & PM, Computer Science, and Marketing to accelerate your career.",
+      "Specialized programs in Investment Banking, Consulting, Product Management, Computer Science, Marketing and more to accelerate your career.",
   },
   {
     id: "2",
-    title: "Lifelong Community",
+    title: "Lasting Brotherhood",
     icon: (
       <svg
         className="w-8 h-8"
@@ -50,11 +50,11 @@ const cards = [
       </svg>
     ),
     content:
-      "Join a network of 500+ alumni at top firms. Build genuine friendships that extend far beyond your time at USC.",
+      "Join a network of 500+ alumni at top firms. Build genuine friendships that extend far beyond your time at USC. From your time in Alpha Zeta to your future career, we're here for you.",
   },
   {
     id: "3",
-    title: "Small Cohorts",
+    title: "Close Cohorts",
     icon: (
       <svg
         className="w-8 h-8"
@@ -71,16 +71,12 @@ const cards = [
       </svg>
     ),
     content:
-      "Intimate class sizes ensure personalized mentorship, deeper connections, and more meaningful professional development.",
+      "Intimate class sizes ensure personalized mentorship, deeper connections, and more meaningful professional development. You'll be part of a small group of brothers who are there for you every step of the way.",
   },
 ];
 
 // Card component with GSAP hover
-function Card({
-  card,
-}: {
-  card: (typeof cards)[0];
-}) {
+function Card({ card }: { card: (typeof cards)[0] }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -153,7 +149,7 @@ export default function WhatYouWillGet() {
     if (!section || !header || !grid) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) {
@@ -188,7 +184,7 @@ export default function WhatYouWillGet() {
         stagger: 0.1,
         ease: "power3.out",
       },
-      "-=0.4"
+      "-=0.4",
     );
 
     return () => {
@@ -204,7 +200,10 @@ export default function WhatYouWillGet() {
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div ref={headerRef} className="max-w-2xl mx-auto text-center mb-16 md:mb-20">
+        <div
+          ref={headerRef}
+          className="max-w-2xl mx-auto text-center mb-16 md:mb-20"
+        >
           <span className="inline-block text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
             What You'll Gain
           </span>
@@ -214,7 +213,10 @@ export default function WhatYouWillGet() {
         </div>
 
         {/* Cards Grid */}
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div
+          ref={gridRef}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+        >
           {cards.map((card) => (
             <Card key={card.id} card={card} />
           ))}

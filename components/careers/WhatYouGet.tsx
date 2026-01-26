@@ -32,7 +32,7 @@ export default function WhatYouGet() {
     if (!section || !header || !description || !buttons) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) {
@@ -68,7 +68,7 @@ export default function WhatYouGet() {
           duration: 0.6,
           ease: "power3.out",
         },
-        "-=0.4"
+        "-=0.4",
       )
       .to(
         buttons,
@@ -78,7 +78,7 @@ export default function WhatYouGet() {
           duration: 0.6,
           ease: "power3.out",
         },
-        "-=0.3"
+        "-=0.3",
       );
 
     return () => {
@@ -100,7 +100,7 @@ export default function WhatYouGet() {
 
         window.scrollTo({
           top: elementTop - navbarHeight - buffer + skipPadding,
-          behavior: "smooth"
+          behavior: "smooth",
         });
       }
     }
@@ -126,11 +126,10 @@ export default function WhatYouGet() {
           ref={descriptionRef}
           className="text-lg md:text-xl text-secondary-dark/70 leading-relaxed max-w-2xl mx-auto text-center"
         >
-          Every member joins one of five specialized career tracks based on
-          their professional interests. Each track runs for 12 weeks per
-          semester and includes weekly workshops, mock interviews, case
-          practice, and 1-on-1 mentorship from members who&apos;ve secured roles
-          at top firms.
+          Every member joins one of the specialized career tracks based on their
+          professional interests. Each track runs for 10 weeks per semester and
+          includes weekly workshops, mock interviews, case practice, and 1-on-1
+          mentorship from members who&apos;ve secured roles at top firms.
         </p>
 
         {/* Visual elements */}

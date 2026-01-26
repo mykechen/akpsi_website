@@ -163,7 +163,7 @@ export default function Navbar() {
         `}
       >
         <div className="flex flex-col p-6 gap-2">
-          {navLinks.map((link) => {
+          {navLinks.map((link, index) => {
             const isActive = pathname === link.href;
             return (
               <Link
@@ -172,13 +172,21 @@ export default function Navbar() {
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`
                   text-lg font-medium py-3 px-4 rounded-xl
-                  transition-colors duration-200
+                  transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
                   ${
                     isActive
                       ? "text-accent bg-accent/5"
                       : "text-secondary-dark hover:text-secondary-light hover:bg-secondary/5"
                   }
+                  ${
+                    isMobileMenuOpen
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 -translate-x-4"
+                  }
                 `}
+                style={{
+                  transitionDelay: isMobileMenuOpen ? `${index * 50 + 50}ms` : "0ms",
+                }}
               >
                 {link.label}
               </Link>
@@ -187,7 +195,18 @@ export default function Navbar() {
           <Link
             href="/recruitment"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-4 inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-full hover:bg-accent-dark transition-colors"
+            className={`
+              mt-4 inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-full hover:bg-accent-dark
+              transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]
+              ${
+                isMobileMenuOpen
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-4"
+              }
+            `}
+            style={{
+              transitionDelay: isMobileMenuOpen ? `${navLinks.length * 50 + 100}ms` : "0ms",
+            }}
           >
             Apply Now
           </Link>

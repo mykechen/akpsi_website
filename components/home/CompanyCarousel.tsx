@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -30,7 +30,7 @@ function CompanyLogo({ company }: { company: Company }) {
         alt={company.name}
         width={144}
         height={56}
-        className="h-10 md:h-12 lg:h-14 w-full object-contain"
+        className="h-10 md:h-12 lg:h-14 w-auto object-contain"
         unoptimized
       />
     </div>
@@ -42,6 +42,18 @@ export default function CompanyCarousel() {
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLParagraphElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile viewport
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Get companies to display (10 on mobile, all on desktop)
+  const displayedCompanies = isMobile ? companyData.slice(0, 10) : companyData;
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -129,7 +141,7 @@ export default function CompanyCarousel() {
           ref={gridRef}
           className="flex flex-wrap justify-center items-center gap-x-12 gap-y-10 md:gap-x-16 md:gap-y-12"
         >
-          {companyData.map((company) => (
+          {displayedCompanies.map((company) => (
             <CompanyLogo key={company.id} company={company} />
           ))}
         </div>
@@ -139,7 +151,7 @@ export default function CompanyCarousel() {
           ref={footerRef}
           className="text-center text-secondary-dark/50 text-sm mt-12"
         >
-          And 100+ more companies across finance, tech, and consulting
+          And 100+ more companies across diverse industries
         </p>
       </div>
     </section>

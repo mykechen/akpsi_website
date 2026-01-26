@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -68,7 +68,7 @@ function CompanyLogo({ company }: { company: Company }) {
   return (
     <div
       ref={logoRef}
-      className="company-logo group aspect-[2/1] flex items-center justify-center p-4 bg-cloud-50/50 border border-secondary/5 rounded-xl"
+      className="company-logo group aspect-[2/1] flex items-center justify-center p-3 md:p-4 bg-cloud-50/50 border border-secondary/5 rounded-xl h-20 md:h-auto"
     >
       <Image
         ref={imgRef}
@@ -76,7 +76,7 @@ function CompanyLogo({ company }: { company: Company }) {
         alt={company.name}
         width={120}
         height={48}
-        className="max-w-full max-h-full object-contain filter grayscale opacity-50"
+        className="w-full h-full max-w-full max-h-full object-contain object-center filter grayscale opacity-50"
         unoptimized
       />
     </div>
@@ -87,6 +87,18 @@ export default function WhereOurMembersWork() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check for mobile viewport
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Show 10 companies on mobile, 18 on desktop
+  const displayedCompanies = isMobile ? companiesData.slice(0, 10) : companiesData.slice(0, 18);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -157,12 +169,12 @@ export default function WhereOurMembersWork() {
           </p>
         </div>
 
-        {/* Company Grid */}
+        {/* Company Grid - 2 columns on mobile, more on larger screens */}
         <div
           ref={gridRef}
-          className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6"
+          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6"
         >
-          {companiesData.slice(0, 18).map((company) => (
+          {displayedCompanies.map((company) => (
             <CompanyLogo key={company.id} company={company} />
           ))}
         </div>

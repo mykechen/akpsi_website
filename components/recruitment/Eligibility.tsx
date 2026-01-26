@@ -13,7 +13,7 @@ const requirements = [
   {
     id: "1",
     title: "Freshman–Junior",
-    subtitle: "Standing",
+    subtitle: "3+ Semesters Remaining",
     icon: (
       <svg
         className="w-7 h-7"
@@ -151,7 +151,7 @@ export default function Eligibility() {
     if (!section || !header || !grid || !note) return;
 
     const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReducedMotion) {
@@ -188,7 +188,7 @@ export default function Eligibility() {
           stagger: 0.1,
           ease: "power3.out",
         },
-        "-=0.4"
+        "-=0.4",
       )
       .to(
         note,
@@ -197,7 +197,7 @@ export default function Eligibility() {
           duration: 0.5,
           ease: "power3.out",
         },
-        "-=0.2"
+        "-=0.2",
       );
 
     return () => {

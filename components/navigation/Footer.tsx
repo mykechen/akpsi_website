@@ -1,56 +1,50 @@
 import Link from "next/link";
 
 const navLinks = [
-  { href: "/", label: "About" },
-  { href: "/recruitment", label: "Recruitment" },
-  { href: "/careers", label: "Careers" },
-  { href: "/members", label: "Members" },
+  { href: "/", label: "ABOUT US" },
+  { href: "/recruitment", label: "RECRUITMENT" },
+  { href: "/careers", label: "CAREERS" },
+  { href: "/members", label: "MEMBERS" },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-secondary/5">
+    <footer className="bg-white text-black border-t border-black/10">
       <div className="max-w-7xl mx-auto px-6 py-16">
-        {/* Main Content - Centered */}
-        <div className="flex flex-col items-center text-center space-y-8">
+        {/* Mobile: Centered Layout */}
+        <div className="flex flex-col items-center text-center space-y-6 md:hidden">
           {/* Logo */}
-          <Link
-            href="/"
-            className="font-display text-3xl font-bold tracking-wide text-secondary-light hover:text-accent transition-colors"
-          >
-            ALPHA ZETA
+          <Link href="/" className="inline-block">
+            <h2 className="font-display text-4xl font-bold tracking-wide text-black">
+              ALPHA ZETA
+            </h2>
           </Link>
 
-          {/* Tagline */}
-          <p className="text-secondary-dark/60 max-w-md text-lg">
-            USC&apos;s premier professional business society
-          </p>
-
-          {/* Navigation Links */}
-          <nav className="flex flex-wrap justify-center gap-8">
+          {/* Navigation Links - Horizontal Row */}
+          <nav className="flex items-center justify-center gap-4 md:gap-6 whitespace-nowrap">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-secondary-dark/60 hover:text-accent transition-colors uppercase tracking-wide"
+                className="text-sm text-black hover:text-blue-600 transition-colors whitespace-nowrap"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          {/* Social Links */}
-          <div className="flex items-center gap-6">
+          {/* Social Links - Horizontal Row */}
+          <div className="flex items-center justify-center gap-4">
             {/* Instagram */}
             <a
               href="https://instagram.com/alphazeta.sc"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-secondary-dark/60 hover:text-accent transition-colors"
+              className="group w-10 h-10 rounded-full border border-black/30 flex items-center justify-center hover:border-blue-600 transition-colors"
               aria-label="Instagram"
             >
               <svg
-                className="w-5 h-5"
+                className="w-5 h-5 text-black group-hover:text-blue-600 transition-colors"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -61,19 +55,16 @@ export default function Footer() {
                   clipRule="evenodd"
                 />
               </svg>
-              <span className="text-sm font-medium">@alphazeta.sc</span>
             </a>
-
-            <span className="text-secondary/20">|</span>
 
             {/* Email */}
             <a
               href="mailto:alphazeta.sc@gmail.com"
-              className="group flex items-center gap-2 text-secondary-dark/60 hover:text-accent transition-colors"
+              className="group w-10 h-10 rounded-full border border-black/30 flex items-center justify-center hover:border-blue-600 transition-colors"
               aria-label="Email"
             >
               <svg
-                className="w-5 h-5"
+                className="w-5 h-5 text-black group-hover:text-blue-600 transition-colors"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -82,22 +73,115 @@ export default function Footer() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  strokeWidth={1.5}
                   d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              <span className="text-sm font-medium">
-                alphazeta.sc@gmail.com
-              </span>
             </a>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-secondary/5 flex flex-col sm:flex-row items-center justify-center gap-4 text-secondary/40 text-sm">
-          <p>&copy; {new Date().getFullYear()} Alpha Zeta USC</p>
-          <span className="hidden sm:inline">·</span>
-          <p>University of Southern California</p>
+        {/* Desktop: Previous Layout */}
+        <div className="hidden md:flex md:flex-row md:items-start md:justify-between gap-12 md:gap-8">
+          {/* Left Column - Logo, Tagline */}
+          <div className="space-y-6">
+            {/* Logo */}
+            <Link href="/" className="inline-block">
+              <h2 className="font-display text-4xl font-bold tracking-wide text-black">
+                ALPHA ZETA
+              </h2>
+            </Link>
+
+            {/* Tagline */}
+            <p className="text-black/60 max-w-sm text-sm leading-relaxed">
+              USC&apos;s premier professional business society. Building leaders
+              through mentorship, community, and professional development.
+            </p>
+          </div>
+
+          {/* Right Side - Navigation and Social Links */}
+          <div className="flex flex-row gap-48">
+            {/* Navigation Links */}
+            <div>
+              <nav className="flex flex-row items-center gap-4 md:gap-6 whitespace-nowrap">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="text-sm text-black hover:text-blue-600 transition-colors whitespace-nowrap"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+
+            {/* Social Links */}
+            <div>
+              <h3 className="text-sm font-medium text-black mb-6">
+                Connect with us
+              </h3>
+              <div className="flex flex-col space-y-4">
+                {/* Instagram */}
+                <a
+                  href="https://instagram.com/alphazeta.sc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 text-black hover:text-blue-600 transition-colors"
+                  aria-label="Instagram"
+                >
+                  <span className="w-8 h-8 rounded-full border border-black/30 flex items-center justify-center group-hover:border-blue-600 transition-colors">
+                    <svg
+                      className="w-4 h-4"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  <span className="text-sm">@alphazeta.sc</span>
+                </a>
+
+                {/* Email */}
+                <a
+                  href="mailto:alphazeta.sc@gmail.com"
+                  className="group flex items-center gap-3 text-black hover:text-blue-600 transition-colors"
+                  aria-label="Email"
+                >
+                  <span className="w-8 h-8 rounded-full border border-black/30 flex items-center justify-center group-hover:border-blue-600 transition-colors">
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </span>
+                  <span className="text-sm">alphazeta.sc@gmail.com</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Copyright - Bottom Row (Both Mobile and Desktop) */}
+        <div className="mt-12 text-center">
+          <p className="text-black/60 text-sm">
+            &copy; {new Date().getFullYear()} Alpha Zeta — University of
+            Southern California
+          </p>
         </div>
       </div>
     </footer>

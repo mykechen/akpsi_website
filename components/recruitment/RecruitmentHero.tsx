@@ -170,11 +170,13 @@ export default function RecruitmentHero() {
         <p
           className={`
             text-xl md:text-2xl text-white mb-8
+            flex flex-col md:block items-center md:items-start
             transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-150
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
           `}
         >
-          Application Deadline: January 30, 2026 at 11:59 PM
+          <span>Application Deadline:</span>
+          <span className="md:inline"> January 30, 2026 at 11:59 PM</span>
         </p>
 
         {/* Countdown Timer */}

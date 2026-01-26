@@ -97,12 +97,12 @@ function MentorCard({ mentor }: { mentor: (typeof mentors)[0] }) {
       ref={cardRef}
       className="mentor-card group bg-white rounded-2xl p-6 border border-secondary/5 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.04)]"
     >
-      <div className="flex gap-5 items-stretch min-h-[180px]">
-        {/* Profile Picture - Rounded Square */}
+      {/* Stack vertically on mobile, horizontal on desktop */}
+      <div className="flex flex-col md:flex-row gap-5 md:items-stretch md:min-h-[180px]">
+        {/* Profile Picture - Centered on mobile, side on desktop */}
         <div
           ref={imgRef}
-          className="relative shrink-0 rounded-xl overflow-hidden border border-secondary/10 bg-cloud-50 self-stretch"
-          style={{ width: "120px", minHeight: "180px" }}
+          className="relative shrink-0 rounded-xl overflow-hidden border border-secondary/10 bg-cloud-50 mx-auto md:mx-0 w-32 h-32 md:w-[120px] md:h-auto md:self-stretch"
         >
           <Image
             src={mentor.picture}
@@ -114,7 +114,7 @@ function MentorCard({ mentor }: { mentor: (typeof mentors)[0] }) {
         </div>
 
         {/* Mentor Info */}
-        <div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0 text-center md:text-left">
           <h3 className="font-body text-lg font-semibold text-secondary-light mb-1">
             {mentor.name}
           </h3>
