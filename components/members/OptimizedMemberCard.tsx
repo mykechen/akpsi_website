@@ -81,11 +81,29 @@ export default function OptimizedMemberCard({
         containIntrinsicSize: "0 200px",
       }}
     >
-      {/* Image container with fixed aspect ratio */}
+      {/* Image container with glassmorphism */}
       <div
-        className="relative overflow-hidden rounded-xl bg-cloud-50 border border-secondary/5 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.04)] transition-all duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:border-accent/20 group-hover:shadow-[0_8px_20px_-4px_rgba(37,99,235,0.12)] group-hover:scale-[1.02]"
-        style={{ aspectRatio: "1 / 1" }}
+        className="relative overflow-hidden rounded-xl transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+        style={{
+          aspectRatio: "1 / 1",
+          background: "linear-gradient(145deg, rgba(255,255,255,0.6) 0%, rgba(248,250,252,0.4) 100%)",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          boxShadow: "0 4px 20px -4px rgba(37, 99, 235, 0.08), 0 2px 6px -2px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255,255,255,0.6)",
+        }}
       >
+        {/* Gradient border */}
+        <div
+          className="absolute inset-0 rounded-xl pointer-events-none transition-opacity duration-300 opacity-40 group-hover:opacity-100 z-20"
+          style={{
+            padding: "1px",
+            background: "linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(255,255,255,0.4) 50%, rgba(37, 99, 235, 0.15) 100%)",
+            WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            WebkitMaskComposite: "xor",
+            mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            maskComposite: "exclude",
+          }}
+        />
         {/* Blur placeholder - always rendered for layout stability */}
         <img
           src={blurSrc}

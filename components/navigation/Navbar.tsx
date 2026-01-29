@@ -194,15 +194,19 @@ export default function Navbar() {
                   }
                 `}
                 style={{
-                  transitionDelay: isMobileMenuOpen ? `${index * 50 + 50}ms` : "0ms",
+                  transitionDelay: isMobileMenuOpen
+                    ? `${index * 50 + 50}ms`
+                    : "0ms",
                 }}
               >
                 {link.label}
               </Link>
             );
           })}
-          <Link
-            href="/recruitment"
+          <a
+            href="https://tally.so/r/GxR5Rk"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
             className={`
               mt-4 inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-full hover:bg-accent-dark
@@ -214,11 +218,13 @@ export default function Navbar() {
               }
             `}
             style={{
-              transitionDelay: isMobileMenuOpen ? `${navLinks.length * 50 + 100}ms` : "0ms",
+              transitionDelay: isMobileMenuOpen
+                ? `${navLinks.length * 50 + 100}ms`
+                : "0ms",
             }}
           >
             Apply Now
-          </Link>
+          </a>
         </div>
       </div>
     </header>

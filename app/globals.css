@@ -141,47 +141,212 @@ h1 {
 }
 
 /* ========================================
-   Cloud-themed Card Styles
+   Glassmorphism Card System
    ======================================== */
 
-.card-cloud {
-  background: var(--color-primary);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+/* Noise texture for glass realism */
+.noise-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  border-radius: inherit;
+  mix-blend-mode: overlay;
+}
+
+/* Base glass card */
+.card-glass {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 1.25rem;
   box-shadow:
-    0 4px 20px -2px rgba(0, 0, 0, 0.05),
-    0 2px 8px -2px rgba(0, 0, 0, 0.03);
+    0 8px 32px -4px rgba(37, 99, 235, 0.08),
+    0 2px 8px -2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   transition:
-    transform var(--duration-micro) var(--ease-premium),
-    box-shadow var(--duration-micro) var(--ease-premium),
-    border-color var(--duration-micro) var(--ease-smooth);
+    transform var(--duration-standard) var(--ease-premium),
+    box-shadow var(--duration-standard) var(--ease-premium),
+    background var(--duration-standard) var(--ease-smooth);
 }
 
-.card-cloud:hover {
-  transform: translateY(-4px);
+.card-glass:hover {
+  transform: translateY(-6px) scale(1.01);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(240, 249, 255, 0.85) 100%
+  );
   box-shadow:
-    0 20px 50px -8px rgba(37, 99, 235, 0.12),
-    0 8px 24px -8px rgba(0, 0, 0, 0.06);
-  border-color: rgba(37, 99, 235, 0.2);
+    0 24px 48px -8px rgba(37, 99, 235, 0.15),
+    0 12px 24px -4px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
 }
 
-/* Floating card variant */
-.card-floating {
-  background: var(--color-primary);
-  border-radius: 1.5rem;
+/* Glass card with gradient border */
+.card-glass-border {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(248, 250, 252, 0.75) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 1.25rem;
   box-shadow:
-    0 8px 32px -4px rgba(0, 0, 0, 0.06),
-    0 4px 12px -4px rgba(0, 0, 0, 0.04);
+    0 8px 32px -4px rgba(37, 99, 235, 0.1),
+    0 2px 8px -2px rgba(0, 0, 0, 0.03);
+  transition: all var(--duration-standard) var(--ease-premium);
+}
+
+/* Gradient border using pseudo-element */
+.card-glass-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.2) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(37, 99, 235, 0.15) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: opacity var(--duration-standard) var(--ease-smooth);
+}
+
+.card-glass-border:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 32px 64px -12px rgba(37, 99, 235, 0.18),
+    0 16px 32px -8px rgba(0, 0, 0, 0.06);
+}
+
+.card-glass-border:hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.4) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(37, 99, 235, 0.3) 100%
+  );
+}
+
+/* Frosted icon container */
+.icon-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.12) 0%,
+    rgba(37, 99, 235, 0.06) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  transition: all var(--duration-standard) var(--ease-premium);
+}
+
+.group:hover .icon-glass {
+  background: linear-gradient(
+    135deg,
+    var(--color-accent) 0%,
+    var(--color-accent-light) 100%
+  );
+  border-color: transparent;
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.4);
+}
+
+/* Subtle inner glow for depth */
+.card-glow {
+  position: relative;
+}
+
+.card-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(37, 99, 235, 0.06) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-standard) var(--ease-smooth);
+}
+
+.card-glow:hover::after {
+  opacity: 1;
+}
+
+/* Legacy support - map old classes to new */
+.card-cloud {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 1.25rem;
+  box-shadow:
+    0 8px 32px -4px rgba(37, 99, 235, 0.08),
+    0 2px 8px -2px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
   transition:
     transform var(--duration-standard) var(--ease-premium),
     box-shadow var(--duration-standard) var(--ease-premium);
 }
 
-.card-floating:hover {
-  transform: translateY(-8px);
+.card-cloud:hover {
+  transform: translateY(-6px);
   box-shadow:
-    0 24px 64px -12px rgba(37, 99, 235, 0.15),
-    0 12px 32px -8px rgba(0, 0, 0, 0.08);
+    0 24px 48px -8px rgba(37, 99, 235, 0.15),
+    0 12px 24px -4px rgba(0, 0, 0, 0.06);
+}
+
+/* Floating card variant */
+.card-floating {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(248, 250, 252, 0.75) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 1.5rem;
+  box-shadow:
+    0 12px 40px -8px rgba(37, 99, 235, 0.12),
+    0 4px 16px -4px rgba(0, 0, 0, 0.04);
+  transition: all var(--duration-standard) var(--ease-premium);
+}
+
+.card-floating:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow:
+    0 32px 64px -12px rgba(37, 99, 235, 0.2),
+    0 16px 32px -8px rgba(0, 0, 0, 0.08);
 }
 
 /* ========================================
@@ -304,6 +469,15 @@ h1 {
   }
   to {
     transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }
 

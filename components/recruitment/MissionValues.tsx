@@ -91,7 +91,7 @@ const iconMap: { [key: string]: React.ReactNode } = {
   ),
 };
 
-// Value card with GSAP hover
+// Value card with glassmorphism design
 function ValueCard({ value }: { value: Value }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -101,21 +101,19 @@ function ValueCard({ value }: { value: Value }) {
 
     const handleMouseEnter = () => {
       gsap.to(card, {
-        y: -4,
-        boxShadow: "0 12px 32px -8px rgba(37, 99, 235, 0.12)",
-        borderColor: "rgba(37, 99, 235, 0.2)",
-        duration: 0.3,
-        ease: "power2.out",
+        y: -8,
+        scale: 1.03,
+        duration: 0.4,
+        ease: "power3.out",
       });
     };
 
     const handleMouseLeave = () => {
       gsap.to(card, {
         y: 0,
-        boxShadow: "0 2px 12px -2px rgba(0, 0, 0, 0.04)",
-        borderColor: "rgba(0, 0, 0, 0.05)",
-        duration: 0.3,
-        ease: "power2.out",
+        scale: 1,
+        duration: 0.4,
+        ease: "power3.out",
       });
     };
 
@@ -131,22 +129,81 @@ function ValueCard({ value }: { value: Value }) {
   return (
     <div
       ref={cardRef}
-      className="value-card group text-center p-6 bg-white rounded-2xl border border-secondary/5 shadow-[0_2px_12px_-2px_rgba(0,0,0,0.04)]"
+      className="value-card group text-center p-6 rounded-2xl overflow-hidden relative"
+      style={{
+        background: "linear-gradient(145deg, rgba(255,255,255,0.92) 0%, rgba(248,250,252,0.85) 100%)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        boxShadow: "0 6px 24px -4px rgba(37, 99, 235, 0.08), 0 2px 6px -2px rgba(0, 0, 0, 0.02), inset 0 1px 0 rgba(255,255,255,0.9)",
+      }}
     >
-      {/* Icon */}
-      <div className="w-14 h-14 mx-auto mb-5 bg-accent/10 rounded-2xl flex items-center justify-center text-accent transition-[background-color,color,transform] duration-200 group-hover:bg-accent group-hover:text-white group-hover:scale-110">
-        {iconMap[value.icon] || iconMap.star}
+      {/* Gradient border */}
+      <div
+        className="absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-500 opacity-50 group-hover:opacity-100"
+        style={{
+          padding: "1px",
+          background: "linear-gradient(135deg, rgba(37, 99, 235, 0.2) 0%, rgba(255,255,255,0.4) 50%, rgba(37, 99, 235, 0.15) 100%)",
+          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          WebkitMaskComposite: "xor",
+          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          maskComposite: "exclude",
+        }}
+      />
+
+      {/* Noise texture */}
+      <div
+        className="absolute inset-0 rounded-2xl pointer-events-none opacity-[0.015] mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      {/* Glow effect on hover */}
+      <div
+        className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background: "radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.1) 0%, transparent 60%)",
+        }}
+      />
+
+      {/* Icon with glass effect */}
+      <div
+        className="relative w-14 h-14 mx-auto mb-5 flex items-center justify-center rounded-xl text-accent transition-all duration-500 group-hover:text-white group-hover:scale-110 group-hover:-rotate-3"
+        style={{
+          background: "linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(37, 99, 235, 0.06) 100%)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          border: "1px solid rgba(37, 99, 235, 0.15)",
+          boxShadow: "0 4px 12px -2px rgba(37, 99, 235, 0.08)",
+        }}
+      >
+        <div
+          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500"
+          style={{
+            background: "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)",
+            boxShadow: "0 8px 20px -4px rgba(37, 99, 235, 0.45)",
+          }}
+        />
+        <span className="relative z-10">{iconMap[value.icon] || iconMap.star}</span>
       </div>
 
       {/* Value Title */}
-      <h3 className="font-body text-base font-semibold text-secondary-light mb-3">
+      <h3 className="relative z-10 font-body text-base font-semibold text-secondary-light mb-3">
         {value.title}
       </h3>
 
       {/* Description */}
-      <p className="text-secondary-dark/60 text-sm leading-relaxed">
+      <p className="relative z-10 text-secondary-dark/60 text-sm leading-relaxed">
         {value.description}
       </p>
+
+      {/* Accent light beam */}
+      <div
+        className="absolute -top-16 -right-16 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, transparent 70%)",
+        }}
+      />
     </div>
   );
 }

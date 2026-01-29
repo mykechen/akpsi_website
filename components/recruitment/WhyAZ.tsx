@@ -75,7 +75,7 @@ const cards = [
   },
 ];
 
-// Card component with GSAP hover
+// Card component with glassmorphism design
 function WhyCard({ card }: { card: (typeof cards)[0] }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -85,21 +85,19 @@ function WhyCard({ card }: { card: (typeof cards)[0] }) {
 
     const handleMouseEnter = () => {
       gsap.to(element, {
-        y: -8,
-        boxShadow: "0 20px 50px -12px rgba(37, 99, 235, 0.15)",
-        borderColor: "rgba(37, 99, 235, 0.2)",
-        duration: 0.3,
-        ease: "power2.out",
+        y: -10,
+        scale: 1.02,
+        duration: 0.4,
+        ease: "power3.out",
       });
     };
 
     const handleMouseLeave = () => {
       gsap.to(element, {
         y: 0,
-        boxShadow: "0 4px 24px -4px rgba(0, 0, 0, 0.06)",
-        borderColor: "rgba(0, 0, 0, 0.1)",
-        duration: 0.3,
-        ease: "power2.out",
+        scale: 1,
+        duration: 0.4,
+        ease: "power3.out",
       });
     };
 
@@ -115,22 +113,81 @@ function WhyCard({ card }: { card: (typeof cards)[0] }) {
   return (
     <div
       ref={cardRef}
-      className="why-card group relative bg-white rounded-2xl p-8 border border-secondary/10 shadow-[0_4px_24px_-4px_rgba(0,0,0,0.06)] text-center"
+      className="why-card group relative rounded-2xl p-8 text-center overflow-hidden"
+      style={{
+        background: "linear-gradient(145deg, rgba(255,255,255,0.9) 0%, rgba(248,250,252,0.8) 100%)",
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        boxShadow: "0 8px 32px -4px rgba(37, 99, 235, 0.1), 0 2px 8px -2px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255,255,255,0.8)",
+      }}
     >
-      {/* Icon */}
-      <div className="w-14 h-14 mx-auto flex items-center justify-center rounded-2xl bg-accent/10 text-accent mb-6 transition-[background-color,color,transform] duration-200 group-hover:bg-accent group-hover:text-white group-hover:scale-110">
-        {card.icon}
+      {/* Gradient border */}
+      <div
+        className="absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-500 opacity-60 group-hover:opacity-100"
+        style={{
+          padding: "1px",
+          background: "linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(255,255,255,0.5) 50%, rgba(37, 99, 235, 0.2) 100%)",
+          WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          WebkitMaskComposite: "xor",
+          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          maskComposite: "exclude",
+        }}
+      />
+
+      {/* Noise texture */}
+      <div
+        className="absolute inset-0 rounded-2xl pointer-events-none opacity-[0.02] mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      {/* Glow effect on hover */}
+      <div
+        className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background: "radial-gradient(ellipse at 50% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 60%)",
+        }}
+      />
+
+      {/* Icon with glass effect */}
+      <div
+        className="relative w-14 h-14 mx-auto flex items-center justify-center rounded-xl mb-6 text-accent transition-all duration-500 group-hover:text-white group-hover:scale-110 group-hover:-rotate-3"
+        style={{
+          background: "linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(37, 99, 235, 0.06) 100%)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          border: "1px solid rgba(37, 99, 235, 0.15)",
+          boxShadow: "0 4px 12px -2px rgba(37, 99, 235, 0.1)",
+        }}
+      >
+        <div
+          className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-500"
+          style={{
+            background: "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)",
+            boxShadow: "0 8px 24px -4px rgba(37, 99, 235, 0.5)",
+          }}
+        />
+        <span className="relative z-10">{card.icon}</span>
       </div>
 
       {/* Title */}
-      <h3 className="font-body text-xl font-semibold text-secondary-light mb-3">
+      <h3 className="relative z-10 font-body text-xl font-semibold text-secondary-light mb-3">
         {card.title}
       </h3>
 
       {/* Description */}
-      <p className="text-secondary-dark/60 text-sm leading-relaxed">
+      <p className="relative z-10 text-secondary-dark/60 text-sm leading-relaxed">
         {card.description}
       </p>
+
+      {/* Accent light beam */}
+      <div
+        className="absolute -top-20 -right-20 w-40 h-40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%)",
+        }}
+      />
     </div>
   );
 }

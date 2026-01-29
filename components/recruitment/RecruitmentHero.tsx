@@ -31,9 +31,13 @@ function calculateTimeLeft(): TimeLeft {
 }
 
 function CountdownTimer({ isLoaded }: { isLoaded: boolean }) {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
+  // Initialize with null to avoid hydration mismatch - time will be calculated client-side only
+  const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
+    // Set initial time on client
+    setTimeLeft(calculateTimeLeft());
+
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
@@ -41,7 +45,8 @@ function CountdownTimer({ isLoaded }: { isLoaded: boolean }) {
     return () => clearInterval(timer);
   }, []);
 
-  const formatNumber = (num: number) => num.toString().padStart(2, "0");
+  const formatNumber = (num: number | undefined) =>
+    num !== undefined ? num.toString().padStart(2, "0") : "--";
 
   return (
     <div
@@ -54,7 +59,7 @@ function CountdownTimer({ isLoaded }: { isLoaded: boolean }) {
       {/* Days */}
       <div className="flex flex-col items-center">
         <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-white tracking-tight">
-          {formatNumber(timeLeft.days)}
+          {formatNumber(timeLeft?.days)}
         </span>
         <span className="text-[10px] sm:text-xs text-white/70 mt-1 tracking-wide">
           Days
@@ -68,7 +73,7 @@ function CountdownTimer({ isLoaded }: { isLoaded: boolean }) {
       {/* Hours */}
       <div className="flex flex-col items-center">
         <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-white tracking-tight">
-          {formatNumber(timeLeft.hours)}
+          {formatNumber(timeLeft?.hours)}
         </span>
         <span className="text-[10px] sm:text-xs text-white/70 mt-1 tracking-wide">
           Hours
@@ -82,7 +87,7 @@ function CountdownTimer({ isLoaded }: { isLoaded: boolean }) {
       {/* Minutes */}
       <div className="flex flex-col items-center">
         <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-white tracking-tight">
-          {formatNumber(timeLeft.minutes)}
+          {formatNumber(timeLeft?.minutes)}
         </span>
         <span className="text-[10px] sm:text-xs text-white/70 mt-1 tracking-wide">
           Minutes
@@ -96,7 +101,7 @@ function CountdownTimer({ isLoaded }: { isLoaded: boolean }) {
       {/* Seconds */}
       <div className="flex flex-col items-center">
         <span className="font-display text-2xl sm:text-3xl md:text-4xl font-light text-white tracking-tight">
-          {formatNumber(timeLeft.seconds)}
+          {formatNumber(timeLeft?.seconds)}
         </span>
         <span className="text-[10px] sm:text-xs text-white/70 mt-1 tracking-wide">
           Seconds
