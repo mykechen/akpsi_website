@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import Button from "@/components/ui/Button";
 import FaultyTerminal from "../ui/FaultyTerminal";
 
-// Application deadline: January 30, 2026 at 11:59 PM PST
-const DEADLINE = new Date("2026-01-31T07:59:00Z"); // UTC equivalent
+// Application deadline: January 31, 2026 at 11:59 PM PST
+const DEADLINE = new Date("2026-02-01T07:59:00Z"); // UTC equivalent of Jan 31, 2026 11:59 PM PST
 
 interface TimeLeft {
   days: number;
@@ -143,7 +143,7 @@ export default function RecruitmentHero() {
           brightness={0.6}
         />
       </div>
-      
+
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {/* Application status badge */}
         <div
@@ -181,7 +181,7 @@ export default function RecruitmentHero() {
           `}
         >
           <span>Application Deadline:</span>
-          <span className="md:inline"> January 30, 2026 at 11:59 PM</span>
+          <span className="md:inline"> January 31, 2026 at 11:59 PM PST</span>
         </p>
 
         {/* Countdown Timer */}
