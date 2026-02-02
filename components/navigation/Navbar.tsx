@@ -110,9 +110,9 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Apply Button */}
+        {/* Learn More Button */}
         <Link
-          href="https://tally.so/r/GxR5Rk"
+          href="/"
           className={`
             hidden md:inline-flex items-center justify-center px-5 py-2
             font-medium text-sm rounded-full
@@ -124,7 +124,7 @@ export default function Navbar() {
             }
           `}
         >
-          Apply Now
+          Learn More
         </Link>
 
         {/* Mobile Menu Button */}
@@ -203,10 +203,8 @@ export default function Navbar() {
               </Link>
             );
           })}
-          <a
-            href="https://tally.so/r/GxR5Rk"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/"
             onClick={() => setIsMobileMenuOpen(false)}
             className={`
               mt-4 inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-medium rounded-full hover:bg-accent-dark
@@ -223,8 +221,8 @@ export default function Navbar() {
                 : "0ms",
             }}
           >
-            Apply Now
-          </a>
+            Learn More
+          </Link>
         </div>
       </div>
     </header>

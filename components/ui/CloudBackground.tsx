@@ -10,16 +10,42 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-// Create multiple instances alternating between cloud1.png and cloud2.png
+// Reduced cloud count for better performance (8 instead of 15)
 const baseCloudImages = ["/misc/cloud1.png", "/misc/cloud2.png"];
-const cloudImages = Array(15)
+const cloudImages = Array(8)
   .fill(null)
   .map((_, index) => baseCloudImages[index % baseCloudImages.length]);
 
 export default function CloudBackground() {
   const imageDivsRef = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const animationsRef = useRef<any[]>([]);
+  const animationsRef = useRef<gsap.core.Tween[]>([]);
+  const isPausedRef = useRef(false);
+
+  // Visibility observer - pause animations when off-screen
+  useEffect(() => {
+    if (typeof window === "undefined" || !containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+
+        if (entry.isIntersecting && isPausedRef.current) {
+          // Resume animations
+          animationsRef.current.forEach((anim) => anim.play());
+          isPausedRef.current = false;
+        } else if (!entry.isIntersecting && !isPausedRef.current) {
+          // Pause animations to save CPU/GPU
+          animationsRef.current.forEach((anim) => anim.pause());
+          isPausedRef.current = true;
+        }
+      },
+      { threshold: 0, rootMargin: "100px" }
+    );
+
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (typeof window === "undefined") return;

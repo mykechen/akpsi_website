@@ -1,8 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Button from "@/components/ui/Button";
-import FaultyTerminal from "../ui/FaultyTerminal";
+
+// Dynamically import FaultyTerminal to reduce initial bundle size
+const FaultyTerminal = dynamic(() => import("../ui/FaultyTerminal"), {
+  ssr: false,
+  loading: () => (
+    <div className="absolute inset-0 w-full h-full bg-[#0a1628]" />
+  ),
+});
 
 // Application deadline: January 31, 2026 at 11:59 PM PST
 const DEADLINE = new Date("2026-02-01T07:59:00Z"); // UTC equivalent of Jan 31, 2026 11:59 PM PST
@@ -30,7 +38,7 @@ function calculateTimeLeft(): TimeLeft {
   };
 }
 
-function CountdownTimer({ isLoaded }: { isLoaded: boolean }) {
+function CountdownTimer({ isLoaded }: Readonly<{ isLoaded: boolean }>) {
   // Initialize with null to avoid hydration mismatch - time will be calculated client-side only
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
@@ -46,7 +54,7 @@ function CountdownTimer({ isLoaded }: { isLoaded: boolean }) {
   }, []);
 
   const formatNumber = (num: number | undefined) =>
-    num !== undefined ? num.toString().padStart(2, "0") : "--";
+    num === undefined ? "--" : num.toString().padStart(2, "0");
 
   return (
     <div
@@ -146,7 +154,7 @@ export default function RecruitmentHero() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {/* Application status badge */}
-        <div
+        {/* <div
           className={`
             inline-flex items-center gap-2 px-4 py-2 
             bg-white/10 backdrop-blur-md border border-white/30 rounded-full 
@@ -155,9 +163,9 @@ export default function RecruitmentHero() {
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
           `}
         >
-          <span className="w-2 h-2 bg-white rounded-full animate-pulse shadow-sm" />
+          <span className="w-2 h-2 bg-white rounded-full animate-pulse shadow-sm" />{" "}
           Applications Open
-        </div>
+        </div> */}
 
         {/* Main heading */}
         <h1
@@ -172,7 +180,7 @@ export default function RecruitmentHero() {
         </h1>
 
         {/* Deadline label */}
-        <p
+        {/* <p
           className={`
             text-xl md:text-2xl text-white mb-8
             flex flex-col md:block items-center md:items-start
@@ -182,15 +190,15 @@ export default function RecruitmentHero() {
         >
           <span>Application Deadline:</span>
           <span className="md:inline"> January 31, 2026 at 11:59 PM PST</span>
-        </p>
+        </p> */}
 
         {/* Countdown Timer */}
-        <div className="mb-12">
+        {/* <div className="mb-12">
           <CountdownTimer isLoaded={isLoaded} />
-        </div>
+        </div> */}
 
         {/* CTA */}
-        <div
+        {/* <div
           className={`
             transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-300
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
@@ -199,7 +207,7 @@ export default function RecruitmentHero() {
           <Button href="https://tally.so/r/GxR5Rk" variant="primary" size="lg">
             Apply Now
           </Button>
-        </div>
+        </div> */}
       </div>
       {/* Scroll indicator */}
       <div
@@ -212,7 +220,7 @@ export default function RecruitmentHero() {
         <span className="text-xs uppercase tracking-[0.2em] text-white/70">
           Learn more
         </span>
-        <div className="w-px h-10 bg-gradient-to-b from-white/30 to-transparent" />
+        <div className="w-px h-10 bg-linear-to-b from-white/30 to-transparent" />
       </div>
     </section>
   );
