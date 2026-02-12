@@ -31,13 +31,13 @@ export default function Hero() {
         {/* Main heading */}
         <h1
           className={`
-            font-display text-[4rem] sm:text-[5.5rem] md:text-[7rem] lg:text-[9rem] xl:text-[11rem]
-            tracking-wide text-secondary-light leading-[0.9] mb-8
+            font-display text-[2.75rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem]
+            tracking-wide text-secondary-light leading-[0.9] mb-8 whitespace-nowrap
             transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
           `}
         >
-          ALPHA ZETA
+          ALPHA KAPPA PSI
         </h1>
 
         {/* Supporting text */}

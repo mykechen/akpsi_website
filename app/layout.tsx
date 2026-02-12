@@ -20,13 +20,13 @@ const dmSerifDisplay = DM_Serif_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Alpha Zeta | USC's Premier Professional Business Society",
-    template: "%s | Alpha Zeta USC",
+    default: "Alpha Kappa Psi | USC's Premier Professional Business Society",
+    template: "%s | Alpha Kappa Psi USC",
   },
   description:
-    "Alpha Zeta is USC's premier co-ed professional business society. Join 500+ alumni in investment banking, consulting, tech, and more. Founded in 1922.",
+    "Alpha Kappa Psi is USC's premier co-ed professional business society. Join 500+ alumni in investment banking, consulting, tech, and more. Founded in 1922.",
   keywords: [
-    "Alpha Zeta",
+    "Alpha Kappa Psi",
     "USC",
     "business society",
     "professional development",
@@ -36,20 +36,20 @@ export const metadata: Metadata = {
     "USC fraternity",
     "business fraternity",
   ],
-  authors: [{ name: "Alpha Zeta USC" }],
+  authors: [{ name: "Alpha Kappa Psi USC" }],
   metadataBase: new URL("https://alphazeta-sc.com"),
   openGraph: {
-    title: "Alpha Zeta | USC's Premier Professional Business Society",
+    title: "Alpha Kappa Psi | USC's Premier Professional Business Society",
     description:
       "Join USC's premier co-ed professional business society. Career development in investment banking, consulting, product management, and more.",
     url: "https://alphazeta-sc.com",
-    siteName: "Alpha Zeta USC",
+    siteName: "Alpha Kappa Psi USC",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Alpha Zeta | USC Professional Business Society",
+    title: "Alpha Kappa Psi | USC Professional Business Society",
     description:
       "USC's premier co-ed professional business society. Career development, mentorship, and lifelong brotherhood since 1922.",
   },
@@ -77,8 +77,8 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Alpha Zeta",
-    alternateName: "Alpha Zeta USC",
+    name: "Alpha Kappa Psi",
+    alternateName: "Alpha Kappa Psi USC",
     url: "https://alphazeta-sc.com",
     logo: "https://alphazeta-sc.com/azlogo.png",
     description:

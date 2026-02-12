@@ -137,10 +137,10 @@ test.describe('Navigation', () => {
       await expect(footer.getByRole('link', { name: /Members/i })).toBeVisible();
     });
 
-    test('footer contains Alpha Zeta logo', async ({ page }) => {
+    test('footer contains Alpha Kappa Psi logo', async ({ page }) => {
       await page.goto('/');
       const footer = page.locator('footer');
-      await expect(footer.getByRole('link', { name: /ALPHA ZETA/i })).toBeVisible();
+      await expect(footer.getByRole('link', { name: /ALPHA KAPPA PSI/i })).toBeVisible();
     });
 
     test('footer navigation links work', async ({ page }) => {

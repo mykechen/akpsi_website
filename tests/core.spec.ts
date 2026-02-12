@@ -3,13 +3,13 @@ import { test, expect } from '@playwright/test';
 test.describe('Homepage', () => {
   test('has correct title', async ({ page }) => {
     await page.goto('/');
-    await expect(page).toHaveTitle(/Alpha Zeta/);
+    await expect(page).toHaveTitle(/Alpha Kappa Psi/);
   });
 
   test('displays navbar with logo', async ({ page }) => {
     await page.goto('/');
     const header = page.getByRole('banner');
-    await expect(header.getByRole('link', { name: 'ALPHA ZETA' })).toBeVisible();
+    await expect(header.getByRole('link', { name: 'ALPHA KAPPA PSI' })).toBeVisible();
   });
 
   test('displays navigation links in header', async ({ page }) => {
@@ -57,7 +57,7 @@ test.describe('Navigation', () => {
   test('logo navigates to homepage', async ({ page }) => {
     await page.goto('/recruitment');
     const header = page.getByRole('banner');
-    await header.getByRole('link', { name: 'ALPHA ZETA' }).click();
+    await header.getByRole('link', { name: 'ALPHA KAPPA PSI' }).click();
     await expect(page).toHaveURL('/');
   });
 });
@@ -65,7 +65,7 @@ test.describe('Navigation', () => {
 test.describe('Recruitment Page', () => {
   test('loads successfully', async ({ page }) => {
     await page.goto('/recruitment');
-    await expect(page).toHaveTitle(/Alpha Zeta/);
+    await expect(page).toHaveTitle(/Alpha Kappa Psi/);
     await expect(page.locator('main')).toBeVisible();
   });
 });
@@ -73,7 +73,7 @@ test.describe('Recruitment Page', () => {
 test.describe('Careers Page', () => {
   test('loads successfully', async ({ page }) => {
     await page.goto('/careers');
-    await expect(page).toHaveTitle(/Alpha Zeta/);
+    await expect(page).toHaveTitle(/Alpha Kappa Psi/);
     await expect(page.locator('main')).toBeVisible();
   });
 });
@@ -81,7 +81,7 @@ test.describe('Careers Page', () => {
 test.describe('Members Page', () => {
   test('loads successfully', async ({ page }) => {
     await page.goto('/members');
-    await expect(page).toHaveTitle(/Alpha Zeta/);
+    await expect(page).toHaveTitle(/Alpha Kappa Psi/);
     await expect(page.locator('main')).toBeVisible();
   });
 });

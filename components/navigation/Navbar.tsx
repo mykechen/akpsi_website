@@ -65,12 +65,12 @@ export default function Navbar() {
         >
           <Image
             src="/azlogo.png"
-            alt="Alpha Zeta Logo"
+            alt="Alpha Kappa Psi Logo"
             width={32}
             height={32}
             className="w-8 h-8"
           />
-          ALPHA ZETA
+          ALPHA KAPPA PSI
         </Link>
 
         {/* Desktop Navigation */}

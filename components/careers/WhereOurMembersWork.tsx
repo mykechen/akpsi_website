@@ -164,7 +164,7 @@ export default function WhereOurMembersWork() {
             Where Our Members Work
           </h2>
           <p className="text-secondary-dark/70 text-lg max-w-xl mx-auto">
-            Alpha Zeta alumni and members can be found at leading companies
+            Alpha Kappa Psi alumni and members can be found at leading companies
             worldwide
           </p>
         </div>

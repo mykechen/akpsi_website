@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Image Optimization Script for Alpha Zeta Website
+# Image Optimization Script for Alpha Kappa Psi Website
 # This script compresses PNG images and converts them to WebP format
 # Prerequisites: Install sharp-cli globally: npm install -g sharp-cli
 
@@ -9,7 +9,7 @@ set -e
 PUBLIC_DIR="$(dirname "$0")/../public"
 OUTPUT_DIR="$PUBLIC_DIR/images/optimized"
 
-echo "=== Alpha Zeta Image Optimization ==="
+echo "=== Alpha Kappa Psi Image Optimization ==="
 echo ""
 
 # Check if sharp-cli is installed

@@ -50,7 +50,7 @@ const cards = [
       </svg>
     ),
     content:
-      "Join a network of 500+ alumni at top firms. Build genuine friendships that extend far beyond your time at USC. From your time in Alpha Zeta to your future career, we're here for you.",
+      "Join a network of 500+ alumni at top firms. Build genuine friendships that extend far beyond your time at USC. From your time in Alpha Kappa Psi to your future career, we're here for you.",
   },
   {
     id: "3",

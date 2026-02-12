@@ -77,7 +77,7 @@ export default function MembersHero() {
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
           `}
         >
-          Meet the talented individuals who make up Alpha Zeta - a diverse
+          Meet the talented individuals who make up Alpha Kappa Psi - a diverse
           community of future leaders in business, tech, and beyond.
         </p>
       </div>

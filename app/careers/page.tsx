@@ -11,9 +11,9 @@ import WhereOurMembersWork from "@/components/careers/WhereOurMembersWork";
 import Testimonials from "@/components/careers/Testimonials";
 
 export const metadata: Metadata = {
-  title: "Careers | Alpha Zeta USC",
+  title: "Careers | Alpha Kappa Psi USC",
   description:
-    "Discover career development opportunities at Alpha Zeta through AZ Groups, mentorship, and alumni connections.",
+    "Discover career development opportunities at Alpha Kappa Psi through AZ Groups, mentorship, and alumni connections.",
 };
 
 export default function CareersPage() {

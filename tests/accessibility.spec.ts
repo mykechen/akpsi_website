@@ -151,7 +151,7 @@ test.describe('Accessibility', () => {
       await page.goto('/');
 
       // Page should still function
-      await expect(page.locator('h1').filter({ hasText: /ALPHA ZETA/i })).toBeVisible();
+      await expect(page.locator('h1').filter({ hasText: /ALPHA KAPPA PSI/i })).toBeVisible();
     });
   });
 });

@@ -5,9 +5,9 @@ import ActiveMembers from "@/components/members/ActiveMembers";
 import AlumniSpotlight from "@/components/members/AlumniSpotlight";
 
 export const metadata: Metadata = {
-  title: "Members | Alpha Zeta USC",
+  title: "Members | Alpha Kappa Psi USC",
   description:
-    "Meet the talented brothers of Alpha Zeta - from our executive board to active members and distinguished alumni.",
+    "Meet the talented brothers of Alpha Kappa Psi - from our executive board to active members and distinguished alumni.",
 };
 
 export default function MembersPage() {

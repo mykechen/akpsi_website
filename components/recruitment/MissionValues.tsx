@@ -277,7 +277,7 @@ export default function MissionValues() {
             What We Stand For
           </h2>
           <p className="text-secondary-dark/70 text-lg leading-relaxed">
-            Alpha Zeta is dedicated to fostering professional growth,
+            Alpha Kappa Psi is dedicated to fostering professional growth,
             leadership, and community among its members.
           </p>
         </div>

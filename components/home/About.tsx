@@ -82,13 +82,13 @@ export default function About() {
           {/* Supporting paragraphs with proper spacing */}
           <div className="space-y-6 text-lg md:text-xl text-secondary-dark/80 leading-relaxed">
             <p>
-              Alpha Zeta is USC's premier co-ed business society. Since our
+              Alpha Kappa Psi is USC's premier co-ed business society. Since our
               founding in 1922, we've built a thriving community of students
               across 15+ different majors and established an extensive alumni
               network, paving the way for future leaders.
             </p>
             <p>
-              At Alpha Zeta, we believe in the power of collective growth. We
+              At Alpha Kappa Psi, we believe in the power of collective growth. We
               empower our brothers to excel in their careers, foster lifelong
               friendships, and advance in every aspect of their lives.
             </p>

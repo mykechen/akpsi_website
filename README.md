@@ -1,6 +1,6 @@
-# Alpha Zeta USC Website
+# Alpha Kappa Psi USC Website
 
-A modern, responsive website for Alpha Zeta, USC's professional business fraternity. Built with Next.js 16, TypeScript, and Tailwind CSS 4.
+A modern, responsive website for Alpha Kappa Psi, USC's professional business fraternity. Built with Next.js 16, TypeScript, and Tailwind CSS 4.
 
 ## Tech Stack
 
@@ -142,4 +142,4 @@ Customize colors in `app/globals.css` under `@theme`:
 
 ## License
 
-Private - Alpha Zeta USC
+Private - Alpha Kappa Psi USC

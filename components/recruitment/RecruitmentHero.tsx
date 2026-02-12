@@ -170,13 +170,13 @@ export default function RecruitmentHero() {
         {/* Main heading */}
         <h1
           className={`
-            font-display text-[2.5rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5.5rem]
-            tracking-wide text-white leading-[1.1] mb-6
+            font-display text-[2rem] sm:text-[2.75rem] md:text-[3.5rem] lg:text-[4.5rem]
+            tracking-wide text-white leading-[1.1] mb-6 whitespace-nowrap
             transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-100
             ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}
           `}
         >
-          JOIN ALPHA ZETA
+          JOIN ALPHA KAPPA PSI
         </h1>
 
         {/* Deadline label */}

@@ -7,7 +7,7 @@ test.describe('Recruitment Page', () => {
 
   test.describe('Recruitment Hero', () => {
     test('displays main heading', async ({ page }) => {
-      await expect(page.getByRole('heading', { name: /JOIN ALPHA ZETA/i })).toBeVisible();
+      await expect(page.getByRole('heading', { name: /JOIN ALPHA KAPPA PSI/i })).toBeVisible();
     });
 
     test('displays application status badge', async ({ page }) => {
@@ -159,7 +159,7 @@ test.describe('Recruitment Page Responsive', () => {
 
   test('hero displays correctly on mobile', async ({ page }) => {
     await page.goto('/recruitment');
-    await expect(page.getByRole('heading', { name: /JOIN ALPHA ZETA/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /JOIN ALPHA KAPPA PSI/i })).toBeVisible();
   });
 
   test('countdown timer is visible on mobile', async ({ page }) => {

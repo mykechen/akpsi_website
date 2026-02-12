@@ -6,9 +6,9 @@ import WhyAZ from "@/components/recruitment/WhyAZ";
 import MissionValues from "@/components/recruitment/MissionValues";
 import Eligibility from "@/components/recruitment/Eligibility";
 export const metadata: Metadata = {
-  title: "Recruitment | Alpha Zeta USC",
+  title: "Recruitment | Alpha Kappa Psi USC",
   description:
-    "Join Alpha Zeta - USC's premier professional business fraternity. Learn about our Spring 2026 Rush and apply today.",
+    "Join Alpha Kappa Psi - USC's premier professional business fraternity. Learn about our Spring 2026 Rush and apply today.",
 };
 
 export default function RecruitmentPage() {

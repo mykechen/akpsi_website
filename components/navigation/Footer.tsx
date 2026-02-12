@@ -18,13 +18,13 @@ export default function Footer() {
           <Link href="/" className="inline-flex items-center gap-3">
             <Image
               src="/azlogo.png"
-              alt="Alpha Zeta Logo"
+              alt="Alpha Kappa Psi Logo"
               width={40}
               height={40}
               className="w-10 h-10"
             />
             <h2 className="font-display text-4xl font-bold tracking-wide text-black">
-              ALPHA ZETA
+              ALPHA KAPPA PSI
             </h2>
           </Link>
 
@@ -45,7 +45,7 @@ export default function Footer() {
           <div className="flex items-center justify-center gap-4">
             {/* Instagram */}
             <a
-              href="https://instagram.com/alphazeta.sc"
+              href="https://www.instagram.com/uscakpsi/"
               target="_blank"
               rel="noopener noreferrer"
               className="group w-10 h-10 rounded-full border border-black/30 flex items-center justify-center hover:border-blue-600 transition-colors"
@@ -97,13 +97,13 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-3">
               <Image
                 src="/azlogo.png"
-                alt="Alpha Zeta Logo"
+                alt="Alpha Kappa Psi Logo"
                 width={40}
                 height={40}
                 className="w-10 h-10"
               />
               <h2 className="font-display text-4xl font-bold tracking-wide text-black">
-                ALPHA ZETA
+                ALPHA KAPPA PSI
               </h2>
             </Link>
 
@@ -139,7 +139,7 @@ export default function Footer() {
               <div className="flex flex-col space-y-4">
                 {/* Instagram */}
                 <a
-                  href="https://instagram.com/alphazeta.sc"
+                  href="https://www.instagram.com/uscakpsi/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3 text-black hover:text-blue-600 transition-colors"
@@ -159,7 +159,7 @@ export default function Footer() {
                       />
                     </svg>
                   </span>
-                  <span className="text-sm">@alphazeta.sc</span>
+                  <span className="text-sm">@uscakpsi</span>
                 </a>
 
                 {/* Email */}
@@ -194,7 +194,7 @@ export default function Footer() {
         {/* Copyright - Bottom Row (Both Mobile and Desktop) */}
         <div className="mt-12 text-center">
           <p className="text-black/60 text-sm">
-            &copy; {new Date().getFullYear()} Alpha Zeta — University of
+            &copy; {new Date().getFullYear()} Alpha Kappa Psi — University of
             Southern California
           </p>
         </div>

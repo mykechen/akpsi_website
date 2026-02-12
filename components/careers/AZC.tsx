@@ -30,7 +30,7 @@ const benefits = [
   {
     title: "Networking",
     description:
-      "Gain a deep network of Alpha Zeta actives and alumni who have landed offers at MBB and Big 4 firms.",
+      "Gain a deep network of Alpha Kappa Psi actives and alumni who have landed offers at MBB and Big 4 firms.",
   },
   {
     title: "Interview Preparation",

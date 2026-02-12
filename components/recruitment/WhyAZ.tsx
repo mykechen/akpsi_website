@@ -261,7 +261,7 @@ export default function WhyAZ() {
             Why Join Us
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-secondary-light mb-4 uppercase">
-            Why Alpha Zeta
+            Why Alpha Kappa Psi
           </h2>
           <p className="text-secondary-dark/70 text-lg max-w-2xl mx-auto">
             Discover what makes our community unique and how we can help you

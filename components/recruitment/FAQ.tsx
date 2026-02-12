@@ -178,7 +178,7 @@ export default function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="text-secondary-dark/70 text-lg">
-            Everything you need to know about joining Alpha Zeta
+            Everything you need to know about joining Alpha Kappa Psi
           </p>
         </div>
 
