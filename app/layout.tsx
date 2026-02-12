@@ -37,12 +37,12 @@ export const metadata: Metadata = {
     "business fraternity",
   ],
   authors: [{ name: "Alpha Kappa Psi USC" }],
-  metadataBase: new URL("https://alphazeta-sc.com"),
+  metadataBase: new URL("https://usc-akpsi.com"),
   openGraph: {
     title: "Alpha Kappa Psi | USC's Premier Professional Business Society",
     description:
       "Join USC's premier co-ed professional business society. Career development in investment banking, consulting, product management, and more.",
-    url: "https://alphazeta-sc.com",
+    url: "https://usc-akpsi.com",
     siteName: "Alpha Kappa Psi USC",
     type: "website",
     locale: "en_US",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://alphazeta-sc.com",
+    canonical: "https://usc-akpsi.com",
   },
 };
 
@@ -79,12 +79,12 @@ export default function RootLayout({
     "@type": "Organization",
     name: "Alpha Kappa Psi",
     alternateName: "Alpha Kappa Psi USC",
-    url: "https://alphazeta-sc.com",
-    logo: "https://alphazeta-sc.com/azlogo.png",
+    url: "https://usc-akpsi.com",
+    logo: "https://usc-akpsi.com/azlogo.png",
     description:
       "USC's premier co-ed professional business society focused on career development, mentorship, and brotherhood since 1922.",
     foundingDate: "1922",
-    sameAs: ["https://instagram.com/alphazeta.sc"],
+    sameAs: ["https://www.instagram.com/uscakpsi/"],
     contactPoint: {
       "@type": "ContactPoint",
       email: "alphazeta.sc@gmail.com",

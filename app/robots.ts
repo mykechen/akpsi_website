@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://alphazeta-sc.com/sitemap.xml",
+    sitemap: "https://usc-akpsi.com/sitemap.xml",
   };
 }
